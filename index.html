@@ -4,11 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#19223A">
-<title>Carnet de notes 2026-2027</title>
-<meta name="claude:viewport-fit-sides" content="cover">
+<title>دفتر التنقيط</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" media="print" onload="this.media='all'">
 <style>
 /* Layout: Arabic RTL grade register in one deliberate dark navy look (the teacher's
    reference app): tile home, one card per student, floating cloud-save button. */
@@ -38,6 +37,7 @@ svg{flex:none}
 .bar h1{margin:0;font-size:21px;font-weight:800;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .back{width:40px;height:40px;border:0;background:transparent;color:var(--blue);display:grid;place-items:center;border-radius:12px}
 .back:active{background:var(--panel)}
+.back{grid-column:1;grid-row:1} .bar h1{grid-column:2;grid-row:1} .sync{grid-column:3;grid-row:1}
 .sync{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);background:var(--panel);border-radius:999px;padding:3px 10px;font-size:12px;color:var(--muted);white-space:nowrap}
 .sync i{width:8px;height:8px;border-radius:50%;background:var(--dim)}
 .sync.ok i{background:var(--green)} .sync.wait i{background:var(--blue);animation:pulse 1s infinite alternate}
@@ -297,8 +297,12 @@ const FMAP = Object.fromEntries(FIELDS.map(f => [f.k, f]));
 const TRI = {'1':'الفصل الأول','2':'الفصل الثاني','3':'الفصل الثالث'};
 const TITLES = {home:'دفتر التنقيط', entry:'حجز النقاط', table:'جدول التنقيط', stats:'الإحصائيات', export:'تصدير وحفظ', lists:'قوائم الأقسام', new:'قسم جديد', bareme:'طريقة الحساب'};
 const SEED = (() => { try { const el = document.getElementById('seed-data'); return el ? JSON.parse(el.textContent) : null; } catch (e) { return null; } })();
-const LS = SEED ? 'carnet-notes-fichier-v1' : 'carnet-notes-v1';
+const LS = SEED ? 'dafter-tanqit-offline-v2' : 'carnet-notes-v1';
 const STORE_OK = (() => { try { localStorage.setItem('__cn_t', '1'); const ok = localStorage.getItem('__cn_t') === '1'; localStorage.removeItem('__cn_t'); return ok; } catch (e) { return false; } })();
+const IS_PWA = !!document.querySelector('link[rel="manifest"]');
+const isStandalone = () => { try { return matchMedia('(display-mode: standalone)').matches || navigator.standalone === true; } catch (e) { return false; } };
+const STRAY = !SEED && !document.querySelector('link[rel="manifest"]') && /^(file|content):$/.test(location.protocol);
+const STRAY_B = `<div class="warn-b">هذه نسخة محمّلة من صفحة الإنترنت، ولا تحتوي على قوائم التلاميذ لأنها محفوظة في حسابك. استعمل الملف «Dafter-Tanqit-hors-ligne.html» للعمل دون إنترنت، أو استرجع نسخة احتياطية من «تصدير وحفظ».</div>`;
 const WARN = `<div class="warn-b">هذا المتصفح لا يحتفظ بالنقاط لهذا الملف بعد إغلاقه. قبل الإغلاق اضغط «حفظ» لتنزيل نسخة احتياطية، أو افتح الملف في متصفح Chrome.</div>`;
 
 /* ---------- utils ---------- */
@@ -581,6 +585,7 @@ function viewHome(){
       <div class="t">اللغة الفرنسية · ${esc(m.year || '2026/2027')}</div>
       <div class="s">${esc(m.school || '')}</div>
       ${m.teacher ? `<div class="s">الأستاذ: ${esc(m.teacher)}</div>` : ''}
+      ${installHTML()}
     </section>
     <div class="tiles">
       ${tile('entry', 't-blue', 'entry', 'حجز النقاط', 'بطاقات أو إدخال سريع')}
@@ -601,6 +606,13 @@ function viewHome(){
             <span class="side"><b class="${st.mean !== null && st.mean < 10 ? 'low' : ''} ${st.provisional ? 'prov' : ''}">${st.mean === null ? '—' : fmtAvg(st.mean)}</b><span>معدل القسم</span></span>
           </button>`; }).join('')}
     </div>`;
+}
+
+function installHTML(){
+  if (!IS_PWA || isStandalone()) return '';
+  if (S.installEvt) return `<div class="actions" style="margin-top:10px"><button type="button" class="btn green" data-act="install">تثبيت التطبيق على الهاتف</button></div>`;
+  if (/iphone|ipad|ipod/i.test(navigator.userAgent)) return `<p class="note">للتثبيت على iPhone: زر المشاركة ثم «إضافة إلى الشاشة الرئيسية».</p>`;
+  return `<p class="note">للتثبيت: قائمة المتصفح ⋮ ثم «تثبيت التطبيق» أو «إضافة إلى الشاشة الرئيسية».</p>`;
 }
 
 function viewEntry(){
@@ -780,7 +792,7 @@ function viewNew(){
   return `<form class="form" id="newcls">
     <label>رمز القسم (كما في القائمة الرسمية)<input class="txt" id="nc-code" placeholder="مثال: 2ع1" required></label>
     <label>التسمية<input class="txt" id="nc-label" dir="ltr" placeholder="2AS · Sciences expérimentales 1"></label>
-    <label>قائمة التلاميذ، اسم في كل سطر<textarea class="txt" id="nc-names" placeholder="أبركان عبد القادر&#10;الغبير إبتهال&#10;…"></textarea></label>
+    <label>قائمة التلاميذ، اسم في كل سطر<textarea class="txt" id="nc-names" placeholder="اللقب والاسم&#10;اللقب والاسم&#10;…"></textarea></label>
     <div class="actions"><button class="btn pri" type="submit">إنشاء القسم</button><button class="btn" type="button" data-go="lists">إلغاء</button></div>
   </form>`;
 }
@@ -824,7 +836,7 @@ function render(){
   $('#fab-l').textContent = S.col ? 'حفظ السحابة' : 'حفظ';
 
   const v = {home: viewHome, entry: viewEntry, table: viewTable, stats: viewStats, export: viewExport, lists: viewLists, new: viewNew, bareme: viewBareme}[S.screen] || viewHome;
-  $('#main').innerHTML = (!STORE_OK && (S.screen === 'home' || S.screen === 'entry') ? WARN : '') + v();
+  $('#main').innerHTML = (!STORE_OK && (S.screen === 'home' || S.screen === 'entry') ? WARN : '') + (STRAY && S.screen !== 'export' ? STRAY_B : '') + v();
   updateStatus();
 
   if (fid){
@@ -1019,6 +1031,12 @@ document.addEventListener('click', e => {
     }
     case 'xlsx-all': exportXlsx(sorted()); break;
     case 'backup': backupDownload(); break;
+    case 'install': {
+      const ev = S.installEvt; if (!ev) break;
+      ev.prompt();
+      (ev.userChoice || Promise.resolve()).then(() => { S.installEvt = null; render(); });
+      break;
+    }
     case 'imp-no': S.imp = null; render(); break;
     case 'imp-ok': {
       if (!S.imp) break;
@@ -1147,13 +1165,45 @@ async function exportXlsx(list){
   fileMsg(await saveFile(name, blob), 'تم حفظ ملف Excel ✓');
 }
 
+/* ---------- installable app ---------- */
+window.addEventListener('beforeinstallprompt', e => { e.preventDefault(); S.installEvt = e; if (S.screen === 'home') render(); });
+window.addEventListener('appinstalled', () => { S.installEvt = null; toast('تم تثبيت التطبيق ✓'); if (S.screen === 'home') render(); });
+if (IS_PWA){
+  if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(() => {});
+  try { if (navigator.storage && navigator.storage.persist) navigator.storage.persist(); } catch (e) {}
+}
+
 /* ---------- boot ---------- */
+let hadCache = false;
+try { hadCache = !!localStorage.getItem(LS); } catch (e) {}
 loadCache();
 if (SEED && SEED.classes){
-  let added = false;
-  for (const [id, c] of Object.entries(SEED.classes)) if (!S.classes[id]){ S.classes[id] = Object.assign({}, c, {id}); added = true; }
+  const seedIds = new Set(Object.keys(SEED.classes));
+  // first launch of this file: bring back notes typed in earlier offline copies on this device
+  if (!hadCache){
+    for (const key of ['carnet-notes-fichier-v1', 'carnet-notes-v1']){
+      try {
+        const o = JSON.parse(localStorage.getItem(key) || 'null');
+        for (const [id, c] of Object.entries((o && o.classes) || {})){
+          if (!c || !Array.isArray(c.students) || !c.students.length) continue;
+          if (key === 'carnet-notes-v1' && !seedIds.has(id)) continue;
+          if (!S.classes[id] || (c.u || 0) > (S.classes[id].u || 0)) S.classes[id] = Object.assign({}, c, {id});
+        }
+      } catch (e) {}
+    }
+  }
+  for (const [id, c] of Object.entries(SEED.classes)){
+    const cur = S.classes[id];
+    if (!cur || !Array.isArray(cur.students) || !cur.students.length || (c.u || 0) > (cur.u || 0)) S.classes[id] = JSON.parse(JSON.stringify(Object.assign({}, c, {id})));
+  }
+  // drop empty leftovers that repeat one of the real classes
+  const codes = new Set(Object.values(SEED.classes).map(c => norm(c.code)));
+  for (const [id, c] of Object.entries(S.classes)){
+    if (!seedIds.has(id) && (!Array.isArray(c.students) || !c.students.length) && codes.has(norm(c.code))) delete S.classes[id];
+  }
   if (!S.meta && SEED.meta) S.meta = SEED.meta;
-  if (added) saveCache();
+  if (!S.classes[S.cur]) S.cur = null;
+  saveCache();
 }
 if (Object.keys(S.classes).length) S.loaded = true;
 render();
