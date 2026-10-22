@@ -1,257 +1,330 @@
-<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#19223A">
 <title>Carnet de notes 2026-2027</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Naskh+Arabic:wght@500;600;700&family=Readex+Pro:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap">
 <style>
-/* Layout: a teacher's grade register on a phone. Ruled rows like the official
-   "قائمة تنقيط" sheet, ballpoint-blue for input, red pen for averages under 10. */
+/* Layout: Arabic RTL grade register in one deliberate dark navy look (the teacher's
+   reference app): tile home, one card per student, floating cloud-save button. */
 :root{
-  --paper:#F4F6FA; --sheet:#FFFFFF; --ink:#172036; --ink-2:#56607A; --rule:#DCE1EC; --rule-2:#EAEDF4;
-  --bic:#2342A8; --on-bic:#FFFFFF; --bic-soft:#E7EBF9;
-  --redpen:#C2362F; --redpen-soft:#FBEAE8;
-  --ok:#1E7A50; --ok-soft:#E2F3EA; --prov:#8A6A12;
-  --shadow:0 1px 2px rgba(23,32,54,.06),0 2px 8px rgba(23,32,54,.05);
-  --f-ui:"Readex Pro",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
-  --f-ar:"Noto Naskh Arabic","Readex Pro",Tahoma,"Arial",serif;
-  --f-num:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
-}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
-  --paper:#0F121A; --sheet:#171B27; --ink:#E7EAF3; --ink-2:#9AA3BA; --rule:#2B3145; --rule-2:#21263A;
-  --bic:#93A8FF; --on-bic:#0F1530; --bic-soft:#1E2645;
-  --redpen:#FF8077; --redpen-soft:#3A1E1C;
-  --ok:#5FCB94; --ok-soft:#14301F; --prov:#E0B44E;
-  --shadow:0 1px 2px rgba(0,0,0,.4); color-scheme:dark;
-}}
-:root[data-theme="dark"]{
-  --paper:#0F121A; --sheet:#171B27; --ink:#E7EAF3; --ink-2:#9AA3BA; --rule:#2B3145; --rule-2:#21263A;
-  --bic:#93A8FF; --on-bic:#0F1530; --bic-soft:#1E2645;
-  --redpen:#FF8077; --redpen-soft:#3A1E1C;
-  --ok:#5FCB94; --ok-soft:#14301F; --prov:#E0B44E;
-  --shadow:0 1px 2px rgba(0,0,0,.4); color-scheme:dark;
+  color-scheme:dark;
+  --bg:#0E1424; --bar:#19223A; --panel:#172035; --card:#1C2539; --field:#0E1526;
+  --line:#2C3851; --line-2:#3C4B6B; --text:#EEF2F9; --muted:#93A0B9; --dim:#5F6B86;
+  --blue:#5AB2F0; --blue-2:#2E7CC4; --green:#55B98A; --green-ink:#0B2318;
+  --red:#F27373; --amber:#F2B04B; --purple:#A57CF3; --teal:#4CC2C6; --pink:#EE6AA7;
+  --f:"Cairo","Segoe UI",Tahoma,system-ui,sans-serif;
+  --r:18px;
 }
 *{box-sizing:border-box}
-body{background:var(--paper);color:var(--ink);font-family:var(--f-ui);font-size:15px;line-height:1.45;-webkit-text-size-adjust:100%}
-body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--paper)}
+[hidden]{display:none!important}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--f);font-size:15px;line-height:1.5;-webkit-text-size-adjust:100%}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bar)}
 button,input,select,textarea{font:inherit;color:inherit}
 button{cursor:pointer}
-:focus-visible{outline:3px solid var(--bic);outline-offset:2px}
-.ar{font-family:var(--f-ar)}
-.n{font-family:var(--f-num);font-variant-numeric:tabular-nums}
+:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+svg{flex:none}
+.wrap{max-width:720px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.num{font-variant-numeric:tabular-nums}
 
-.wrap{max-width:760px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
-
-/* header */
-.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:6;background:var(--paper);border-bottom:1px solid var(--rule)}
-.top .wrap{padding-block:10px 8px;display:flex;flex-direction:column;gap:8px}
-.brand-row{display:flex;align-items:center;justify-content:space-between;gap:10px}
-.brand{min-width:0}
-.brand .t{font-weight:600;font-size:16px;letter-spacing:-.01em}
-.brand .s{font-size:12px;color:var(--ink-2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.sync{border:1px solid var(--rule);background:var(--sheet);border-radius:999px;padding:4px 10px 4px 8px;font-size:12px;display:inline-flex;align-items:center;gap:6px;white-space:nowrap;color:var(--ink-2)}
-.sync i{width:8px;height:8px;border-radius:50%;background:var(--ink-2);display:inline-block}
-.sync.ok i{background:var(--ok)} .sync.wait i{background:var(--bic);animation:pulse 1s infinite alternate}
-.sync.warn i{background:var(--prov)} .sync.local i{background:var(--prov)}
+/* top bar */
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:8;background:var(--bar);border-bottom:1px solid var(--line)}
+.bar .wrap{display:grid;grid-template-columns:44px minmax(0,1fr) auto;align-items:center;gap:8px;padding-block:12px}
+.bar h1{margin:0;font-size:21px;font-weight:800;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.back{width:40px;height:40px;border:0;background:transparent;color:var(--blue);display:grid;place-items:center;border-radius:12px}
+.back:active{background:var(--panel)}
+.sync{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);background:var(--panel);border-radius:999px;padding:3px 10px;font-size:12px;color:var(--muted);white-space:nowrap}
+.sync i{width:8px;height:8px;border-radius:50%;background:var(--dim)}
+.sync.ok i{background:var(--green)} .sync.wait i{background:var(--blue);animation:pulse 1s infinite alternate}
+.sync.warn i,.sync.local i{background:var(--amber)}
 @keyframes pulse{to{opacity:.3}}
 @media (prefers-reduced-motion:reduce){.sync.wait i{animation:none}}
 
-.chips{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;margin-inline:-4px;padding:2px 4px}
-.chips::-webkit-scrollbar{display:none}
-.chip{flex:none;border:1px solid var(--rule);background:var(--sheet);border-radius:10px;padding:5px 12px 6px;display:flex;flex-direction:column;align-items:center;min-width:64px;line-height:1.15}
-.chip .c{font-family:var(--f-ar);font-weight:700;font-size:18px}
-.chip .k{font-size:10.5px;color:var(--ink-2);letter-spacing:.02em}
-.chip[aria-pressed="true"]{background:var(--bic);border-color:var(--bic);color:var(--on-bic)}
-.chip[aria-pressed="true"] .k{color:var(--on-bic);opacity:.85}
-.chip.add{justify-content:center;font-size:13px;color:var(--bic);border-style:dashed}
+main .wrap{padding-block:16px 120px;display:flex;flex-direction:column;gap:14px}
 
-main .wrap{padding-block:14px 40px;display:flex;flex-direction:column;gap:14px}
+/* home */
+.hero{display:flex;flex-direction:column;gap:2px;padding:4px 2px}
+.hero .t{font-size:26px;font-weight:800;line-height:1.3}
+.hero .s{color:var(--muted);font-size:13.5px}
+.tiles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.tile{--c:var(--blue);position:relative;border:1px solid color-mix(in srgb,var(--c) 32%,transparent);border-radius:26px;padding:22px 12px 18px;
+  background:radial-gradient(120% 90% at 50% 0%,color-mix(in srgb,var(--c) 16%,transparent),transparent 70%),var(--panel);
+  display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center;min-height:168px;justify-content:center}
+.tile:active{transform:scale(.98)}
+.tile .ic{width:72px;height:72px;border-radius:50%;display:grid;place-items:center;color:var(--c);
+  background:color-mix(in srgb,var(--c) 22%,var(--panel));box-shadow:0 0 28px color-mix(in srgb,var(--c) 30%,transparent)}
+.tile .lb{font-size:19px;font-weight:800;line-height:1.35}
+.tile .hn{font-size:12px;color:var(--muted);margin-top:-8px}
+.t-blue{--c:var(--blue)} .t-green{--c:var(--green)} .t-amber{--c:var(--amber)} .t-teal{--c:var(--teal)} .t-purple{--c:var(--purple)} .t-pink{--c:var(--pink)}
+.sec-h{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px}
+.sec-h h2{margin:0;font-size:18px;font-weight:800}
+.myc{display:flex;flex-direction:column;gap:10px}
+.crow{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:12px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:12px 14px;text-align:start}
+.crow .code{font-size:22px;font-weight:800;min-width:54px;text-align:center}
+.crow .mid{min-width:0;display:flex;flex-direction:column;gap:6px}
+.crow .lbl{font-size:12.5px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;direction:ltr;text-align:right}
+.prog{height:6px;border-radius:999px;background:var(--field);overflow:hidden}
+.prog i{display:block;height:100%;background:var(--green);border-radius:999px}
+.crow .side{text-align:center;min-width:64px}
+.crow .side b{display:block;font-size:18px;font-weight:800}
+.crow .side span{font-size:11.5px;color:var(--muted)}
 
-/* context */
-.ctx-h{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;flex-wrap:wrap}
-.ctx-h h1{margin:0;font-size:22px;font-weight:600;letter-spacing:-.015em;display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
-.ctx-h h1 .code{font-family:var(--f-ar);font-weight:700;font-size:26px}
-.ctx-h h1 .lbl{font-size:13px;font-weight:400;color:var(--ink-2)}
-.seg{display:inline-flex;background:var(--rule-2);border-radius:10px;padding:3px;gap:2px;max-width:100%;overflow-x:auto;scrollbar-width:none}
-.seg button{border:0;background:transparent;padding:7px 12px;border-radius:8px;font-size:13.5px;color:var(--ink-2);white-space:nowrap}
-.seg button[aria-pressed="true"]{background:var(--sheet);color:var(--ink);box-shadow:var(--shadow);font-weight:500}
-.modes{display:flex;width:100%}
-.modes button{flex:1}
+/* panels, selects */
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:14px}
+.selects{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.dd{position:relative;min-width:0}
+.dd-b{width:100%;display:flex;align-items:center;justify-content:space-between;gap:8px;background:var(--field);border:1.5px solid var(--blue-2);border-radius:14px;padding:10px 14px;font-size:18px;font-weight:700;text-align:start}
+.dd-b span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.dd-b svg{color:var(--blue)}
+.dd-m{position:absolute;top:calc(100% + 6px);inset-inline:0;z-index:7;background:var(--bar);border:1px solid var(--line-2);border-radius:12px;box-shadow:0 14px 40px rgba(0,0,0,.45);overflow:hidden;max-height:60vh;overflow-y:auto}
+.dd-m button{display:flex;width:100%;align-items:baseline;justify-content:space-between;gap:10px;border:0;background:transparent;padding:12px 16px;font-size:18px;font-weight:700;text-align:start}
+.dd-m button small{font-size:12px;color:var(--muted);font-weight:500;direction:ltr}
+.dd-m button.on{background:var(--line)}
+.dd-m button:active{background:var(--line-2)}
+.search{display:flex;align-items:center;gap:10px;background:transparent;border:1px solid var(--line);border-radius:var(--r);padding:0 16px}
+.search svg{color:var(--blue)}
+.search input{flex:1;min-width:0;border:0;background:transparent;padding:14px 0;font-size:17px}
+.search input::placeholder{color:var(--dim)}
+.search input:focus{outline:none}
+.search:focus-within{border-color:var(--blue-2)}
+.seg{display:flex;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:4px;gap:4px}
+.seg button{flex:1;border:0;background:transparent;border-radius:10px;padding:8px 6px;font-size:14.5px;font-weight:700;color:var(--muted);white-space:nowrap}
+.seg button[aria-pressed="true"]{background:var(--blue-2);color:#fff}
+.row-tools{display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.switch{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);background:var(--panel);border-radius:999px;padding:6px 12px;font-size:13.5px;font-weight:600;color:var(--muted)}
+.switch i{width:30px;height:18px;border-radius:999px;background:var(--line-2);position:relative;transition:background .15s}
+.switch i::after{content:"";position:absolute;top:2px;right:2px;width:14px;height:14px;border-radius:50%;background:#fff;transition:right .15s}
+.switch[aria-pressed="true"]{color:var(--text)}
+.switch[aria-pressed="true"] i{background:var(--blue-2)}
+.switch[aria-pressed="true"] i::after{right:14px}
 
-.summary{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));background:var(--sheet);border:1px solid var(--rule);border-radius:12px;overflow:hidden}
-.stat{padding:10px 10px 9px;border-inline-start:1px solid var(--rule-2);min-width:0}
-.stat:first-child{border-inline-start:0}
-.stat .l{font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.stat .v{font-family:var(--f-num);font-variant-numeric:tabular-nums;font-size:19px;font-weight:600;line-height:1.25;white-space:nowrap}
-.stat .v small{font-size:12px;font-weight:500;color:var(--ink-2)}
-.stat .x{font-size:11px;color:var(--ink-2);white-space:nowrap}
-.low{color:var(--redpen)!important}
-.prov{color:var(--prov)}
-
-/* field picker */
-.fields{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.fgrp{background:var(--sheet);border:1px solid var(--rule);border-radius:12px;padding:8px;display:flex;flex-direction:column;gap:6px;min-width:0}
-.fgrp.wide{grid-column:1/-1}
-.fgrp-h{display:flex;justify-content:space-between;align-items:baseline;gap:6px;font-size:11.5px;color:var(--ink-2)}
-.fgrp-h b{font-family:var(--f-ar);font-size:15px;color:var(--ink);font-weight:700}
-.fchips{display:flex;gap:6px;flex-wrap:wrap}
-.fchip{border:1px solid var(--rule);background:var(--paper);border-radius:8px;padding:6px 9px;font-size:13px;line-height:1.2;display:flex;align-items:baseline;gap:4px}
-.fchip .m{font-family:var(--f-num);font-size:11.5px;color:var(--ink-2)}
-.fchip[aria-pressed="true"]{background:var(--bic);border-color:var(--bic);color:var(--on-bic)}
-.fchip[aria-pressed="true"] .m{color:var(--on-bic);opacity:.85}
-.fchip .ar{font-size:14px;font-weight:600}
-.fchip.done:not([aria-pressed="true"]){border-color:var(--ok);background:var(--ok-soft)}
-
-.fbar{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;font-size:13px;color:var(--ink-2)}
-.fbar strong{color:var(--ink);font-weight:600}
-.btn{border:1px solid var(--rule);background:var(--sheet);border-radius:9px;padding:8px 12px;font-size:13.5px;font-weight:500;color:var(--ink)}
-.btn.pri{background:var(--bic);border-color:var(--bic);color:var(--on-bic)}
-.btn.ghost{background:transparent}
-.btn.danger{color:var(--redpen);border-color:var(--redpen)}
-.btn:disabled{opacity:.5;cursor:default}
-
-/* ruled rows */
-.sheet{background:var(--sheet);border:1px solid var(--rule);border-radius:12px;overflow:hidden}
-.rows{list-style:none;margin:0;padding:0}
-.rows-h,.row{display:grid;grid-template-columns:28px minmax(0,1fr) 76px 64px;gap:8px;align-items:center;padding:0 12px}
-.rows-h{font-size:11px;color:var(--ink-2);background:var(--bic-soft);padding-block:7px;font-family:var(--f-ar);font-weight:600}
-.rows-h span:nth-child(3),.rows-h span:nth-child(4){text-align:center;font-family:var(--f-ui);font-weight:500}
-.row{min-height:54px;border-top:1px solid var(--rule-2)}
-.row:first-child{border-top:0}
-.num{font-family:var(--f-num);font-size:12px;color:var(--ink-2);text-align:center}
-.name{border:0;background:none;padding:6px 0;text-align:right;font-family:var(--f-ar);font-weight:600;font-size:17px;line-height:1.35;min-width:0;overflow-wrap:anywhere;color:var(--ink)}
-.name:active{color:var(--bic)}
-.g{width:100%;height:44px;border:1.5px solid var(--rule);border-radius:9px;background:var(--paper);text-align:center;font-family:var(--f-num);font-size:19px;font-weight:500;color:var(--bic);font-variant-numeric:tabular-nums;padding:0 4px}
-.g::placeholder{color:var(--rule);font-weight:400}
-.g:focus{outline:none;border-color:var(--bic);box-shadow:0 0 0 3px var(--bic-soft);background:var(--sheet)}
-.g.bad{border-color:var(--redpen);background:var(--redpen-soft);color:var(--redpen)}
-.res{display:flex;flex-direction:column;align-items:flex-start;line-height:1.15;min-width:0}
-.res .sub{font-size:10.5px;color:var(--ink-2);font-family:var(--f-ar);white-space:nowrap}
-.res .sub .n{font-size:11px}
-.res .avg{font-family:var(--f-num);font-variant-numeric:tabular-nums;font-size:15px;font-weight:600}
-.res .avg.none{color:var(--rule);font-weight:400}
+.kpis{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.kpi{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:8px 10px;text-align:center;min-width:0}
+.kpi .l{font-size:11.5px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.kpi .v{font-size:20px;font-weight:800;line-height:1.3}
+.kpi .v small{font-size:13px;color:var(--muted);font-weight:600}
+.low{color:var(--red)!important}
+.prov{color:var(--amber)}
 
 /* student card */
-.stu-nav{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:8px;align-items:center}
-.stu-nav .who{text-align:center;min-width:0}
-.stu-nav .who .nm{font-family:var(--f-ar);font-weight:700;font-size:22px;line-height:1.3;overflow-wrap:anywhere}
-.stu-nav .who .no{font-size:12px;color:var(--ink-2)}
-.stu-nav .btn{padding:10px 12px}
-.pick{width:100%;border:1px solid var(--rule);background:var(--sheet);border-radius:9px;padding:9px 10px;font-family:var(--f-ar);font-size:15px}
-.blk{background:var(--sheet);border:1px solid var(--rule);border-radius:12px;padding:12px;display:flex;flex-direction:column;gap:10px}
-.blk-h{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap}
-.blk-h .ttl{display:flex;align-items:baseline;gap:8px}
-.blk-h .ttl b{font-family:var(--f-ar);font-size:18px;font-weight:700}
-.blk-h .ttl span{font-size:12px;color:var(--ink-2)}
-.tot{font-family:var(--f-num);font-variant-numeric:tabular-nums;font-size:16px;font-weight:600}
-.tot small{color:var(--ink-2);font-weight:500;font-size:12px}
-.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
-.fld{display:flex;flex-direction:column;gap:4px;min-width:0}
-.fld label{font-size:12.5px;color:var(--ink-2);display:flex;justify-content:space-between;gap:6px}
-.fld label .ar{font-size:13px}
-.fld label .m{font-family:var(--f-num)}
-.avgbox{background:var(--sheet);border:1px solid var(--rule);border-radius:12px;padding:14px;display:flex;flex-direction:column;gap:4px;align-items:center;text-align:center}
-.avgbox .l{font-family:var(--f-ar);font-weight:700;font-size:15px}
-.avgbox .big{font-family:var(--f-num);font-variant-numeric:tabular-nums;font-size:42px;font-weight:600;line-height:1.1}
-.avgbox .big small{font-size:16px;color:var(--ink-2);font-weight:500}
-.avgbox .calc{font-family:var(--f-num);font-size:12.5px;color:var(--ink-2);direction:ltr}
-.avgbox .tag{font-size:12px;border-radius:999px;padding:2px 10px;background:var(--rule-2);color:var(--ink-2)}
-.avgbox .tag.ok{background:var(--ok-soft);color:var(--ok)}
-.txt{width:100%;border:1.5px solid var(--rule);border-radius:9px;background:var(--paper);padding:10px 12px;font-family:var(--f-ar);font-size:16px}
-.txt:focus{outline:none;border-color:var(--bic);box-shadow:0 0 0 3px var(--bic-soft);background:var(--sheet)}
+.list{display:flex;flex-direction:column;gap:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:14px 14px 16px;display:flex;flex-direction:column;gap:10px}
+.card.open{border-color:var(--line-2)}
+.card-h{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
+.card-h h3{margin:0;font-size:21px;font-weight:800;line-height:1.4;min-width:0;overflow-wrap:anywhere}
+.card-h .no{color:var(--text)}
+.st{font-size:12px;color:var(--muted);white-space:nowrap;display:inline-flex;align-items:center;gap:5px;padding-top:6px}
+.st i{width:7px;height:7px;border-radius:50%;background:var(--dim)}
+.st.ok i{background:var(--green)} .st.part i{background:var(--amber)}
+.boxes{display:grid;grid-template-columns:repeat(4,minmax(0,1fr)) minmax(0,1.15fr);gap:8px;align-items:end}
+.bx{display:flex;flex-direction:column;align-items:center;gap:4px;min-width:0}
+.bl{font-size:14px;color:var(--muted);font-weight:600;white-space:nowrap}
+.bv{width:100%;height:52px;border:1.5px solid var(--line);border-radius:12px;background:var(--field);text-align:center;font-size:22px;font-weight:800;color:var(--text);padding:0 2px;font-variant-numeric:tabular-nums}
+.bv::placeholder{color:var(--line-2);font-weight:500}
+input.bv:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px color-mix(in srgb,var(--blue) 25%,transparent)}
+.bv.bad{border-color:var(--red);color:var(--red)}
+.bv.calc{position:relative;display:grid;place-items:center;border-style:dashed;border-color:var(--line-2)}
+.bv.calc.full{border-style:solid;border-color:var(--line)}
+.bv.calc .part{color:var(--amber);font-size:18px}
+.bv.calc::after{content:"";position:absolute;bottom:5px;left:50%;width:7px;height:7px;border-left:2px solid var(--blue);border-bottom:2px solid var(--blue);transform:translateX(-50%) rotate(-45deg);opacity:.8}
+.bv.calc[aria-expanded="true"]{border-color:var(--blue);border-style:solid}
+.bv.calc[aria-expanded="true"]::after{transform:translateX(-50%) rotate(135deg);bottom:3px}
+.avgx .av{height:52px;display:grid;place-items:center;font-size:24px;font-weight:800;color:var(--blue);font-variant-numeric:tabular-nums;white-space:nowrap}
+.det{display:flex;flex-direction:column;gap:10px;border-top:1px dashed var(--line-2);padding-top:12px}
+.dg{display:flex;flex-direction:column;gap:6px}
+.dh{display:flex;justify-content:space-between;align-items:baseline;gap:8px;font-size:14px;font-weight:700}
+.dh b{font-size:15px;font-weight:800;color:var(--blue)}
+.dh b small{color:var(--muted);font-weight:600}
+.subs{display:grid;gap:8px}
+.s4{grid-template-columns:repeat(4,minmax(0,1fr))} .s2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.sb{display:flex;flex-direction:column;align-items:center;gap:3px;min-width:0}
+.sl{font-size:12.5px;color:var(--muted);white-space:nowrap}
+.sl em{font-style:normal;color:var(--dim)}
+.bv.sm{height:46px;font-size:20px}
+.rm{width:100%;border:1.5px solid var(--line);border-radius:12px;background:var(--field);padding:10px 12px;font-size:15px}
+.rm:focus{outline:none;border-color:var(--blue)}
+.rm::placeholder{color:var(--dim)}
+
+/* quick entry */
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:1px solid var(--line);background:var(--panel);border-radius:12px;padding:6px 12px;font-size:14.5px;font-weight:700;display:inline-flex;gap:4px;align-items:baseline}
+.chip em{font-style:normal;font-size:12px;color:var(--muted)}
+.chip.done{border-color:color-mix(in srgb,var(--green) 60%,transparent)}
+.chip[aria-pressed="true"]{background:var(--blue-2);border-color:var(--blue-2);color:#fff}
+.chip[aria-pressed="true"] em{color:#dfe9ff}
+.qbar{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;color:var(--muted);font-size:14px}
+.qbar b{color:var(--text)}
+.qlist{background:var(--card);border:1px solid var(--line);border-radius:20px;overflow:hidden}
+.qrow{display:grid;grid-template-columns:minmax(0,1fr) 84px 70px;gap:10px;align-items:center;padding:8px 14px;border-top:1px solid var(--line)}
+.qrow:first-child{border-top:0}
+.qn{font-size:17px;font-weight:700;overflow-wrap:anywhere;line-height:1.4}
+.qrow .bv{height:46px;font-size:20px}
+.qa{font-size:17px;font-weight:800;color:var(--blue);text-align:center;font-variant-numeric:tabular-nums}
+.qa:empty::before{content:"—";color:var(--line-2);font-weight:500}
 
 /* table */
-.tbl-wrap{overflow-x:auto;background:var(--sheet);border:1px solid var(--rule);border-radius:12px}
-table{border-collapse:collapse;width:100%;min-width:560px;font-size:14px}
-th,td{border-bottom:1px solid var(--rule-2);padding:8px 8px;text-align:center;white-space:nowrap}
-thead th{background:var(--bic-soft);font-family:var(--f-ar);font-weight:700;font-size:14px;position:sticky;top:0}
-td.nm,th.nm{text-align:right;font-family:var(--f-ar);font-weight:600;font-size:15.5px;position:sticky;right:0;background:var(--sheet);border-left:1px solid var(--rule-2)}
-thead th.nm{background:var(--bic-soft)}
-td.v{font-family:var(--f-num);font-variant-numeric:tabular-nums}
-td.avg{font-weight:600}
-td.rk{font-family:var(--f-ar);font-size:13.5px;color:var(--ink-2)}
+.tbl-wrap{overflow-x:auto;background:var(--card);border:1px solid var(--line);border-radius:18px}
+table{border-collapse:collapse;width:100%;min-width:560px;font-size:15px}
+th,td{border-bottom:1px solid var(--line);padding:9px 8px;text-align:center;white-space:nowrap}
+thead th{background:var(--bar);font-weight:800;font-size:14px;color:var(--muted)}
+td.nm,th.nm{text-align:right;font-weight:700;position:sticky;right:0;background:var(--card);border-left:1px solid var(--line)}
+thead th.nm{background:var(--bar)}
+td.v{font-variant-numeric:tabular-nums;font-weight:600}
+td.avg{font-weight:800;color:var(--blue)}
+td.rk{font-size:13.5px;color:var(--muted)}
 tbody tr{cursor:pointer}
-tbody tr:hover td{background:var(--rule-2)}
-tfoot td{font-family:var(--f-num);font-weight:600;background:var(--paper)}
-tfoot td.nm{font-family:var(--f-ar);background:var(--paper)}
+tbody tr:active td{background:var(--panel)}
+tfoot td{font-weight:800;background:var(--bar)}
+tfoot td.nm{background:var(--bar)}
 
-/* list management */
-.lst .row{grid-template-columns:28px minmax(0,1fr) auto}
-.nm-in{width:100%;border:1px solid transparent;border-radius:8px;background:transparent;padding:8px;font-family:var(--f-ar);font-weight:600;font-size:16px;text-align:right}
-.nm-in:focus{outline:none;border-color:var(--bic);background:var(--paper)}
-.confirm{display:flex;gap:6px;align-items:center;font-size:13px}
-.addrow{display:flex;gap:8px;padding:12px;border-top:1px solid var(--rule);background:var(--paper)}
-.addrow .txt{flex:1;min-width:0}
-.form{display:flex;flex-direction:column;gap:12px}
-.form label{display:flex;flex-direction:column;gap:5px;font-size:13px;color:var(--ink-2)}
-.form .txt{color:var(--ink)}
-textarea.txt{resize:vertical;min-height:180px;line-height:1.6}
+/* stats */
+.kgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.kg{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:12px 14px;min-width:0}
+.kg .l{font-size:12.5px;color:var(--muted)}
+.kg .v{font-size:28px;font-weight:800;line-height:1.25;font-variant-numeric:tabular-nums}
+.kg .v small{font-size:15px;color:var(--muted);font-weight:600}
+.kg .x{font-size:12px;color:var(--muted)}
+.chart{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:14px;display:flex;flex-direction:column;gap:10px}
+.chart h3{margin:0;font-size:16px;font-weight:800}
+.chart .sub{font-size:12.5px;color:var(--muted);margin-top:-8px}
+.brow{display:grid;grid-template-columns:96px minmax(0,1fr) 54px;gap:10px;align-items:center;border:0;background:transparent;padding:2px 0;text-align:start;border-radius:8px}
+.brow .bl2{font-size:13.5px;font-weight:600;white-space:nowrap}
+.track{height:18px;background:var(--field);border-radius:4px;overflow:hidden;position:relative}
+.track i{position:absolute;top:0;bottom:0;right:0;background:var(--blue);border-radius:4px}
+.track i.crit{background:var(--red)}
+.brow .bv2{font-size:14px;font-weight:800;text-align:left;font-variant-numeric:tabular-nums}
+.brow[aria-pressed="true"] .bl2{color:var(--blue)}
+.brow[aria-pressed="true"] .track{outline:2px solid var(--blue);outline-offset:1px}
+.names{display:flex;flex-wrap:wrap;gap:6px}
+.names span{background:var(--field);border:1px solid var(--line);border-radius:10px;padding:3px 10px;font-size:13.5px}
+.names span b{font-weight:800;margin-inline-start:6px;font-variant-numeric:tabular-nums}
+.rank{display:flex;flex-direction:column}
+.rank div{display:grid;grid-template-columns:28px minmax(0,1fr) auto;gap:10px;padding:8px 0;border-top:1px solid var(--line);align-items:center}
+.rank div:first-child{border-top:0}
+.rank .n{font-weight:800;color:var(--muted);text-align:center}
+.rank .a{font-weight:800;font-variant-numeric:tabular-nums}
 
-.foot{display:flex;flex-direction:column;gap:10px;padding-top:4px}
-.formula{font-size:12.5px;color:var(--ink-2);background:var(--sheet);border:1px dashed var(--rule);border-radius:10px;padding:10px 12px}
-.formula .ar{font-weight:600;color:var(--ink);font-size:14px}
-.actions{display:flex;gap:8px;flex-wrap:wrap}
-.empty{background:var(--sheet);border:1px dashed var(--rule);border-radius:12px;padding:22px 18px;text-align:center;color:var(--ink-2);display:flex;flex-direction:column;gap:10px;align-items:center}
-.empty strong{color:var(--ink);font-size:16px}
-.note{font-size:12.5px;color:var(--ink-2)}
+/* forms, lists */
+.btn{border:1px solid var(--line-2);background:var(--panel);border-radius:12px;padding:10px 16px;font-size:15px;font-weight:700}
+.btn.pri{background:var(--blue-2);border-color:var(--blue-2);color:#fff}
+.btn.green{background:var(--green);border-color:var(--green);color:var(--green-ink)}
+.btn.danger{color:var(--red);border-color:color-mix(in srgb,var(--red) 55%,transparent);background:transparent}
+.btn.sm{padding:6px 12px;font-size:13.5px}
+.btn:disabled{opacity:.45}
+.actions{display:flex;gap:10px;flex-wrap:wrap}
+.lrow{display:grid;grid-template-columns:30px minmax(0,1fr) auto;gap:8px;align-items:center;padding:6px 12px;border-top:1px solid var(--line)}
+.lrow:first-child{border-top:0}
+.lrow .n{color:var(--muted);font-weight:700;text-align:center}
+.nm-in{width:100%;border:1px solid transparent;border-radius:10px;background:transparent;padding:8px;font-size:16.5px;font-weight:700}
+.nm-in:focus{outline:none;border-color:var(--blue);background:var(--field)}
+.addrow{display:flex;gap:8px;padding:12px;border-top:1px solid var(--line);background:var(--panel)}
+.txt{width:100%;min-width:0;border:1.5px solid var(--line);border-radius:12px;background:var(--field);padding:11px 14px;font-size:16px}
+.txt:focus{outline:none;border-color:var(--blue)}
+textarea.txt{min-height:200px;resize:vertical;line-height:1.7}
+.form{display:flex;flex-direction:column;gap:14px}
+.form label{display:flex;flex-direction:column;gap:6px;font-size:14px;color:var(--muted);font-weight:600}
+.confirm{display:flex;gap:6px;align-items:center;font-size:13.5px;flex-wrap:wrap}
+.note{font-size:13px;color:var(--muted)}
+.empty{text-align:center;color:var(--muted);padding:56px 12px;font-size:19px;display:flex;flex-direction:column;gap:12px;align-items:center}
+.empty small{font-size:14px}
+.doc{display:flex;flex-direction:column;gap:12px}
+.doc .f{background:var(--field);border:1px solid var(--line);border-radius:14px;padding:14px;font-size:18px;font-weight:800;text-align:center;line-height:1.8}
+.doc .f span{color:var(--blue)}
+.doc table{min-width:0}
+.doc td,.doc th{white-space:normal}
+.xl{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.xl .btn{display:flex;flex-direction:column;align-items:center;gap:2px;padding:12px 8px}
+.xl .btn b{font-size:20px}
+.xl .btn small{font-size:12px;color:var(--muted);font-weight:600}
 
-.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(18px + env(safe-area-inset-bottom,0px));background:var(--ink);color:var(--paper);padding:10px 16px;border-radius:10px;font-size:13.5px;max-width:min(92vw,460px);z-index:20;box-shadow:0 6px 20px rgba(0,0,0,.18);text-align:center}
+/* floating save + toast */
+.fab{position:fixed;left:max(16px,env(safe-area-inset-left,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:9;
+  display:inline-flex;align-items:center;gap:10px;border:0;border-radius:22px;padding:14px 22px;background:var(--green);color:var(--green-ink);
+  font-size:19px;font-weight:800;box-shadow:0 10px 30px rgba(0,0,0,.45)}
+.fab:active{transform:scale(.97)}
+.fab.busy{opacity:.8}
+.typing .fab{display:none}
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(92px + env(safe-area-inset-bottom,0px));z-index:20;background:#fff;color:#14203A;
+  padding:14px 18px;border-radius:16px;font-size:15.5px;font-weight:600;max-width:min(92vw,460px);box-shadow:0 10px 30px rgba(0,0,0,.4);text-align:center}
 
-@media (max-width:380px){
-  .rows-h,.row{grid-template-columns:24px minmax(0,1fr) 68px 58px;gap:6px;padding:0 10px}
-  .name{font-size:16px}
-  .stat .v{font-size:17px}
+.warn-b{background:color-mix(in srgb,var(--amber) 14%,var(--panel));border:1px solid color-mix(in srgb,var(--amber) 50%,transparent);border-radius:14px;padding:10px 14px;font-size:14px;line-height:1.7}
+.filebtn{position:relative;overflow:hidden;display:inline-flex;align-items:center;justify-content:center}
+.filebtn input{position:absolute;inset:0;opacity:0;cursor:pointer;font-size:0}
+@media (max-width:370px){
+  .bv{font-size:19px;height:48px} .avgx .av{font-size:20px} .bl{font-size:12.5px}
+  .card-h h3{font-size:19px} .tile .lb{font-size:17px} .s4{gap:6px}
+  .brow{grid-template-columns:84px minmax(0,1fr) 48px}
 }
 </style>
 
-<header class="top">
-  <div class="wrap">
-    <div class="brand-row">
-      <div class="brand"><div class="t">Carnet de notes</div><div class="s" id="meta">Français · 2026/2027</div></div>
-      <button class="sync wait" id="sync" type="button" aria-live="polite"><i></i><span>Connexion…</span></button>
-    </div>
-    <nav class="chips" id="chips" aria-label="Classes"></nav>
-  </div>
-</header>
-<main><div class="wrap" id="main"></div></main>
-<div class="toast" id="toast" role="status" hidden></div>
+</head>
+<body>
+<div id="app" dir="rtl" lang="ar">
+  <header class="bar"><div class="wrap">
+    <button class="back" id="back" type="button" aria-label="رجوع" hidden><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+    <h1 id="ttl">دفتر التنقيط</h1>
+    <button class="sync wait" id="sync" type="button"><i></i><span>جارٍ الاتصال…</span></button>
+  </div></header>
+  <main><div class="wrap" id="main"><div class="empty">جارٍ تحميل الأقسام…</div></div></main>
+  <button class="fab" id="fab" type="button" hidden><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M19.4 10.1A7.5 7.5 0 0 0 5.2 8.2 6 6 0 0 0 6 20h13a5 5 0 0 0 .4-9.9ZM13 13.5V17h-2v-3.5H8l4-4 4 4h-3Z"/></svg><span id="fab-l">حفظ السحابة</span></button>
+  <div class="toast" id="toast" role="status" hidden></div>
+</div>
 
+<script type="application/json" id="seed-data">{"meta": {"kind": "meta", "school": "ثانوية الشهيدة عنقري عائشة - تاوقريت", "subject": "اللغة الفرنسية", "teacher": "بومدين فتح الله", "u": 1792655619629, "year": "2026/2027"}, "classes": {"c1as1": {"code": "1ع1", "id": "c1as1", "kind": "class", "label": "1AS · Tronc commun sciences 1", "order": 1, "short": "1AS TCS", "slug": "1AS-TCS1", "students": [{"id": "s01", "n": "حبلال هارون"}, {"id": "s02", "n": "حروس حسام الدين"}, {"id": "s03", "n": "حمداني محمد طه"}, {"id": "s04", "n": "دبيب عبد الجليل"}, {"id": "s05", "n": "رزيق ألاء"}, {"id": "s06", "n": "صلاي محمد"}, {"id": "s07", "n": "عروش شروق"}, {"id": "s08", "n": "فرمي أسماء"}, {"id": "s09", "n": "قاني محمد حسان"}, {"id": "s10", "n": "كتروسي يونس"}, {"id": "s11", "n": "لعجري امينة"}, {"id": "s12", "n": "مسفك عبد الوهاب"}, {"id": "s13", "n": "ناجي شروق"}, {"id": "s14", "n": "أبركان محمد أيوب"}, {"id": "s15", "n": "بلقادة آمنة"}, {"id": "s16", "n": "بن عيسى الشريف إسراء"}, {"id": "s17", "n": "بن عيسى الشريف مختار"}, {"id": "s18", "n": "خرابي إياد"}, {"id": "s19", "n": "عبشيش يونس"}, {"id": "s20", "n": "عميش محمد مصطفى"}, {"id": "s21", "n": "لرابي إسراء"}, {"id": "s22", "n": "لعشب عيسى"}, {"id": "s23", "n": "لعيمش ميلود"}, {"id": "s24", "n": "مشعشع عبد الحق"}, {"id": "s25", "n": "مقدم محمد"}, {"id": "s26", "n": "ملال محمد عبد المجيب"}], "t": {}, "u": 1792655619629}, "c1as2": {"code": "1ع2", "id": "c1as2", "kind": "class", "label": "1AS · Tronc commun sciences 2", "order": 2, "short": "1AS TCS", "slug": "1AS-TCS2", "students": [{"id": "s01", "n": "أبركان عبد القادر"}, {"id": "s02", "n": "الغبير إبتهال"}, {"id": "s03", "n": "بهلي مصطفى"}, {"id": "s04", "n": "سامر رياض"}, {"id": "s05", "n": "عروش عيسى"}, {"id": "s06", "n": "فران ملاك"}, {"id": "s07", "n": "لعشب نورهان"}, {"id": "s08", "n": "لعنقري هديل"}, {"id": "s09", "n": "معاس معمر"}, {"id": "s10", "n": "مقدم محمد علي"}, {"id": "s11", "n": "وابل لؤي"}, {"id": "s12", "n": "بختاوي صهيب"}, {"id": "s13", "n": "بكلي إسحاق"}, {"id": "s14", "n": "بلقادة عبدالرحمان"}, {"id": "s15", "n": "حرشاوي كريم"}, {"id": "s16", "n": "دايد ابراهيم خليل"}, {"id": "s17", "n": "دهبال ملاك"}, {"id": "s18", "n": "رقاي اسراء"}, {"id": "s19", "n": "سباعي إيناس"}, {"id": "s20", "n": "سوسان عبدالقادر"}, {"id": "s21", "n": "قولال خيرة"}, {"id": "s22", "n": "لحسن لويزة"}, {"id": "s23", "n": "لعشب أسماء"}, {"id": "s24", "n": "مدروس لؤي"}, {"id": "s25", "n": "مشعشع شهاب الدين"}, {"id": "s26", "n": "ناحت شيخ"}, {"id": "s27", "n": "واشك هدى"}], "t": {"1": {"s01": {"a": 3, "c": 7, "e": 10, "f": 12, "p": 1, "pr": 3, "t1": 10, "t2": 8}}}, "u": 1792655868435}, "c3ge1": {"code": "3تق1", "id": "c3ge1", "kind": "class", "label": "3AS · Gestion et économie", "order": 5, "short": "3AS GE", "slug": "3AS-GE", "students": [{"id": "s01", "n": "بلامين صفاء"}, {"id": "s02", "n": "ربيع نسرين"}, {"id": "s03", "n": "غازي ضياء الدين"}, {"id": "s04", "n": "فرمي آية"}, {"id": "s05", "n": "قويدري بشرى نورالهدى"}, {"id": "s06", "n": "لعشيشي أمينة"}, {"id": "s07", "n": "لعنقري حياة"}, {"id": "s08", "n": "ناحت هيام"}, {"id": "s09", "n": "واشك خلود"}, {"id": "s10", "n": "حروس جيداء"}, {"id": "s11", "n": "حماداش ضياء الدين"}, {"id": "s12", "n": "لخداري ايوب"}, {"id": "s13", "n": "لعيمش نورهان"}, {"id": "s14", "n": "لكلو محمد الأمين"}, {"id": "s15", "n": "مربوح اسماء"}, {"id": "s16", "n": "مقدم لميس"}, {"id": "s17", "n": "موهون فتحي"}], "t": {}, "u": 1792655619629}, "c3se1": {"code": "3ع1", "id": "c3se1", "kind": "class", "label": "3AS · Sciences expérimentales", "order": 3, "short": "3AS SE", "slug": "3AS-SE", "students": [{"id": "s01", "n": "بلقادة أيوب"}, {"id": "s02", "n": "بن يمينة آلاء الرحمن"}, {"id": "s03", "n": "بوبريمة سعاد"}, {"id": "s04", "n": "جابري سناء"}, {"id": "s05", "n": "حيمن بشرى"}, {"id": "s06", "n": "سباعي شيماء"}, {"id": "s07", "n": "سمام عبد الباسط"}, {"id": "s08", "n": "شايب محمد"}, {"id": "s09", "n": "غربي عبد المجيد"}, {"id": "s10", "n": "قولال مريم"}, {"id": "s11", "n": "لعلق فاطمة الزهراء"}, {"id": "s12", "n": "لعلق فضيلة"}, {"id": "s13", "n": "مكرطارمحمد سيف الدين"}, {"id": "s14", "n": "ميلود علي محمد الأمين"}, {"id": "s15", "n": "بن احمد مباركي نهى"}, {"id": "s16", "n": "بن عيسى الشريف مروان"}, {"id": "s17", "n": "بن عيسى الشريفي رفيقة"}, {"id": "s18", "n": "حبلال ريمة"}, {"id": "s19", "n": "حسان إلياس"}, {"id": "s20", "n": "حمداني فراس"}, {"id": "s21", "n": "رمضاني عبدالغفور"}, {"id": "s22", "n": "زيغم هالة"}, {"id": "s23", "n": "سباعي آية"}, {"id": "s24", "n": "سباعي سميرة"}, {"id": "s25", "n": "عميش آية"}, {"id": "s26", "n": "غاني أيوب"}, {"id": "s27", "n": "كتروسي محمد ياسين"}, {"id": "s28", "n": "محمدي ياسمين"}], "t": {}, "u": 1792655619629}, "c3tm1": {"code": "3تر1", "id": "c3tm1", "kind": "class", "label": "3AS · Techniques mathématiques", "order": 4, "short": "3AS TM", "slug": "3AS-TM", "students": [{"id": "s01", "n": "بروكة عبد القادر"}, {"id": "s02", "n": "ربيع ياسين"}, {"id": "s03", "n": "مخلوف شروق"}, {"id": "s04", "n": "مخلوف عفاف"}, {"id": "s05", "n": "أبركان محمد يوسف"}, {"id": "s06", "n": "بلعلة زهرة"}, {"id": "s07", "n": "بونوار مروة"}, {"id": "s08", "n": "تواتي أحمد"}, {"id": "s09", "n": "جروان فاطمة الزهراء"}, {"id": "s10", "n": "حادق ألاء"}, {"id": "s11", "n": "حادق زكرياء"}, {"id": "s12", "n": "حرشاوي رياض أبوبكر الصديق"}, {"id": "s13", "n": "راشم عبد المعين"}, {"id": "s14", "n": "سباعي محمد"}, {"id": "s15", "n": "غاني نورالدين"}, {"id": "s16", "n": "كروشي عبد الحق"}, {"id": "s17", "n": "لعرجان محمد عبدالرحيم"}, {"id": "s18", "n": "محمدي صبرينة"}, {"id": "s19", "n": "مربوح إسلام"}, {"id": "s20", "n": "مشعشع أحمد"}, {"id": "s21", "n": "مشعشع أحمد بهاء الدين"}, {"id": "s22", "n": "نورين إيمان"}, {"id": "s23", "n": "نورين اكرام"}, {"id": "s24", "n": "وابل عبد السميع"}], "t": {}, "u": 1792655619629}}}</script>
 <script>
 (() => {
 'use strict';
+document.documentElement.setAttribute('dir', 'rtl');
+document.documentElement.setAttribute('lang', 'ar');
 
 /* ---------- barème ---------- */
 const FIELDS = [
-  {k:'c',  grp:'mm', fr:'Cahier',        ar:'الكراس',  max:8},
-  {k:'p',  grp:'mm', fr:'Participation', ar:'المشاركة', max:6},
-  {k:'pr', grp:'mm', fr:'Présence',      ar:'الحضور',  max:3},
-  {k:'a',  grp:'mm', fr:'Assiduité',     ar:'المواظبة', max:3},
-  {k:'t1', grp:'at', fr:'Note 1',        ar:'أ.تط 1',   max:10},
-  {k:'t2', grp:'at', fr:'Note 2',        ar:'أ.تط 2',   max:10},
-  {k:'f',  grp:'f',  fr:'Devoir',        ar:'الفرض',   max:20},
-  {k:'e',  grp:'e',  fr:'Examen',        ar:'الاختبار', max:20},
+  {k:'c',  grp:'mm', ar:'الكراس',   sh:'كراس',   max:8,  o:1},
+  {k:'p',  grp:'mm', ar:'المشاركة', sh:'مشاركة', max:6,  o:2},
+  {k:'pr', grp:'mm', ar:'الحضور',   sh:'حضور',   max:3,  o:3},
+  {k:'a',  grp:'mm', ar:'المواظبة', sh:'مواظبة', max:3,  o:4},
+  {k:'t1', grp:'at', ar:'تطبيق 1',  sh:'تطبيق 1', max:10, o:5},
+  {k:'t2', grp:'at', ar:'تطبيق 2',  sh:'تطبيق 2', max:10, o:6},
+  {k:'f',  grp:'f',  ar:'الفرض',    sh:'فرض',    max:20, o:7},
+  {k:'e',  grp:'e',  ar:'الاختبار', sh:'اختبار', max:20, o:8},
 ];
 const FMAP = Object.fromEntries(FIELDS.map(f => [f.k, f]));
-const GROUPS = [
-  {id:'mm', ar:'م م',     fr:'Évaluation continue', keys:['c','p','pr','a']},
-  {id:'at', ar:'أ.تط',    fr:'Applications',        keys:['t1','t2']},
-  {id:'f',  ar:'الفرض',   fr:'Devoir',              keys:['f']},
-  {id:'e',  ar:'الاختبار', fr:'Examen ×2',           keys:['e']},
-];
 const TRI = {'1':'الفصل الأول','2':'الفصل الثاني','3':'الفصل الثالث'};
-const LS = 'carnet-notes-v1';
+const TITLES = {home:'دفتر التنقيط', entry:'حجز النقاط', table:'جدول التنقيط', stats:'الإحصائيات', export:'تصدير وحفظ', lists:'قوائم الأقسام', new:'قسم جديد', bareme:'طريقة الحساب'};
+const SEED = (() => { try { const el = document.getElementById('seed-data'); return el ? JSON.parse(el.textContent) : null; } catch (e) { return null; } })();
+const LS = SEED ? 'carnet-notes-fichier-v1' : 'carnet-notes-v1';
+const STORE_OK = (() => { try { localStorage.setItem('__cn_t', '1'); const ok = localStorage.getItem('__cn_t') === '1'; localStorage.removeItem('__cn_t'); return ok; } catch (e) { return false; } })();
+const WARN = `<div class="warn-b">هذا المتصفح لا يحتفظ بالنقاط لهذا الملف بعد إغلاقه. قبل الإغلاق اضغط «حفظ» لتنزيل نسخة احتياطية، أو افتح الملف في متصفح Chrome.</div>`;
 
 /* ---------- utils ---------- */
 const $ = s => document.querySelector(s);
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const isNum = v => typeof v === 'number' && isFinite(v);
 const r2 = x => Math.round((x + 1e-9) * 100) / 100;
-const fmtAvg = v => isNum(v) ? v.toFixed(2).replace('.', ',') : '—';
-const fmtN = v => isNum(v) ? String(r2(v)).replace('.', ',') : '';
+const fmtAvg = v => isNum(v) ? v.toFixed(2) : '';
+const fmtN = v => isNum(v) ? String(r2(v)) : '';
+const mean = a => a.length ? r2(a.reduce((x, y) => x + y, 0) / a.length) : null;
+const norm = s => String(s || '').replace(/[أإآٱ]/g, 'ا').replace(/ة/g, 'ه').replace(/ى/g, 'ي').replace(/[ً-ْـ]/g, '').replace(/\s+/g, ' ').trim();
 const use = name => (window.claude && typeof window.claude.use === 'function') ? window.claude.use(name).catch(() => null) : Promise.resolve(null);
+const ICON = {
+  entry: '<path d="M4 6h10M4 11h7M4 16h5"/><path d="m14 20 .6-3.1L19.8 11.7a1.5 1.5 0 0 1 2.1 2.1L16.7 19z"/>',
+  table: '<rect x="3.5" y="4.5" width="17" height="15" rx="2.5"/><path d="M3.5 9.5h17M3.5 14.5h17M10 9.5v10"/>',
+  stats: '<path d="M5 20v-8M10 20V5M15 20v-6M20 20V9"/>',
+  export: '<path d="M7 18.5a4.5 4.5 0 0 1-.7-8.95A6 6 0 0 1 17.9 8.6a4.5 4.5 0 0 1 .1 9.9"/><path d="M12 12.5v8M9 15.5l3-3 3 3"/>',
+  lists: '<circle cx="9" cy="8" r="3.2"/><path d="M3.5 19.5a5.5 5.5 0 0 1 11 0"/><path d="M16 5.2a3 3 0 0 1 0 5.6M17.5 14.2a5 5 0 0 1 3 5.3"/>',
+  bareme: '<rect x="5" y="3.5" width="14" height="17" rx="2.5"/><path d="M8.5 7.5h7"/><circle cx="9" cy="12" r=".6"/><circle cx="12" cy="12" r=".6"/><circle cx="15" cy="12" r=".6"/><circle cx="9" cy="16" r=".6"/><circle cx="12" cy="16" r=".6"/><circle cx="15" cy="16" r=".6"/>',
+};
+const svg = (k, s = 30) => `<svg width="${s}" height="${s}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${ICON[k]}</svg>`;
+const CHEV = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>';
+const LENS = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m20 20-4.6-4.6"/></svg>';
 
 function parseGrade(raw, max){
-  const s = String(raw).trim().replace(',', '.');
+  const s = String(raw).trim().replace(',', '.').replace(/[٠-٩]/g, d => '٠١٢٣٤٥٦٧٨٩'.indexOf(d)).replace('٫', '.');
   if (s === '') return null;
   if (!/^\d{1,2}(\.\d{0,2})?$/.test(s)) return undefined;
   const n = parseFloat(s);
@@ -276,7 +349,8 @@ function compute(g){
     const w = comps.reduce((a, [, w]) => a + w, 0);
     avg = r2(comps.reduce((a, [v, w]) => a + v * w, 0) / w);
   }
-  return {mm, at, f, e, mmP, atP, avg, complete};
+  const filled = FIELDS.filter(x => isNum(g[x.k])).length;
+  return {mm, at, f, e, mmP, atP, avg, complete, filled};
 }
 function appreciation(avg){
   if (!isNum(avg)) return '';
@@ -292,19 +366,21 @@ function appreciation(avg){
 /* ---------- state ---------- */
 const S = {
   classes: {}, meta: null, uid: null, col: null,
-  cur: null, tri: '1', mode: 'epreuve', field: 'c', stu: 0,
+  screen: 'home', cur: null, tri: '1', view: 'cards', field: 'f', detailAll: false,
+  open: new Set(), q: '', dd: null, band: null, scrollTo: null, confirm: null,
   dirty: new Set(), writing: new Map(), timers: new Map(),
-  sync: 'loading', loaded: false, err: null, confirm: null,
+  sync: 'loading', loaded: false, err: null,
 };
 const sorted = () => Object.values(S.classes).sort((a, b) => (a.order ?? 99) - (b.order ?? 99) || String(a.code).localeCompare(String(b.code)));
 const curClass = () => S.classes[S.cur] || null;
-const G = (cls, sid) => (cls && cls.t && cls.t[S.tri] && cls.t[S.tri][sid]) || {};
+const G = (cls, sid, tri = S.tri) => (cls && cls.t && cls.t[tri] && cls.t[tri][sid]) || {};
+const gradeObj = (cls, sid) => { cls.t = cls.t || {}; const T = cls.t[S.tri] = cls.t[S.tri] || {}; return T[sid] = T[sid] || {}; };
 
 function saveCache(){
   try {
     localStorage.setItem(LS, JSON.stringify({
       uid: S.uid, classes: S.classes, meta: S.meta, dirty: [...S.dirty],
-      ui: {cur: S.cur, tri: S.tri, mode: S.mode, field: S.field, stu: S.stu}
+      ui: {screen: S.screen, cur: S.cur, tri: S.tri, view: S.view, field: S.field, detailAll: S.detailAll}
     }));
   } catch (e) {}
 }
@@ -315,10 +391,11 @@ function loadCache(){
     S.uid = o.uid || null; S.classes = o.classes || {}; S.meta = o.meta || null;
     S.dirty = new Set(o.dirty || []);
     const u = o.ui || {};
-    if (u.cur) S.cur = u.cur; if (TRI[u.tri]) S.tri = u.tri;
-    if (['epreuve','eleve','tableau','liste'].includes(u.mode)) S.mode = u.mode;
+    if (u.cur) S.cur = u.cur;
+    if (TRI[u.tri]) S.tri = u.tri;
+    if (u.view === 'cards' || u.view === 'quick') S.view = u.view;
     if (FMAP[u.field]) S.field = u.field;
-    if (Number.isInteger(u.stu)) S.stu = u.stu;
+    S.detailAll = !!u.detailAll;
   } catch (e) {}
 }
 
@@ -347,43 +424,55 @@ async function flush(id){
       S.dirty.delete(id);
     } else {
       const stamp = cls.u;
-      const body = JSON.parse(JSON.stringify(cls));
-      await S.col.doc(id).set(body);
+      await S.col.doc(id).set(JSON.parse(JSON.stringify(cls)));
       if (S.classes[id] && S.classes[id].u === stamp) S.dirty.delete(id);
     }
     S.err = null;
   } catch (e) {
     S.err = (e && e.code) || 'unavailable';
-    if (S.err === 'unavailable' || S.err === 'resource_exhausted'){
-      schedule(id, 8000 + Math.random() * 6000);
-    } else if (S.err === 'quota_exceeded'){
-      toast("L'espace de stockage est plein. Vos notes restent sur ce téléphone ; exportez-les en Excel.");
-    }
+    if (S.err === 'unavailable' || S.err === 'resource_exhausted') schedule(id, 8000 + Math.random() * 6000);
+    else if (S.err === 'quota_exceeded') toast('مساحة التخزين ممتلئة. النقاط محفوظة على الهاتف، صدّرها إلى Excel.');
   }
   w.busy = false;
   saveCache(); updateStatus();
   if (w.again){ w.again = false; flush(id); }
 }
+const isBusy = () => [...S.writing.values()].some(w => w.busy) || S.timers.size > 0;
 function updateStatus(){
   const el = $('#sync'); if (!el) return;
   let t, c;
-  const busy = [...S.writing.values()].some(w => w.busy) || S.timers.size > 0;
-  if (S.sync === 'loading'){ t = 'Connexion…'; c = 'wait'; }
-  else if (S.sync === 'local'){ t = 'Sur ce téléphone'; c = 'local'; }
-  else if (busy){ t = 'Enregistrement…'; c = 'wait'; }
-  else if (S.dirty.size){ t = 'En attente de réseau'; c = 'warn'; }
-  else { t = 'Enregistré'; c = 'ok'; }
+  if (S.sync === 'loading'){ t = 'جارٍ الاتصال…'; c = 'wait'; }
+  else if (S.sync === 'local'){ t = STORE_OK ? 'محفوظ على الجهاز' : 'غير محفوظ تلقائياً'; c = STORE_OK ? 'ok' : 'warn'; }
+  else if (isBusy()){ t = 'جارٍ الحفظ…'; c = 'wait'; }
+  else if (S.dirty.size){ t = 'في انتظار الشبكة'; c = 'warn'; }
+  else { t = 'محفوظ'; c = 'ok'; }
   el.className = 'sync ' + c;
   el.querySelector('span').textContent = t;
+}
+async function saveNow(){
+  const fab = $('#fab');
+  if (document.activeElement && document.activeElement.blur) document.activeElement.blur();
+  saveCache();
+  if (!S.col){ saveCache(); if (STORE_OK) toast('تم الحفظ على هذا الجهاز ✓'); else await backupDownload(); return; }
+  if (!S.dirty.size && !isBusy()){ toast('تم الحفظ بنجاح ✓ كل النقاط في السحابة'); return; }
+  fab.classList.add('busy');
+  for (const [id, t] of S.timers){ clearTimeout(t); S.timers.delete(id); }
+  for (const id of [...S.dirty]) flush(id);
+  const t0 = Date.now();
+  while ((isBusy() || S.dirty.size) && Date.now() - t0 < 12000){
+    await new Promise(r => setTimeout(r, 250));
+    if (!isBusy() && S.dirty.size && S.err) break;
+  }
+  fab.classList.remove('busy');
+  if (!S.dirty.size) toast('تم الحفظ بنجاح ✓');
+  else toast('تعذّر الاتصال الآن. النقاط محفوظة على الهاتف وستُرسل تلقائياً عند عودة الشبكة.');
 }
 
 /* ---------- cloud ---------- */
 async function initCloud(){
   const [db, user] = await Promise.all([use('db'), use('user')]);
   const uid = user ? await user.id() : null;
-  if (!db || !uid){
-    S.sync = 'local'; S.loaded = true; updateStatus(); render(); return;
-  }
+  if (!db || !uid){ S.sync = 'local'; S.loaded = true; updateStatus(); render(); return; }
   if (S.uid && S.uid !== uid){ S.classes = {}; S.meta = null; S.dirty.clear(); }
   S.uid = uid;
   S.col = db.collection('data/users/' + uid);
@@ -409,8 +498,8 @@ function onSnap(snap){
     if (body.kind !== 'class') continue;
     const loc = S.classes[d.id];
     if (S.dirty.has(d.id)){
-      if (!loc) continue;                         // suppression en attente
-      if ((loc.u || 0) >= (body.u || 0)) continue; // la version du téléphone est plus récente
+      if (!loc) continue;
+      if ((loc.u || 0) >= (body.u || 0)) continue;
     }
     if (loc && loc.u === body.u) continue;
     S.classes[d.id] = Object.assign(JSON.parse(JSON.stringify(body)), {id: d.id});
@@ -425,356 +514,444 @@ function onSnap(snap){
     if (!S.loaded){ S.loaded = true; changed = true; }
   }
   updateStatus();
-  if (changed){ saveCache(); render(); }
+  if (changed){ saveCache(); if (!isTyping()) render(); else S.pendingRender = true; }
 }
+const isTyping = () => { const a = document.activeElement; return !!(a && a.matches && a.matches('input,textarea')); };
 window.addEventListener('online', () => { for (const id of S.dirty) schedule(id, 300); });
 
-/* ---------- grade edits ---------- */
-function setGrade(cls, sid, k, v){
-  cls.t = cls.t || {};
-  const T = cls.t[S.tri] = cls.t[S.tri] || {};
-  const g = T[sid] = T[sid] || {};
-  if (v === null) delete g[k]; else g[k] = v;
-  if (!Object.keys(g).length) delete T[sid];
-  touch(cls);
+/* ---------- stats ---------- */
+function stats(cls, tri = S.tri){
+  const rs = cls.students.map(s => compute(G(cls, s.id, tri)));
+  const fin = rs.filter(r => r.complete).map(r => r.avg);
+  const base = fin.length ? fin : rs.filter(r => r.avg !== null).map(r => r.avg);
+  return {n: rs.length, rs, fin, provisional: !fin.length && base.length > 0, base, mean: mean(base),
+    pass: base.filter(v => v >= 10).length, cnt: base.length,
+    max: base.length ? Math.max(...base) : null, min: base.length ? Math.min(...base) : null};
+}
+
+/* ---------- shared pieces ---------- */
+function selectsHTML(){
+  const cls = curClass(), list = sorted();
+  const triMenu = S.dd === 'tri' ? `<div class="dd-m" role="listbox">${Object.entries(TRI).map(([k, v]) => `<button type="button" data-tri="${k}" class="${k === S.tri ? 'on' : ''}">${v}</button>`).join('')}</div>` : '';
+  const clsMenu = S.dd === 'cls' ? `<div class="dd-m" role="listbox">${list.map(c => `<button type="button" data-cls="${esc(c.id)}" class="${c.id === S.cur ? 'on' : ''}"><span>${esc(c.code)}</span><small>${esc(c.short || '')} · ${c.students.length}</small></button>`).join('')}</div>` : '';
+  return `<div class="panel selects">
+    <div class="dd"><button type="button" class="dd-b" data-dd="tri" aria-expanded="${S.dd === 'tri'}"><span>${TRI[S.tri]}</span>${CHEV}</button>${triMenu}</div>
+    <div class="dd"><button type="button" class="dd-b" data-dd="cls" aria-expanded="${S.dd === 'cls'}"><span>${cls ? esc(cls.code) : 'اختر القسم'}</span>${CHEV}</button>${clsMenu}</div>
+  </div>`;
+}
+function kpisHTML(cls){
+  const st = stats(cls);
+  return `<div class="kpi"><div class="l">معدل القسم${st.provisional ? ' (مؤقت)' : ''}</div><div class="v ${st.mean !== null && st.mean < 10 ? 'low' : ''} ${st.provisional ? 'prov' : ''}">${st.mean === null ? '—' : fmtAvg(st.mean)}</div></div>
+    <div class="kpi"><div class="l">المعدل ≥ 10</div><div class="v">${st.cnt ? st.pass : '—'}<small>${st.cnt ? ' / ' + st.cnt : ''}</small></div></div>
+    <div class="kpi"><div class="l">بطاقات مكتملة</div><div class="v">${st.fin.length}<small> / ${st.n}</small></div></div>`;
+}
+const noClass = () => `<div class="empty">لا توجد بيانات للعرض<small>اختر القسم أو أضف قسماً من «قوائم الأقسام».</small></div>`;
+
+function visible(cls){
+  const q = norm(S.q);
+  return cls.students.map((s, i) => ({s, i})).filter(({s, i}) => !q || norm(s.n).includes(q) || String(i + 1) === q);
+}
+function avgHTML(r){
+  if (r.avg === null) return '';
+  return `<span dir="ltr" class="${r.avg < 10 ? 'low' : ''} ${r.complete ? '' : 'prov'}">${r.complete ? '' : '≈'}${fmtAvg(r.avg)}</span>`;
+}
+function stHTML(r){
+  if (r.complete) return {c:'ok', h:'<i></i>مكتمل'};
+  if (r.filled) return {c:'part', h:`<i></i>ناقص ${8 - r.filled}`};
+  return {c:'', h:''};
+}
+function calcVal(P){
+  if (P.full) return fmtN(P.sum);
+  if (P.n) return `<span class="part">${fmtN(P.sum)}…</span>`;
+  return '';
+}
+function inAttrs(cls, s, i, k){
+  const f = FMAP[k], v = G(cls, s.id)[k];
+  return `id="in-${esc(s.id)}-${k}" type="text" inputmode="decimal" enterkeyhint="next" autocomplete="off" autocorrect="off" spellcheck="false" dir="ltr"
+    data-sid="${esc(s.id)}" data-k="${k}" data-ord="${i * 20 + f.o}" value="${isNum(v) ? fmtN(v) : ''}" aria-label="${esc(s.n)} — ${f.ar} على ${f.max}"`;
+}
+
+/* ---------- screens ---------- */
+function viewHome(){
+  const m = S.meta || {};
+  const list = sorted();
+  const tile = (scr, cls, ic, lb, hn) => `<button type="button" class="tile ${cls}" data-go="${scr}"><span class="ic">${svg(ic)}</span><span class="lb">${lb}</span>${hn ? `<span class="hn">${hn}</span>` : ''}</button>`;
+  return `
+    <section class="hero">
+      <div class="t">اللغة الفرنسية · ${esc(m.year || '2026/2027')}</div>
+      <div class="s">${esc(m.school || '')}</div>
+      ${m.teacher ? `<div class="s">الأستاذ: ${esc(m.teacher)}</div>` : ''}
+    </section>
+    <div class="tiles">
+      ${tile('entry', 't-blue', 'entry', 'حجز النقاط', 'بطاقات أو إدخال سريع')}
+      ${tile('table', 't-green', 'table', 'جدول التنقيط', 'كما في القائمة الرسمية')}
+      ${tile('stats', 't-amber', 'stats', 'الإحصائيات', 'نسب النجاح والتوزيع')}
+      ${tile('export', 't-teal', 'export', 'تصدير وحفظ', 'Excel ونسخة احتياطية')}
+      ${tile('lists', 't-purple', 'lists', 'قوائم الأقسام', 'إضافة وتعديل التلاميذ')}
+      ${tile('bareme', 't-pink', 'bareme', 'طريقة الحساب', 'سلم التنقيط والمعدل')}
+    </div>
+    <div class="sec-h"><h2>أقسامي · ${TRI[S.tri]}</h2>
+      <div class="seg" style="flex:none">${['1','2','3'].map(t => `<button type="button" data-tri="${t}" aria-pressed="${S.tri === t}">ف${t}</button>`).join('')}</div></div>
+    <div class="myc">
+      ${!list.length ? (S.loaded ? `<div class="empty">لا توجد أقسام في هذه النسخة<small>استرجع نسخة احتياطية (ملف ‎.json‎) أو أضف قسماً من «قوائم الأقسام».</small>${importBtn()}</div>` : `<div class="empty">جارٍ تحميل الأقسام…</div>`) :
+        list.map(c => { const st = stats(c); const pct = st.n ? Math.round(st.fin.length / st.n * 100) : 0;
+          return `<button type="button" class="crow" data-open-class="${esc(c.id)}">
+            <span class="code">${esc(c.code)}</span>
+            <span class="mid"><span class="lbl">${esc(c.label || '')}</span><span class="prog"><i style="width:${pct}%"></i></span><span class="note">${st.fin.length} / ${st.n} بطاقة مكتملة</span></span>
+            <span class="side"><b class="${st.mean !== null && st.mean < 10 ? 'low' : ''} ${st.provisional ? 'prov' : ''}">${st.mean === null ? '—' : fmtAvg(st.mean)}</b><span>معدل القسم</span></span>
+          </button>`; }).join('')}
+    </div>`;
+}
+
+function viewEntry(){
+  const cls = curClass();
+  if (!cls) return selectsHTML() + noClass();
+  const vis = visible(cls);
+  const head = `${selectsHTML()}
+    <label class="search">${LENS}<input id="q" type="search" placeholder="ابحث بالاسم أو اللقب..." value="${esc(S.q)}" autocomplete="off" enterkeyhint="search"></label>
+    <div class="seg" role="group" aria-label="طريقة الإدخال">
+      <button type="button" data-view="cards" aria-pressed="${S.view === 'cards'}">بطاقات التلاميذ</button>
+      <button type="button" data-view="quick" aria-pressed="${S.view === 'quick'}">إدخال سريع حسب العمود</button>
+    </div>
+    <div class="kpis" id="kpis">${kpisHTML(cls)}</div>`;
+  if (!cls.students.length) return head + `<div class="empty">لا يوجد تلاميذ في هذا القسم<small>أضفهم من «قوائم الأقسام».</small></div>`;
+  if (!vis.length) return head + `<div class="empty">لا يوجد تلميذ بهذا الاسم</div>`;
+  if (S.view === 'quick') return head + quickHTML(cls, vis);
+  return head + `
+    <div class="row-tools">
+      <button type="button" class="switch" data-act="detail-all" aria-pressed="${S.detailAll}"><i></i>إظهار التفاصيل لكل التلاميذ</button>
+      <span class="note">المس «تقويم» أو «أ.ت» لإدخال التفاصيل</span>
+    </div>
+    <div class="list">${vis.map(({s, i}) => cardHTML(cls, s, i)).join('')}</div>`;
+}
+function cardHTML(cls, s, i){
+  const g = G(cls, s.id), r = compute(g), st = stHTML(r);
+  const open = S.detailAll || S.open.has(s.id);
+  const sid = esc(s.id);
+  return `<article class="card ${open ? 'open' : ''}" id="card-${sid}">
+    <div class="card-h"><h3><span class="no num">${i + 1}-</span> ${esc(s.n)}</h3><span class="st ${st.c}" id="st-${sid}">${st.h}</span></div>
+    <div class="boxes">
+      <div class="bx"><span class="bl">تقويم</span><button type="button" class="bv calc ${r.mmP.full ? 'full' : ''}" id="bx-mm-${sid}" data-toggle="${sid}" data-first="c" aria-expanded="${open}" aria-label="التقويم المستمر — التفاصيل">${calcVal(r.mmP)}</button></div>
+      <div class="bx"><span class="bl">أ.ت</span><button type="button" class="bv calc ${r.atP.full ? 'full' : ''}" id="bx-at-${sid}" data-toggle="${sid}" data-first="t1" aria-expanded="${open}" aria-label="الأعمال التطبيقية — التفاصيل">${calcVal(r.atP)}</button></div>
+      <div class="bx"><span class="bl">فرض</span><input class="bv" ${inAttrs(cls, s, i, 'f')}></div>
+      <div class="bx"><span class="bl">اختبار</span><input class="bv" ${inAttrs(cls, s, i, 'e')}></div>
+      <div class="bx avgx"><span class="bl">المعدل</span><span class="av" id="av-${sid}">${avgHTML(r)}</span></div>
+    </div>
+    ${open ? `<div class="det">
+      <div class="dg"><div class="dh"><span>التقويم المستمر</span><b id="mm-${sid}">${totHTML(r.mmP)}</b></div>
+        <div class="subs s4">${['c','p','pr','a'].map(k => subHTML(cls, s, i, k)).join('')}</div></div>
+      <div class="dg"><div class="dh"><span>الأعمال التطبيقية (شفهي وكتابي)</span><b id="at-${sid}">${totHTML(r.atP)}</b></div>
+        <div class="subs s2">${['t1','t2'].map(k => subHTML(cls, s, i, k)).join('')}</div></div>
+      <input class="rm" id="in-${sid}-r" type="text" data-sid="${sid}" data-k="r" enterkeyhint="next" value="${esc(g.r || '')}" placeholder="الملاحظة: ${esc(r.complete ? appreciation(r.avg) : 'تلقائية حسب المعدل')}">
+    </div>` : ''}
+  </article>`;
+}
+const totHTML = P => P.n ? `${fmtN(P.sum)} <small>/ 20${P.full ? '' : ' · ناقص'}</small>` : `— <small>/ 20</small>`;
+function subHTML(cls, s, i, k){
+  const f = FMAP[k];
+  return `<label class="sb"><span class="sl">${f.sh} <em>/${f.max}</em></span><input class="bv sm" ${inAttrs(cls, s, i, k)}></label>`;
+}
+
+function quickHTML(cls, vis){
+  const f = FMAP[S.field];
+  const filled = cls.students.filter(s => isNum(G(cls, s.id)[f.k])).length;
+  const done = k => cls.students.length && cls.students.every(s => isNum(G(cls, s.id)[k]));
+  const fill = (f.k === 'pr' || f.k === 'a') && filled < cls.students.length
+    ? `<button type="button" class="btn sm" data-act="fill" data-k="${f.k}">وضع ${f.max} للخانات الفارغة</button>` : '';
+  return `
+    <div class="chips">${FIELDS.map(x => `<button type="button" class="chip ${done(x.k) ? 'done' : ''}" data-field="${x.k}" aria-pressed="${S.field === x.k}">${x.sh}<em>/${x.max}</em></button>`).join('')}</div>
+    <div class="qbar"><span><b>${f.ar}</b> على ${f.max} · <span id="qprog" class="num">${filled} / ${cls.students.length}</span> مُدخلة</span>${fill}</div>
+    <div class="qlist">${vis.map(({s, i}) => `<div class="qrow">
+      <span class="qn"><span class="num">${i + 1}-</span> ${esc(s.n)}</span>
+      <input class="bv" ${inAttrs(cls, s, i, f.k)}>
+      <span class="qa" id="av-${esc(s.id)}">${avgHTML(compute(G(cls, s.id)))}</span>
+    </div>`).join('')}</div>`;
+}
+
+function viewTable(){
+  const cls = curClass();
+  if (!cls) return selectsHTML() + noClass();
+  const st = stats(cls);
+  const col = k => fmtAvg(mean(st.rs.map(r => r[k]).filter(isNum)));
+  return `${selectsHTML()}
+    <div class="tbl-wrap" dir="rtl"><table>
+      <thead><tr><th>الرقم</th><th class="nm">الاسم واللقب</th><th>م م</th><th>أ.تط</th><th>الفرض</th><th>الاختبار</th><th>المعدل</th><th>الملاحظات</th></tr></thead>
+      <tbody>${cls.students.map((s, i) => {
+        const g = G(cls, s.id), r = st.rs[i];
+        const part = P => P.full ? fmtN(P.sum) : P.n ? `<span class="prov">${fmtN(P.sum)}…</span>` : '';
+        return `<tr data-row="${esc(s.id)}"><td class="v">${i + 1}</td><td class="nm">${esc(s.n)}</td><td class="v">${part(r.mmP)}</td><td class="v">${part(r.atP)}</td>
+          <td class="v">${fmtN(r.f)}</td><td class="v">${fmtN(r.e)}</td><td class="v avg">${avgHTML(r)}</td><td class="rk">${esc(g.r || (r.complete ? appreciation(r.avg) : ''))}</td></tr>`;
+      }).join('')}</tbody>
+      <tfoot><tr><td></td><td class="nm">معدل القسم</td><td>${col('mm')}</td><td>${col('at')}</td><td>${col('f')}</td><td>${col('e')}</td><td>${fmtAvg(mean(st.fin))}</td><td></td></tr></tfoot>
+    </table></div>
+    <p class="note">المس اسم التلميذ لتعديل نقاطه. معدلات الأعمدة تحسب النقاط المكتملة فقط، و«≈» تعني معدلاً مؤقتاً.</p>`;
+}
+
+const BANDS = [
+  {lb:'أقل من 8', lo:0, hi:8, crit:true}, {lb:'8 – 9.99', lo:8, hi:10, crit:true},
+  {lb:'10 – 11.99', lo:10, hi:12}, {lb:'12 – 13.99', lo:12, hi:14},
+  {lb:'14 – 15.99', lo:14, hi:16}, {lb:'16 فما فوق', lo:16, hi:20.01},
+];
+function viewStats(){
+  const cls = curClass();
+  if (!cls) return selectsHTML() + noClass();
+  const st = stats(cls);
+  const pct = st.cnt ? Math.round(st.pass / st.cnt * 100) : null;
+  const items = cls.students.map((s, i) => ({s, i, r: st.rs[i]})).filter(x => x.r.avg !== null && (st.provisional || x.r.complete));
+  const counts = BANDS.map(b => items.filter(x => x.r.avg >= b.lo && x.r.avg < b.hi));
+  const maxC = Math.max(1, ...counts.map(c => c.length));
+  const band = S.band !== null && counts[S.band] ? counts[S.band] : null;
+  const comp = [['mm','التقويم المستمر'],['at','الأعمال التطبيقية'],['f','الفرض'],['e','الاختبار']].map(([k, lb]) => ({lb, v: mean(st.rs.map(r => r[k]).filter(isNum))}));
+  const top = items.slice().sort((a, b) => b.r.avg - a.r.avg).slice(0, 5);
+  const weak = items.filter(x => x.r.avg < 10).sort((a, b) => a.r.avg - b.r.avg);
+  const others = sorted().map(c => ({c, m: mean(stats(c).fin)}));
+  return `${selectsHTML()}
+    ${st.provisional ? `<p class="note">لا توجد بطاقة مكتملة بعد: الأرقام أدناه مؤقتة وتحسب النقاط المدخلة فقط.</p>` : ''}
+    <div class="kgrid">
+      <div class="kg"><div class="l">معدل القسم</div><div class="v ${st.mean !== null && st.mean < 10 ? 'low' : ''}">${st.mean === null ? '—' : fmtAvg(st.mean)}</div><div class="x">${st.cnt} تلميذ محسوب</div></div>
+      <div class="kg"><div class="l">نسبة النجاح (≥ 10)</div><div class="v">${pct === null ? '—' : pct + '%'}</div><div class="x">${st.pass} من ${st.cnt}</div></div>
+      <div class="kg"><div class="l">أعلى معدل</div><div class="v">${st.max === null ? '—' : fmtAvg(st.max)}</div><div class="x">${top[0] ? esc(top[0].s.n) : '&nbsp;'}</div></div>
+      <div class="kg"><div class="l">أدنى معدل</div><div class="v ${st.min !== null && st.min < 10 ? 'low' : ''}">${st.min === null ? '—' : fmtAvg(st.min)}</div><div class="x">بطاقات مكتملة: ${st.fin.length} / ${st.n}</div></div>
+    </div>
+    <section class="chart"><h3>توزيع المعدلات</h3><div class="sub">عدد التلاميذ في كل فئة · المس فئة لعرض الأسماء</div>
+      ${BANDS.map((b, k) => `<button type="button" class="brow" data-band="${k}" aria-pressed="${S.band === k}"><span class="bl2">${b.lb}</span><span class="track"><i class="${b.crit ? 'crit' : ''}" style="width:${counts[k].length / maxC * 100}%"></i></span><span class="bv2">${counts[k].length}</span></button>`).join('')}
+      ${band ? `<div class="names">${band.length ? band.map(x => `<span>${esc(x.s.n)}<b class="${x.r.avg < 10 ? 'low' : ''}">${fmtAvg(x.r.avg)}</b></span>`).join('') : '<span>لا أحد في هذه الفئة</span>'}</div>` : ''}
+      <div class="note">الأحمر = معدل دون 10</div>
+    </section>
+    <section class="chart"><h3>معدل كل عنصر من عناصر التقييم</h3><div class="sub">على 20</div>
+      ${comp.map(c => `<div class="brow"><span class="bl2">${c.lb}</span><span class="track"><i style="width:${c.v === null ? 0 : c.v / 20 * 100}%"></i></span><span class="bv2">${c.v === null ? '—' : fmtAvg(c.v)}</span></div>`).join('')}
+    </section>
+    <section class="chart"><h3>الأوائل</h3>
+      <div class="rank">${top.length ? top.map((x, k) => `<div><span class="n">${k + 1}</span><span>${esc(x.s.n)}</span><span class="a">${fmtAvg(x.r.avg)}</span></div>`).join('') : '<p class="note">لا توجد معدلات بعد.</p>'}</div>
+    </section>
+    <section class="chart"><h3>تلاميذ دون المعدل (${weak.length})</h3>
+      ${weak.length ? `<div class="names">${weak.map(x => `<span>${esc(x.s.n)}<b class="low">${fmtAvg(x.r.avg)}</b></span>`).join('')}</div>` : '<p class="note">لا يوجد تلميذ دون 10.</p>'}
+    </section>
+    <section class="chart"><h3>مقارنة الأقسام · ${TRI[S.tri]}</h3><div class="sub">معدل كل قسم (البطاقات المكتملة) · المس قسماً لعرضه</div>
+      ${others.map(o => `<button type="button" class="brow" data-cls="${esc(o.c.id)}" aria-pressed="${o.c.id === S.cur}"><span class="bl2">${esc(o.c.code)}</span><span class="track"><i class="${o.m !== null && o.m < 10 ? 'crit' : ''}" style="width:${o.m === null ? 0 : o.m / 20 * 100}%"></i></span><span class="bv2">${o.m === null ? '—' : fmtAvg(o.m)}</span></button>`).join('')}
+    </section>`;
+}
+
+function viewExport(){
+  const list = sorted();
+  return `
+    <div class="panel selects" style="grid-template-columns:1fr">
+      <div class="dd"><button type="button" class="dd-b" data-dd="tri" aria-expanded="${S.dd === 'tri'}"><span>${TRI[S.tri]}</span>${CHEV}</button>${S.dd === 'tri' ? `<div class="dd-m">${Object.entries(TRI).map(([k, v]) => `<button type="button" data-tri="${k}" class="${k === S.tri ? 'on' : ''}">${v}</button>`).join('')}</div>` : ''}</div>
+    </div>
+    <p class="note">ملف Excel بنفس ترتيب قائمة التنقيط الرسمية (الرقم، الاسم واللقب، م م، أ.تط، الفرض، الاختبار، المعدل، الملاحظات)، مع تفاصيل الكراس والمشاركة والحضور والمواظبة والتطبيقين في أعمدة جانبية.</p>
+    <div class="xl">${list.map(c => { const st = stats(c); return `<button type="button" class="btn" data-xlsx="${esc(c.id)}"><b>${esc(c.code)}</b><small>${st.fin.length} / ${st.n} مكتملة</small></button>`; }).join('')}</div>
+    <button type="button" class="btn pri" data-act="xlsx-all">تصدير كل الأقسام في ملف Excel واحد</button>
+    <section class="chart imp"><h3>النسخة الاحتياطية</h3>
+      <div class="sub">ملف واحد يضم كل الأقسام والقوائم والنقاط والملاحظات للفصول الثلاثة.</div>
+      ${S.imp ? `<div class="warn-b">نسخة محفوظة ${S.imp.date ? 'بتاريخ ' + esc(S.imp.date) : ''} تضم ${S.imp.classes.length} أقسام: ${S.imp.classes.map(c => esc(c.code)).join('، ')}. سيتم استبدال هذه الأقسام في هذه النسخة بما في الملف.
+        <div class="actions" style="margin-top:8px"><button type="button" class="btn pri sm" data-act="imp-ok">استرجاع</button><button type="button" class="btn sm" data-act="imp-no">إلغاء</button></div></div>` : ''}
+      <div class="actions"><button type="button" class="btn green" data-act="backup">حفظ نسخة احتياطية</button>${importBtn()}</div>
+      <p class="note">استعملها للاحتياط، ولنقل النقاط بين الهاتف والحاسوب أو بين النسخة على الإنترنت والملف المحمّل.</p>
+    </section>`;
+}
+const importBtn = () => `<label class="btn filebtn">استرجاع نسخة احتياطية<input type="file" id="imp-file" accept=".json,application/json"></label>`;
+
+function viewLists(){
+  const cls = curClass();
+  const list = sorted();
+  const head = `<div class="panel selects" style="grid-template-columns:1fr">
+      <div class="dd"><button type="button" class="dd-b" data-dd="cls" aria-expanded="${S.dd === 'cls'}"><span>${cls ? esc(cls.code) + ' · ' + cls.students.length + ' تلميذ' : 'اختر القسم'}</span>${CHEV}</button>
+      ${S.dd === 'cls' ? `<div class="dd-m">${list.map(c => `<button type="button" data-cls="${esc(c.id)}" class="${c.id === S.cur ? 'on' : ''}"><span>${esc(c.code)}</span><small>${esc(c.short || '')} · ${c.students.length}</small></button>`).join('')}</div>` : ''}</div>
+    </div>
+    <div class="actions"><button type="button" class="btn pri" data-go="new">+ قسم جديد</button></div>`;
+  if (!cls) return head + noClass();
+  return head + `
+    <div class="qlist">
+      ${cls.students.map((s, i) => `<div class="lrow"><span class="n num">${i + 1}</span>
+        <input class="nm-in" id="n-${esc(s.id)}" data-name="${esc(s.id)}" value="${esc(s.n)}" aria-label="اسم التلميذ ${i + 1}">
+        ${S.confirm && S.confirm.type === 'stu' && S.confirm.id === s.id
+          ? `<span class="confirm">حذف؟ <button class="btn sm danger" data-act="del-stu" data-id="${esc(s.id)}">نعم</button><button class="btn sm" data-act="cancel">لا</button></span>`
+          : `<button class="btn sm danger" data-act="ask-del-stu" data-id="${esc(s.id)}">حذف</button>`}
+      </div>`).join('')}
+      <div class="addrow"><input class="txt" id="add-name" placeholder="الاسم واللقب للتلميذ الجديد" enterkeyhint="done"><button class="btn pri" data-act="add-stu">إضافة</button></div>
+    </div>
+    <p class="note">عدّل الاسم مباشرة في القائمة، ويُحفظ عند مغادرة الخانة. التلميذ الجديد يُضاف في آخر القائمة.</p>
+    <div class="actions">${S.confirm && S.confirm.type === 'class'
+      ? `<span class="confirm">حذف القسم ${esc(cls.code)} وكل نقاطه نهائياً؟ <button class="btn sm danger" data-act="del-class">حذف</button><button class="btn sm" data-act="cancel">إلغاء</button></span>`
+      : `<button class="btn danger" data-act="ask-del-class">حذف القسم ${esc(cls.code)}</button>`}</div>`;
+}
+
+function viewNew(){
+  return `<form class="form" id="newcls">
+    <label>رمز القسم (كما في القائمة الرسمية)<input class="txt" id="nc-code" placeholder="مثال: 2ع1" required></label>
+    <label>التسمية<input class="txt" id="nc-label" dir="ltr" placeholder="2AS · Sciences expérimentales 1"></label>
+    <label>قائمة التلاميذ، اسم في كل سطر<textarea class="txt" id="nc-names" placeholder="أبركان عبد القادر&#10;الغبير إبتهال&#10;…"></textarea></label>
+    <div class="actions"><button class="btn pri" type="submit">إنشاء القسم</button><button class="btn" type="button" data-go="lists">إلغاء</button></div>
+  </form>`;
+}
+
+function viewBareme(){
+  return `<div class="doc">
+    <section class="chart"><h3>المعدل الفصلي</h3>
+      <div class="f">المعدل = ( <span>م م</span> + <span>أ.تط</span> + <span>الفرض</span> + <span>الاختبار × 2</span> ) ÷ 5</div>
+      <p class="note">الاختبار على 20 ويُحسب مرتين (على 40)، فيصبح المجموع على 100 ثم يُقسم على 5.</p></section>
+    <section class="chart"><h3>التقويم المستمر (م م) على 20</h3>
+      <div class="tbl-wrap"><table><thead><tr><th>العنصر</th><th>العلامة</th></tr></thead><tbody>
+        <tr><td>الكراس</td><td class="v">8</td></tr><tr><td>المشاركة في القسم</td><td class="v">6</td></tr>
+        <tr><td>الحضور</td><td class="v">3</td></tr><tr><td>المواظبة</td><td class="v">3</td></tr></tbody>
+        <tfoot><tr><td>المجموع</td><td>20</td></tr></tfoot></table></div></section>
+    <section class="chart"><h3>الأعمال التطبيقية (أ.تط) على 20</h3>
+      <p class="note">تطبيقان، كل واحد على 10 (شفهي وكتابي)، ومجموعهما هو نقطة أ.تط.</p></section>
+    <section class="chart"><h3>مثال</h3>
+      <div class="f">( 14 + 8 + 12 + 10 × 2 ) ÷ 5 = <span>10.80</span></div></section>
+    <section class="chart"><h3>الملاحظة التلقائية</h3>
+      <div class="tbl-wrap"><table><tbody>
+        <tr><td class="v">18 فما فوق</td><td>ممتاز</td></tr><tr><td class="v">16 – 17.99</td><td>جيد جدا</td></tr>
+        <tr><td class="v">14 – 15.99</td><td>جيد</td></tr><tr><td class="v">12 – 13.99</td><td>قريب من الجيد</td></tr>
+        <tr><td class="v">10 – 11.99</td><td>متوسط</td></tr><tr><td class="v">8 – 9.99</td><td>دون المتوسط</td></tr>
+        <tr><td class="v">أقل من 8</td><td>ضعيف</td></tr></tbody></table></div>
+      <p class="note">تظهر الملاحظة عندما تكتمل البطاقة، ويمكنك كتابة ملاحظة أخرى في تفاصيل التلميذ.</p></section>
+  </div>`;
 }
 
 /* ---------- render ---------- */
 function render(){
+  S.pendingRender = false;
   const ae = document.activeElement;
-  const fid = ae && ae.id && ae.matches('input,textarea,select') ? ae.id : null;
+  const fid = ae && ae.id && ae.matches && ae.matches('input,textarea') ? ae.id : null;
   let sel = null; try { sel = fid ? [ae.selectionStart, ae.selectionEnd] : null; } catch (e) {}
 
   const list = sorted();
-  if (!S.classes[S.cur] && S.mode !== 'new') S.cur = list.length ? list[0].id : null;
+  if (!S.classes[S.cur]) S.cur = list.length ? list[0].id : null;
+  $('#ttl').textContent = TITLES[S.screen] || TITLES.home;
+  $('#back').hidden = S.screen === 'home';
+  $('#fab').hidden = S.screen !== 'entry' && S.screen !== 'lists';
+  $('#fab-l').textContent = S.col ? 'حفظ السحابة' : 'حفظ';
 
-  const m = S.meta;
-  $('#meta').innerHTML = m ? `<span dir="rtl">${esc(m.school || '')}</span> · ${esc(m.year || '')}` : 'Français · 2026/2027';
-
-  $('#chips').innerHTML = list.map(c => `
-    <button class="chip" type="button" data-cls="${esc(c.id)}" aria-pressed="${c.id === S.cur && S.mode !== 'new'}">
-      <span class="c" dir="rtl">${esc(c.code)}</span><span class="k">${esc(c.short || '')} · ${c.students.length}</span>
-    </button>`).join('') +
-    `<button class="chip add" type="button" data-act="new-class" aria-pressed="${S.mode === 'new'}">+ Classe</button>`;
-
-  const main = $('#main');
-  if (S.mode === 'new'){ main.innerHTML = viewNew(); }
-  else if (!list.length){
-    main.innerHTML = !S.loaded
-      ? `<div class="empty"><strong>Chargement de vos classes…</strong><span>Vos listes et vos notes s'affichent dans un instant.</span></div>`
-      : `<div class="empty"><strong>Aucune classe pour l'instant</strong><span>Ajoutez une classe et collez la liste des élèves, un nom par ligne.</span><button class="btn pri" data-act="new-class">Ajouter une classe</button></div>`;
-  } else {
-    const cls = curClass();
-    let body = '';
-    if (S.mode === 'epreuve') body = viewEpreuve(cls);
-    else if (S.mode === 'eleve') body = viewEleve(cls);
-    else if (S.mode === 'tableau') body = viewTableau(cls);
-    else body = viewListe(cls);
-    main.innerHTML = `
-      <section class="ctx">
-        <div class="ctx-h">
-          <h1><span class="code" dir="rtl">${esc(cls.code)}</span><span class="lbl">${esc(cls.label || '')}</span></h1>
-          <div class="seg" role="group" aria-label="Trimestre">
-            ${['1','2','3'].map(t => `<button type="button" data-tri="${t}" aria-pressed="${S.tri === t}">T${t}</button>`).join('')}
-          </div>
-        </div>
-      </section>
-      <div class="summary" id="summary">${summaryHTML(cls)}</div>
-      <div class="seg modes" role="group" aria-label="Affichage">
-        ${[['epreuve','Par épreuve'],['eleve','Par élève'],['tableau','Tableau'],['liste','Liste']].map(([k, l]) => `<button type="button" data-mode="${k}" aria-pressed="${S.mode === k}">${l}</button>`).join('')}
-      </div>
-      ${body}
-      <section class="foot">
-        <div class="formula">Moyenne <span class="ar" dir="rtl">= (م م + أ.تط + الفرض + الاختبار × 2) ÷ 5</span><br>
-          <span class="note">م م = cahier /8 + participation /6 + présence /3 + assiduité /3 · أ.تط = note 1 /10 + note 2 /10. Une moyenne précédée de ≈ est provisoire : il manque encore des notes.</span></div>
-        <div class="actions">
-          <button class="btn" data-act="xlsx-one">Exporter ${esc(cls.code)} en Excel</button>
-          <button class="btn ghost" data-act="xlsx-all">Exporter toutes les classes</button>
-        </div>
-      </section>`;
-  }
+  const v = {home: viewHome, entry: viewEntry, table: viewTable, stats: viewStats, export: viewExport, lists: viewLists, new: viewNew, bareme: viewBareme}[S.screen] || viewHome;
+  $('#main').innerHTML = (!STORE_OK && (S.screen === 'home' || S.screen === 'entry') ? WARN : '') + v();
   updateStatus();
+
   if (fid){
     const el = document.getElementById(fid);
     if (el){ el.focus({preventScroll: true}); try { if (sel) el.setSelectionRange(sel[0], sel[1]); } catch (e) {} }
   }
+  if (S.scrollTo){
+    const el = document.getElementById('card-' + S.scrollTo); S.scrollTo = null;
+    if (el) el.scrollIntoView({block: 'start'});
+  }
 }
-
-function stats(cls){
-  const rs = cls.students.map(s => compute(G(cls, s.id)));
-  const fin = rs.filter(r => r.complete).map(r => r.avg);
-  const base = fin.length ? fin : rs.filter(r => r.avg !== null).map(r => r.avg);
-  const mean = base.length ? r2(base.reduce((a, b) => a + b, 0) / base.length) : null;
-  return {n: rs.length, rs, fin, provisional: !fin.length && base.length > 0, mean,
-    pass: base.filter(v => v >= 10).length, cnt: base.length,
-    max: base.length ? Math.max(...base) : null, min: base.length ? Math.min(...base) : null};
-}
-function summaryHTML(cls){
-  const st = stats(cls);
-  const p = st.provisional ? '≈' : '';
-  const pct = st.cnt ? Math.round(st.pass / st.cnt * 100) : null;
-  return `
-    <div class="stat"><div class="l">Moyenne</div><div class="v ${st.mean !== null && st.mean < 10 ? 'low' : ''} ${st.provisional ? 'prov' : ''}">${p}${fmtAvg(st.mean)}</div><div class="x">${st.provisional ? 'provisoire' : 'de la classe'}</div></div>
-    <div class="stat"><div class="l">≥ 10</div><div class="v">${st.cnt ? st.pass : '—'}<small>${st.cnt ? '/' + st.cnt : ''}</small></div><div class="x">${pct === null ? '&nbsp;' : pct + ' %'}</div></div>
-    <div class="stat"><div class="l">Max · Min</div><div class="v" style="font-size:15px">${fmtAvg(st.max)}</div><div class="x ${st.min !== null && st.min < 10 ? 'low' : ''}">${fmtAvg(st.min)}</div></div>
-    <div class="stat"><div class="l">Complets</div><div class="v">${st.fin.length}<small>/${st.n}</small></div><div class="x">élèves</div></div>`;
-}
-
-function resHTML(cls, sid){
-  const r = compute(G(cls, sid));
-  const grp = FMAP[S.field].grp;
-  let sub = '';
-  if (grp === 'mm' && r.mmP.n) sub = `<span class="sub" dir="rtl">م م <span class="n">${fmtN(r.mmP.sum)}</span>${r.mmP.full ? '' : '…'}</span>`;
-  if (grp === 'at' && r.atP.n) sub = `<span class="sub" dir="rtl">أ.تط <span class="n">${fmtN(r.atP.sum)}</span>${r.atP.full ? '' : '…'}</span>`;
-  const c = r.avg === null ? 'none' : `${r.complete ? '' : 'prov'} ${r.avg < 10 ? 'low' : ''}`;
-  return `${sub}<span class="avg ${c}" dir="ltr">${r.avg === null ? '—' : (r.complete ? '' : '≈') + fmtAvg(r.avg)}</span>`;
-}
-
-function viewEpreuve(cls){
-  const f = FMAP[S.field];
-  const filled = cls.students.filter(s => isNum(G(cls, s.id)[f.k])).length;
-  const chip = x => {
-    const done = cls.students.length && cls.students.every(s => isNum(G(cls, s.id)[x.k]));
-    const lab = x.grp === 'mm' ? esc(x.fr) : x.grp === 'at' ? esc(x.fr) : `<span class="ar">${esc(x.ar)}</span>`;
-    return `<button type="button" class="fchip ${done ? 'done' : ''}" data-field="${x.k}" aria-pressed="${S.field === x.k}">${lab}<span class="m">/${x.max}</span></button>`;
-  };
-  const grpBox = (g, wide) => `<div class="fgrp ${wide ? 'wide' : ''}"><div class="fgrp-h"><b dir="rtl">${g.ar}</b><span>${g.id === 'e' ? 'compte ×2' : '/20'}</span></div><div class="fchips">${g.keys.map(k => chip(FMAP[k])).join('')}</div></div>`;
-  const fillBtn = (f.k === 'pr' || f.k === 'a') && filled < cls.students.length
-    ? `<button class="btn" data-act="fill" data-k="${f.k}">Mettre ${f.max} aux cases vides</button>` : '';
-  if (!cls.students.length) return `<div class="empty"><strong>Aucun élève dans cette classe</strong><span>Ajoutez les élèves dans l'onglet Liste.</span></div>`;
-  return `
-    <div class="fields">${grpBox(GROUPS[0], true)}${grpBox(GROUPS[1])}<div class="fgrp"><div class="fgrp-h"><b>Épreuves</b><span>/20</span></div><div class="fchips">${chip(FMAP.f)}${chip(FMAP.e)}</div></div></div>
-    <div class="fbar"><span><strong>${esc(f.fr)}</strong> <span class="ar" dir="rtl">${esc(f.ar)}</span> · sur ${f.max} · <span id="fprog">${filled}/${cls.students.length}</span> saisies</span>${fillBtn}</div>
-    <div class="sheet" dir="rtl">
-      <div class="rows-h"><span>الرقم</span><span>الاسم واللقب</span><span dir="ltr">${esc(f.fr)} /${f.max}</span><span>Moy.</span></div>
-      <ol class="rows">
-        ${cls.students.map((s, i) => {
-          const v = G(cls, s.id)[f.k];
-          return `<li class="row">
-            <span class="num">${i + 1}</span>
-            <button type="button" class="name" data-open="${i}">${esc(s.n)}</button>
-            <input class="g" id="g-${esc(s.id)}-${f.k}" dir="ltr" type="text" inputmode="decimal" enterkeyhint="next" autocomplete="off" autocorrect="off" spellcheck="false"
-              data-sid="${esc(s.id)}" data-k="${f.k}" data-nav="1" value="${isNum(v) ? fmtN(v) : ''}" placeholder="–" aria-label="${esc(s.n)} — ${esc(f.fr)} sur ${f.max}">
-            <span class="res" id="r-${esc(s.id)}">${resHTML(cls, s.id)}</span>
-          </li>`;
-        }).join('')}
-      </ol>
-    </div>`;
-}
-
-function inputFor(cls, s, k){
-  const f = FMAP[k], v = G(cls, s.id)[k];
-  return `<div class="fld"><label for="s-${k}"><span>${esc(f.fr)}</span><span><span class="ar" dir="rtl">${esc(f.ar)}</span> <span class="m">/${f.max}</span></span></label>
-    <input class="g" id="s-${k}" dir="ltr" type="text" inputmode="decimal" enterkeyhint="next" autocomplete="off" spellcheck="false"
-      data-sid="${esc(s.id)}" data-k="${k}" data-nav="1" value="${isNum(v) ? fmtN(v) : ''}" placeholder="–"></div>`;
-}
-function cardTotals(cls, s){
-  const g = G(cls, s.id), r = compute(g);
-  const tot = (P, full) => P.n ? `${fmtN(P.sum)} <small>/20${full ? '' : ' · incomplet'}</small>` : `— <small>/20</small>`;
-  const calc = r.complete ? `(${fmtN(r.mm)} + ${fmtN(r.at)} + ${fmtN(r.f)} + 2 × ${fmtN(r.e)}) ÷ 5` : 'Il manque des notes : moyenne provisoire';
-  const tag = r.avg === null ? '' : r.complete ? `<span class="tag ok ar" dir="rtl">${appreciation(r.avg)}</span>` : `<span class="tag">provisoire</span>`;
-  return {
-    mm: tot(r.mmP, r.mmP.full), at: tot(r.atP, r.atP.full),
-    e40: isNum(r.e) ? `${fmtN(r.e * 2)} <small>/40</small>` : `— <small>/40</small>`,
-    avg: `<span class="l" dir="rtl">المعدل</span>
-      <span class="big ${r.avg !== null && r.avg < 10 ? 'low' : ''} ${r.avg !== null && !r.complete ? 'prov' : ''}">${r.avg === null ? '—' : (r.complete ? '' : '≈') + fmtAvg(r.avg)}<small> /20</small></span>
-      <span class="calc">${r.avg === null ? 'Saisissez les notes pour calculer la moyenne' : calc}</span>${tag}`,
-    ph: r.complete ? appreciation(r.avg) : '',
-  };
-}
-function viewEleve(cls){
-  const n = cls.students.length;
-  if (!n) return `<div class="empty"><strong>Aucun élève dans cette classe</strong><span>Ajoutez les élèves dans l'onglet Liste.</span></div>`;
-  S.stu = Math.max(0, Math.min(S.stu, n - 1));
-  const s = cls.students[S.stu], T = cardTotals(cls, s), g = G(cls, s.id);
-  return `
-    <div class="stu-nav">
-      <button class="btn" data-act="prev" ${S.stu === 0 ? 'disabled' : ''} aria-label="Élève précédent">‹</button>
-      <div class="who"><div class="nm" dir="rtl">${esc(s.n)}</div><div class="no">N° ${S.stu + 1} sur ${n}</div></div>
-      <button class="btn" data-act="next" ${S.stu === n - 1 ? 'disabled' : ''} aria-label="Élève suivant">›</button>
-    </div>
-    <select class="pick" id="stu-pick" dir="rtl" aria-label="Choisir un élève">
-      ${cls.students.map((x, i) => `<option value="${i}" ${i === S.stu ? 'selected' : ''}>${i + 1}. ${esc(x.n)}</option>`).join('')}
-    </select>
-    <div class="blk">
-      <div class="blk-h"><span class="ttl"><b dir="rtl">م م</b><span>Évaluation continue</span></span><span class="tot" id="t-mm">${T.mm}</span></div>
-      <div class="grid2">${['c','p','pr','a'].map(k => inputFor(cls, s, k)).join('')}</div>
-    </div>
-    <div class="blk">
-      <div class="blk-h"><span class="ttl"><b dir="rtl">أ.تط</b><span>Applications</span></span><span class="tot" id="t-at">${T.at}</span></div>
-      <div class="grid2">${['t1','t2'].map(k => inputFor(cls, s, k)).join('')}</div>
-    </div>
-    <div class="blk">
-      <div class="blk-h"><span class="ttl"><b dir="rtl">الفرض · الاختبار</b></span><span class="tot" id="t-e40" title="Examen compté ×2">${T.e40}</span></div>
-      <div class="grid2">${inputFor(cls, s, 'f')}${inputFor(cls, s, 'e')}</div>
-    </div>
-    <div class="avgbox" id="t-avg">${T.avg}</div>
-    <div class="fld"><label for="s-r"><span>Remarque</span><span class="ar" dir="rtl">الملاحظات</span></label>
-      <input class="txt" id="s-r" dir="rtl" type="text" data-sid="${esc(s.id)}" data-k="r" enterkeyhint="next" value="${esc(g.r || '')}" placeholder="${esc(T.ph || 'تلقائية حسب المعدل')}"></div>`;
-}
-
-function viewTableau(cls){
-  const st = stats(cls);
-  const colAvg = key => {
-    const v = st.rs.map(r => r[key]).filter(isNum);
-    return v.length ? fmtAvg(v.reduce((a, b) => a + b, 0) / v.length) : '';
-  };
-  const finAvg = st.fin.length ? fmtAvg(st.fin.reduce((a, b) => a + b, 0) / st.fin.length) : '';
-  return `
-    <div class="tbl-wrap" dir="rtl">
-      <table dir="rtl">
-        <thead><tr><th>الرقم</th><th class="nm">الاسم واللقب</th><th>م م</th><th>أ.تط</th><th>الفرض</th><th>الاختبار</th><th>المعدل</th><th>الملاحظات</th></tr></thead>
-        <tbody>
-          ${cls.students.map((s, i) => {
-            const g = G(cls, s.id), r = st.rs[i];
-            const av = r.avg === null ? '' : (r.complete ? '' : '≈') + fmtAvg(r.avg);
-            const rk = g.r || (r.complete ? appreciation(r.avg) : '');
-            return `<tr data-open="${i}"><td class="v">${i + 1}</td><td class="nm">${esc(s.n)}</td>
-              <td class="v">${isNum(r.mm) ? fmtN(r.mm) : r.mmP.n ? '<span class="prov">' + fmtN(r.mmP.sum) + '…</span>' : ''}</td>
-              <td class="v">${isNum(r.at) ? fmtN(r.at) : r.atP.n ? '<span class="prov">' + fmtN(r.atP.sum) + '…</span>' : ''}</td>
-              <td class="v">${fmtN(r.f)}</td><td class="v">${fmtN(r.e)}</td>
-              <td class="v avg ${r.avg !== null && r.avg < 10 ? 'low' : ''} ${r.avg !== null && !r.complete ? 'prov' : ''}" dir="ltr">${av}</td>
-              <td class="rk">${esc(rk)}</td></tr>`;
-          }).join('')}
-        </tbody>
-        <tfoot><tr><td></td><td class="nm">معدل القسم</td><td>${colAvg('mm')}</td><td>${colAvg('at')}</td><td>${colAvg('f')}</td><td>${colAvg('e')}</td><td dir="ltr">${finAvg}</td><td></td></tr></tfoot>
-      </table>
-    </div>
-    <p class="note">Touchez un élève pour modifier ses notes. Les moyennes de colonnes ne prennent que les notes complètes.</p>`;
-}
-
-function viewListe(cls){
-  return `
-    <div class="sheet lst">
-      <ol class="rows" dir="rtl">
-        ${cls.students.map((s, i) => `<li class="row">
-          <span class="num">${i + 1}</span>
-          <input class="nm-in" id="n-${esc(s.id)}" data-name="${esc(s.id)}" value="${esc(s.n)}" aria-label="Nom de l'élève ${i + 1}">
-          ${S.confirm && S.confirm.type === 'stu' && S.confirm.id === s.id
-            ? `<span class="confirm" dir="ltr">Retirer ? <button class="btn danger" data-act="del-stu" data-id="${esc(s.id)}">Oui</button><button class="btn" data-act="cancel">Non</button></span>`
-            : `<button class="btn ghost" data-act="ask-del-stu" data-id="${esc(s.id)}" dir="ltr">Retirer</button>`}
-        </li>`).join('')}
-      </ol>
-      <div class="addrow"><input class="txt" id="add-name" dir="rtl" placeholder="الاسم واللقب" aria-label="Nom du nouvel élève"><button class="btn pri" data-act="add-stu">Ajouter</button></div>
-    </div>
-    <p class="note">Modifiez un nom directement dans la liste ; il est enregistré dès que vous quittez la case.</p>
-    <div class="actions">
-      ${S.confirm && S.confirm.type === 'class'
-        ? `<span class="confirm">Supprimer la classe ${esc(cls.code)} et toutes ses notes ? <button class="btn danger" data-act="del-class">Supprimer</button><button class="btn" data-act="cancel">Annuler</button></span>`
-        : `<button class="btn danger" data-act="ask-del-class">Supprimer la classe</button>`}
-    </div>`;
-}
-
-function viewNew(){
-  return `
-    <section class="ctx"><div class="ctx-h"><h1>Nouvelle classe</h1></div></section>
-    <form class="form" id="newcls">
-      <label>Code de la classe (comme sur la liste officielle)<input class="txt" id="nc-code" dir="rtl" placeholder="مثال : 2ع1" required></label>
-      <label>Intitulé<input class="txt" id="nc-label" dir="ltr" style="font-family:var(--f-ui)" placeholder="Ex. 2AS · Sciences expérimentales 1"></label>
-      <label>Liste des élèves, un nom par ligne<textarea class="txt" id="nc-names" dir="rtl" placeholder="حبلال هارون&#10;حروس حسام الدين&#10;…"></textarea></label>
-      <div class="actions"><button class="btn pri" type="submit">Créer la classe</button><button class="btn" type="button" data-act="cancel-new">Annuler</button></div>
-    </form>`;
+function go(screen){
+  S.screen = screen; S.dd = null; S.confirm = null; S.band = null;
+  saveCache(); render(); window.scrollTo({top: 0});
 }
 
 /* ---------- live refresh while typing ---------- */
 function refreshLive(sid){
   const cls = curClass(); if (!cls) return;
-  const r = document.getElementById('r-' + sid);
-  if (r) r.innerHTML = resHTML(cls, sid);
-  const sm = $('#summary'); if (sm) sm.innerHTML = summaryHTML(cls);
-  const fp = $('#fprog');
-  if (fp){ const k = S.field; fp.textContent = `${cls.students.filter(s => isNum(G(cls, s.id)[k])).length}/${cls.students.length}`; }
-  if (S.mode === 'eleve'){
-    const s = cls.students[S.stu]; if (!s || s.id !== sid) return;
-    const T = cardTotals(cls, s);
-    $('#t-mm').innerHTML = T.mm; $('#t-at').innerHTML = T.at; $('#t-e40').innerHTML = T.e40; $('#t-avg').innerHTML = T.avg;
-    const rk = $('#s-r'); if (rk) rk.placeholder = T.ph || 'تلقائية حسب المعدل';
+  const r = compute(G(cls, sid)), st = stHTML(r);
+  const set = (id, html) => { const el = document.getElementById(id); if (el) el.innerHTML = html; };
+  set('av-' + sid, avgHTML(r));
+  const se = document.getElementById('st-' + sid); if (se){ se.className = 'st ' + st.c; se.innerHTML = st.h; }
+  const mmB = document.getElementById('bx-mm-' + sid); if (mmB){ mmB.innerHTML = calcVal(r.mmP); mmB.classList.toggle('full', r.mmP.full); }
+  const atB = document.getElementById('bx-at-' + sid); if (atB){ atB.innerHTML = calcVal(r.atP); atB.classList.toggle('full', r.atP.full); }
+  set('mm-' + sid, totHTML(r.mmP)); set('at-' + sid, totHTML(r.atP));
+  const rm = document.getElementById('in-' + sid + '-r'); if (rm) rm.placeholder = 'الملاحظة: ' + (r.complete ? appreciation(r.avg) : 'تلقائية حسب المعدل');
+  set('kpis', kpisHTML(cls));
+  const qp = $('#qprog');
+  if (qp){
+    const k = S.field; qp.textContent = `${cls.students.filter(s => isNum(G(cls, s.id)[k])).length} / ${cls.students.length}`;
+    const chip = document.querySelector(`.chip[data-field="${k}"]`);
+    if (chip) chip.classList.toggle('done', cls.students.every(s => isNum(G(cls, s.id)[k])));
   }
 }
 
 /* ---------- events ---------- */
 document.addEventListener('input', e => {
-  const inp = e.target;
-  if (!inp.matches || !inp.matches('input[data-k]')) return;
+  const t = e.target;
+  if (t.id === 'q'){ S.q = t.value; render(); return; }
+  if (!t.matches || !t.matches('input[data-k]')) return;
   const cls = curClass(); if (!cls) return;
-  const {sid, k} = inp.dataset;
+  const {sid, k} = t.dataset;
   if (k === 'r'){
-    const txt = inp.value.trim();
-    cls.t = cls.t || {}; const T = cls.t[S.tri] = cls.t[S.tri] || {}; const g = T[sid] = T[sid] || {};
+    const txt = t.value.trim(); const g = gradeObj(cls, sid);
     if (txt) g.r = txt; else delete g.r;
     touch(cls); return;
   }
-  const f = FMAP[k]; const v = parseGrade(inp.value, f.max);
-  if (v === undefined){ inp.classList.add('bad'); return; }
-  inp.classList.remove('bad');
+  const f = FMAP[k]; const v = parseGrade(t.value, f.max);
+  if (v === undefined){ t.classList.add('bad'); return; }
+  t.classList.remove('bad');
   const old = G(cls, sid)[k];
   if ((v === null && old === undefined) || v === old) return;
-  setGrade(cls, sid, k, v);
+  const g = gradeObj(cls, sid);
+  if (v === null) delete g[k]; else g[k] = v;
+  touch(cls);
   refreshLive(sid);
-  if (S.mode === 'epreuve'){
-    const chip = document.querySelector(`.fchip[data-field="${k}"]`);
-    if (chip) chip.classList.toggle('done', cls.students.every(s => isNum(G(cls, s.id)[k])));
-  }
+});
+document.addEventListener('focusin', e => {
+  if (e.target.matches && e.target.matches('input,textarea')) $('#app').classList.add('typing');
 });
 document.addEventListener('focusout', e => {
-  const inp = e.target;
-  if (inp.matches && inp.matches('input.g.bad')){
-    const cls = curClass(); const f = FMAP[inp.dataset.k];
-    const v = cls ? G(cls, inp.dataset.sid)[inp.dataset.k] : undefined;
-    inp.value = isNum(v) ? fmtN(v) : '';
-    inp.classList.remove('bad');
-    toast(`Note refusée : entrez un nombre entre 0 et ${f.max} (ex. ${f.max === 3 ? '2,5' : '12,5'}).`);
+  const t = e.target;
+  setTimeout(() => { if (!isTyping()){ $('#app').classList.remove('typing'); if (S.pendingRender) render(); } }, 120);
+  if (t.matches && t.matches('input.bv.bad')){
+    const cls = curClass(); const f = FMAP[t.dataset.k];
+    const v = cls ? G(cls, t.dataset.sid)[t.dataset.k] : undefined;
+    t.value = isNum(v) ? fmtN(v) : ''; t.classList.remove('bad');
+    toast(`نقطة مرفوضة: أدخل عدداً بين 0 و ${f.max} (مثال: ${f.max === 3 ? '2.5' : '12.5'})`);
   }
-  if (inp.matches && inp.matches('input[data-name]')){
+  if (t.matches && t.matches('input[data-name]')){
     const cls = curClass(); if (!cls) return;
-    const s = cls.students.find(x => x.id === inp.dataset.name);
-    const nv = inp.value.trim().replace(/\s+/g, ' ');
+    const s = cls.students.find(x => x.id === t.dataset.name);
+    const nv = t.value.trim().replace(/\s+/g, ' ');
     if (s && nv && nv !== s.n){ s.n = nv; touch(cls); }
-    else if (s && !nv) inp.value = s.n;
+    else if (s && !nv) t.value = s.n;
   }
 });
+function focusNext(t){
+  const all = [...document.querySelectorAll('input[data-ord]')].filter(x => x.offsetParent !== null).sort((a, b) => a.dataset.ord - b.dataset.ord);
+  const cur = t.dataset.ord !== undefined ? +t.dataset.ord : (() => { const c = t.closest('.card'); const any = c && c.querySelector('input[data-ord]'); return any ? Math.floor(any.dataset.ord / 20) * 20 + 19 : -1; })();
+  const nx = all.find(x => +x.dataset.ord > cur);
+  if (nx){ nx.focus(); try { nx.select(); } catch (e) {} nx.scrollIntoView({block: 'center', behavior: 'smooth'}); }
+  else t.blur();
+}
 document.addEventListener('keydown', e => {
+  if (e.key === 'Escape' && S.dd){ S.dd = null; render(); return; }
   if (e.key !== 'Enter') return;
   const t = e.target;
+  if (t.id === 'q'){ e.preventDefault(); t.blur(); return; }
   if (t.id === 'add-name'){ e.preventDefault(); addStudent(); return; }
   if (t.matches && t.matches('input[data-name]')){ e.preventDefault(); t.blur(); return; }
-  if (!t.matches || !t.matches('input[data-k]')) return;
-  e.preventDefault();
-  const all = [...document.querySelectorAll('input[data-nav]')];
-  const i = all.indexOf(t);
-  if (i >= 0 && i < all.length - 1){ all[i + 1].focus(); all[i + 1].select(); all[i + 1].scrollIntoView({block: 'center', behavior: 'smooth'}); return; }
-  if (S.mode === 'eleve'){
-    if (t.id === 's-r' || i === all.length - 1){
-      const cls = curClass();
-      if (t.id !== 's-r'){ const rk = $('#s-r'); if (rk){ rk.focus(); return; } }
-      if (cls && S.stu < cls.students.length - 1){
-        S.stu++; saveCache(); render();
-        const first = document.querySelector('input[data-nav]'); if (first){ first.focus(); first.select(); }
-        window.scrollTo({top: 0, behavior: 'smooth'});
-      } else t.blur();
-    }
-  } else t.blur();
+  if (t.matches && t.matches('input[data-k]')){ e.preventDefault(); focusNext(t); }
 });
-document.addEventListener('change', e => {
-  if (e.target.id === 'stu-pick'){ S.stu = +e.target.value; saveCache(); render(); }
+document.addEventListener('change', async e => {
+  if (e.target.id !== 'imp-file') return;
+  const file = e.target.files && e.target.files[0]; e.target.value = '';
+  if (!file) return;
+  try {
+    const o = JSON.parse(await file.text());
+    if (!o || o.app !== 'carnet-notes' || !o.classes || typeof o.classes !== 'object') throw new Error('format');
+    const classes = Object.entries(o.classes).map(([id, c]) => Object.assign({}, c, {id: c && c.id || id}))
+      .filter(c => c && Array.isArray(c.students) && /^[A-Za-z0-9_\-.~:@+]{1,60}$/.test(c.id));
+    if (!classes.length) throw new Error('empty');
+    let date = '';
+    try { date = o.savedAt ? new Date(o.savedAt).toLocaleString('fr-FR', {dateStyle: 'short', timeStyle: 'short'}) : ''; } catch (x) {}
+    S.imp = {classes, meta: o.meta || null, date};
+    go('export');
+  } catch (x) { toast('هذا الملف ليس نسخة احتياطية من دفتر التنقيط.'); }
 });
 document.addEventListener('submit', e => {
   if (e.target.id !== 'newcls') return;
   e.preventDefault();
   const code = $('#nc-code').value.trim();
-  if (!code){ toast('Indiquez le code de la classe.'); return; }
+  if (!code){ toast('أدخل رمز القسم'); return; }
   const label = $('#nc-label').value.trim();
-  const names = $('#nc-names').value.split(/\r?\n/).map(l => l.replace(/^[\s\d.\-–)]+/, '').replace(/\s+/g, ' ').trim()).filter(Boolean);
+  const names = $('#nc-names').value.split(/\r?\n/).map(l => l.replace(/^[\s\d٠-٩.\-–)]+/, '').replace(/\s+/g, ' ').trim()).filter(Boolean);
   const id = 'c' + Date.now().toString(36);
   const order = Math.max(0, ...Object.values(S.classes).map(c => c.order || 0)) + 1;
-  const slug = (label || code).normalize('NFD').replace(/[^A-Za-z0-9]+/g, '-').replace(/^-|-$/g, '') || id;
-  S.classes[id] = {id, kind:'class', code, label, short: label.split('·')[0].trim().slice(0, 10), slug, order,
-    students: names.map((n, i) => ({id: 's' + (i + 1).toString().padStart(2, '0'), n})), t: {}, u: 0};
-  S.cur = id; S.mode = 'epreuve'; S.field = 'c';
-  touch(S.classes[id]); render();
-  toast(`Classe ${code} créée avec ${names.length} élève${names.length > 1 ? 's' : ''}.`);
+  const slug = (label || '').normalize('NFD').replace(/[^A-Za-z0-9]+/g, '-').replace(/^-|-$/g, '') || id;
+  S.classes[id] = {id, kind:'class', code, label, short: (label.split('·')[0] || '').trim().slice(0, 10), slug, order,
+    students: names.map((n, i) => ({id: 's' + String(i + 1).padStart(2, '0'), n})), t: {}, u: 0};
+  S.cur = id;
+  touch(S.classes[id]);
+  toast(`تم إنشاء القسم ${code} (${names.length} تلميذ)`);
+  go('lists');
 });
-
 function addStudent(){
   const cls = curClass(); const el = $('#add-name'); if (!cls || !el) return;
   const n = el.value.trim().replace(/\s+/g, ' ');
@@ -785,30 +962,41 @@ function addStudent(){
 }
 
 document.addEventListener('click', e => {
-  const b = e.target.closest('button,tr[data-open]'); if (!b) return;
+  const b = e.target.closest('button,tr[data-row]');
+  if (S.dd && !(b && (b.dataset.dd || b.closest('.dd-m')))){ S.dd = null; if (!b){ render(); return; } }
+  if (!b) return;
   const d = b.dataset;
-  if (d.cls){ S.cur = d.cls; if (S.mode === 'new') S.mode = 'epreuve'; S.confirm = null; S.stu = 0; saveCache(); render(); window.scrollTo({top: 0}); return; }
-  if (d.tri){ S.tri = d.tri; saveCache(); render(); return; }
-  if (d.mode){ S.mode = d.mode; S.confirm = null; saveCache(); render(); return; }
-  if (d.field){ S.field = d.field; saveCache(); render(); const first = document.querySelector('input[data-nav]'); if (first && matchMedia('(hover:none)').matches === false) first.focus(); return; }
-  if (d.open !== undefined){ S.stu = +d.open; S.mode = 'eleve'; saveCache(); render(); window.scrollTo({top: 0}); return; }
+  if (b.id === 'back'){ go(S.screen === 'new' ? 'lists' : 'home'); return; }
   if (b.id === 'sync'){ explainSync(); return; }
+  if (b.id === 'fab'){ saveNow(); return; }
+  if (d.go){ go(d.go); return; }
+  if (d.dd){ S.dd = S.dd === d.dd ? null : d.dd; render(); return; }
+  if (d.tri){ S.tri = d.tri; S.dd = null; S.band = null; saveCache(); render(); return; }
+  if (d.cls){ S.cur = d.cls; S.dd = null; S.open.clear(); S.q = ''; S.band = null; S.confirm = null; saveCache(); render(); return; }
+  if (d.openClass){ S.cur = d.openClass; S.q = ''; S.open.clear(); go('entry'); return; }
+  if (d.view){ S.view = d.view; saveCache(); render(); return; }
+  if (d.field){ S.field = d.field; saveCache(); render(); return; }
+  if (d.band !== undefined){ S.band = S.band === +d.band ? null : +d.band; render(); return; }
+  if (d.row){ S.view = 'cards'; S.q = ''; S.open.add(d.row); S.scrollTo = d.row; S.screen = 'entry'; saveCache(); render(); return; }
+  if (d.toggle){
+    const sid = d.toggle;
+    if (S.detailAll){ const el = document.getElementById(`in-${sid}-${d.first}`); if (el){ el.focus(); el.select(); } return; }
+    const opening = !S.open.has(sid);
+    if (opening) S.open.add(sid); else S.open.delete(sid);
+    render();
+    if (opening){ const el = document.getElementById(`in-${sid}-${d.first}`); if (el){ el.focus({preventScroll: true}); try { el.select(); } catch (x) {} } }
+    return;
+  }
+  if (d.xlsx){ const c = S.classes[d.xlsx]; if (c) exportXlsx([c]); return; }
   const cls = curClass();
   switch (d.act){
-    case 'prev': if (S.stu > 0){ S.stu--; saveCache(); render(); } break;
-    case 'next': if (cls && S.stu < cls.students.length - 1){ S.stu++; saveCache(); render(); } break;
+    case 'detail-all': S.detailAll = !S.detailAll; saveCache(); render(); break;
     case 'fill': {
       if (!cls) break; const f = FMAP[d.k]; let n = 0;
-      for (const s of cls.students){
-        if (!isNum(G(cls, s.id)[f.k])){
-          cls.t = cls.t || {}; const T = cls.t[S.tri] = cls.t[S.tri] || {}; (T[s.id] = T[s.id] || {})[f.k] = f.max; n++;
-        }
-      }
-      if (n){ touch(cls); render(); toast(`${f.fr} : ${f.max}/${f.max} mis à ${n} élève${n > 1 ? 's' : ''}.`); }
+      for (const s of cls.students){ if (!isNum(G(cls, s.id)[f.k])){ gradeObj(cls, s.id)[f.k] = f.max; n++; } }
+      if (n){ touch(cls); render(); toast(`${f.ar}: وُضعت ${f.max}/${f.max} لـ ${n} تلميذ`); }
       break;
     }
-    case 'new-class': S.mode = 'new'; S.confirm = null; render(); setTimeout(() => { const c = $('#nc-code'); if (c) c.focus(); }, 50); break;
-    case 'cancel-new': S.mode = 'epreuve'; render(); break;
     case 'add-stu': addStudent(); break;
     case 'ask-del-stu': S.confirm = {type:'stu', id: d.id}; render(); break;
     case 'ask-del-class': S.confirm = {type:'class'}; render(); break;
@@ -819,96 +1007,159 @@ document.addEventListener('click', e => {
       cls.students = cls.students.filter(x => x.id !== d.id);
       for (const t of Object.keys(cls.t || {})) if (cls.t[t]) delete cls.t[t][d.id];
       S.confirm = null; touch(cls); render();
-      if (s) toast(`${s.n} retiré(e) de la liste.`);
+      if (s) toast(`حُذف ${s.n} من القائمة`);
       break;
     }
     case 'del-class': {
       if (!cls) break;
       const code = cls.code;
-      delete S.classes[cls.id]; S.dirty.add(cls.id); S.confirm = null; S.mode = 'epreuve'; S.cur = null;
-      saveCache(); schedule(cls.id, 100); render(); toast(`Classe ${code} supprimée.`);
+      delete S.classes[cls.id]; S.dirty.add(cls.id); S.confirm = null; S.cur = null;
+      saveCache(); schedule(cls.id, 100); render(); toast(`حُذف القسم ${code}`);
       break;
     }
-    case 'xlsx-one': if (cls) exportXlsx([cls]); break;
     case 'xlsx-all': exportXlsx(sorted()); break;
+    case 'backup': backupDownload(); break;
+    case 'imp-no': S.imp = null; render(); break;
+    case 'imp-ok': {
+      if (!S.imp) break;
+      const list = S.imp.classes;
+      for (const c of list){ const id = c.id; S.classes[id] = Object.assign(JSON.parse(JSON.stringify(c)), {id, kind:'class'}); touch(S.classes[id]); }
+      if (!S.meta && S.imp.meta) S.meta = S.imp.meta;
+      S.imp = null; saveCache(); render(); toast(`تم استرجاع ${list.length} أقسام ✓`);
+      break;
+    }
   }
 });
 
 function explainSync(){
-  if (S.sync === 'local') toast("Votre compte n'est pas joignable dans cet affichage : les notes sont gardées sur ce téléphone. Exportez-les en Excel pour les sauvegarder.");
-  else if (S.dirty.size) toast("Pas de réseau pour l'instant : les notes sont gardées sur ce téléphone et seront envoyées dès le retour de la connexion.");
-  else toast('Toutes vos notes sont enregistrées dans votre compte. Vous les retrouvez sur le téléphone comme sur l’ordinateur.');
+  if (S.sync === 'local') toast(STORE_OK ? 'النقاط محفوظة في متصفح هذا الجهاز. احفظ نسخة احتياطية من «تصدير وحفظ» للاحتياط أو لنقلها إلى جهاز آخر.' : 'هذا المتصفح لا يحتفظ بالنقاط لهذا الملف. احفظ نسخة احتياطية قبل الإغلاق.');
+  else if (S.dirty.size) toast('لا توجد شبكة الآن: النقاط محفوظة على الهاتف وستُرسل إلى السحابة عند عودة الاتصال.');
+  else toast('كل النقاط محفوظة في حسابك، وتجدها على الهاتف والحاسوب.');
 }
-
 let toastTimer;
 function toast(msg){
   const t = $('#toast'); t.textContent = msg; t.hidden = false;
-  clearTimeout(toastTimer); toastTimer = setTimeout(() => { t.hidden = true; }, 3800);
+  clearTimeout(toastTimer); toastTimer = setTimeout(() => { t.hidden = true; }, 3500);
 }
 
-/* ---------- Excel ---------- */
-function loadXLSX(){
-  if (window.XLSX) return Promise.resolve();
-  return new Promise((res, rej) => {
-    const s = document.createElement('script');
-    s.src = 'https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js';
-    s.onload = () => res(); s.onerror = () => rej(new Error('load'));
-    document.head.appendChild(s);
-  });
+/* ---------- files ---------- */
+async function saveFile(name, blob){
+  const dl = await use('downloads');
+  if (dl){
+    try { await dl.save({filename: name, data: blob}); return 'ok'; }
+    catch (e) { const c = e && e.code; return c === 'declined' ? 'declined' : c === 'rate_limited' ? 'busy' : 'fail'; }
+  }
+  try {
+    const url = URL.createObjectURL(blob); const a = document.createElement('a');
+    a.href = url; a.download = name; a.rel = 'noopener'; document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 5000); return 'ok';
+  } catch (e) { return 'fail'; }
 }
+const fileMsg = (r, okMsg) => { if (r === 'ok') toast(okMsg); else if (r === 'busy') toast('هناك طلب تنزيل مفتوح، أعد المحاولة بعد لحظة.'); else if (r !== 'declined') toast('تعذّر حفظ الملف في هذا العرض.'); };
+async function backupDownload(){
+  const d = new Date(), p2 = n => String(n).padStart(2, '0');
+  const data = JSON.stringify({app: 'carnet-notes', v: 1, savedAt: d.toISOString(), meta: S.meta, classes: S.classes});
+  const r = await saveFile(`Carnet-notes-sauvegarde-${d.getFullYear()}-${p2(d.getMonth() + 1)}-${p2(d.getDate())}.json`, new Blob([data], {type: 'application/json'}));
+  fileMsg(r, 'تم حفظ النسخة الاحتياطية ✓');
+}
+
+/* ---------- Excel (.xlsx written here, no library) ---------- */
 function sheetFor(cls){
   const m = S.meta || {};
   const st = stats(cls);
+  const v = x => isNum(x) ? x : '';
   const rows = [
     [m.school || ''],
     [`قائمة تنقيط التلاميذ قسم ${cls.code} - ${TRI[S.tri]} - اللغة الفرنسية`],
     [`الموسم الدراسي: ${m.year || ''}`, '', '', '', '', `الأستاذ: ${m.teacher || ''}`],
     [],
-    ['الرقم','الاسم واللقب','م م','أ.تط','الفرض','الاختبار','المعدل','الملاحظات','', 'الكراس /8','المشاركة /6','الحضور /3','المواظبة /3','أ.تط 1 /10','أ.تط 2 /10'],
+    ['الرقم','الاسم واللقب','م م','أ.تط','الفرض','الاختبار','المعدل','الملاحظات','','الكراس /8','المشاركة /6','الحضور /3','المواظبة /3','تطبيق 1 /10','تطبيق 2 /10'],
   ];
-  const v = x => isNum(x) ? x : '';
   cls.students.forEach((s, i) => {
     const g = G(cls, s.id), r = st.rs[i];
     rows.push([i + 1, s.n, v(r.mm), v(r.at), v(r.f), v(r.e), r.complete ? r.avg : '', g.r || (r.complete ? appreciation(r.avg) : ''), '',
       v(g.c), v(g.p), v(g.pr), v(g.a), v(g.t1), v(g.t2)]);
   });
-  const col = key => { const a = st.rs.map(r => r[key]).filter(isNum); return a.length ? r2(a.reduce((x, y) => x + y, 0) / a.length) : ''; };
+  const col = k => { const a = mean(st.rs.map(r => r[k]).filter(isNum)); return a === null ? '' : a; };
   rows.push([]);
-  rows.push(['', 'معدل القسم', col('mm'), col('at'), col('f'), col('e'), st.fin.length ? r2(st.fin.reduce((x, y) => x + y, 0) / st.fin.length) : '']);
-  if (st.fin.length) rows.push(['', 'نسبة النجاح (≥10)', '', '', '', '', `${st.fin.filter(x => x >= 10).length}/${st.fin.length}`]);
-  const ws = XLSX.utils.aoa_to_sheet(rows);
-  ws['!cols'] = [{wch:6},{wch:28},{wch:7},{wch:7},{wch:7},{wch:9},{wch:8},{wch:16},{wch:2},{wch:9},{wch:11},{wch:9},{wch:10},{wch:10},{wch:10}];
-  ws['!merges'] = [{s:{r:0,c:0},e:{r:0,c:7}}, {s:{r:1,c:0},e:{r:1,c:7}}];
-  return ws;
+  const bold = [0, 1, 4, rows.length];
+  rows.push(['', 'معدل القسم', col('mm'), col('at'), col('f'), col('e'), st.fin.length ? mean(st.fin) : '']);
+  if (st.fin.length){ bold.push(rows.length); rows.push(['', 'نسبة النجاح (≥10)', '', '', '', '', `${st.fin.filter(x => x >= 10).length}/${st.fin.length}`]); }
+  return {rows, bold, cols: [6, 28, 7, 7, 7, 9, 8, 16, 2, 9, 11, 9, 10, 10, 10], merges: ['A1:H1', 'A2:H2']};
+}
+const CRC_T = (() => { const t = new Uint32Array(256); for (let n = 0; n < 256; n++){ let c = n; for (let k = 0; k < 8; k++) c = c & 1 ? 0xEDB88320 ^ (c >>> 1) : c >>> 1; t[n] = c >>> 0; } return t; })();
+function crc32(b){ let c = 0xFFFFFFFF; for (let i = 0; i < b.length; i++) c = CRC_T[(c ^ b[i]) & 0xFF] ^ (c >>> 8); return (c ^ 0xFFFFFFFF) >>> 0; }
+function zipBytes(files){
+  const enc = new TextEncoder(), parts = [], cd = []; let off = 0;
+  for (const f of files){
+    const name = enc.encode(f.name), data = enc.encode(f.data), crc = crc32(data);
+    const h = new DataView(new ArrayBuffer(30));
+    h.setUint32(0, 0x04034b50, true); h.setUint16(4, 20, true); h.setUint16(6, 0x0800, true); h.setUint16(12, 0x21, true);
+    h.setUint32(14, crc, true); h.setUint32(18, data.length, true); h.setUint32(22, data.length, true); h.setUint16(26, name.length, true);
+    parts.push(new Uint8Array(h.buffer), name, data);
+    const c = new DataView(new ArrayBuffer(46));
+    c.setUint32(0, 0x02014b50, true); c.setUint16(4, 20, true); c.setUint16(6, 20, true); c.setUint16(8, 0x0800, true); c.setUint16(14, 0x21, true);
+    c.setUint32(16, crc, true); c.setUint32(20, data.length, true); c.setUint32(24, data.length, true); c.setUint16(28, name.length, true); c.setUint32(42, off, true);
+    cd.push(new Uint8Array(c.buffer), name);
+    off += 30 + name.length + data.length;
+  }
+  const cdSize = cd.reduce((a, p) => a + p.length, 0);
+  const e = new DataView(new ArrayBuffer(22));
+  e.setUint32(0, 0x06054b50, true); e.setUint16(8, files.length, true); e.setUint16(10, files.length, true); e.setUint32(12, cdSize, true); e.setUint32(16, off, true);
+  const all = [...parts, ...cd, new Uint8Array(e.buffer)], out = new Uint8Array(all.reduce((a, p) => a + p.length, 0));
+  let o = 0; for (const p of all){ out.set(p, o); o += p.length; }
+  return out;
+}
+const xesc = s => String(s).replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F]/g, '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+const colL = n => { let s = ''; n++; while (n){ const m = (n - 1) % 26; s = String.fromCharCode(65 + m) + s; n = Math.floor((n - 1) / 26); } return s; };
+const XH = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>\n';
+const NS = 'http://schemas.openxmlformats.org';
+function sheetXML(sh){
+  const rows = sh.rows.map((r, ri) => `<row r="${ri + 1}">${r.map((v, ci) => {
+    if (v === '' || v === null || v === undefined) return '';
+    const ref = colL(ci) + (ri + 1), s = sh.bold.includes(ri) ? ' s="1"' : '';
+    return typeof v === 'number' ? `<c r="${ref}"${s}><v>${v}</v></c>` : `<c r="${ref}" t="inlineStr"${s}><is><t xml:space="preserve">${xesc(v)}</t></is></c>`;
+  }).join('')}</row>`).join('');
+  const cols = sh.cols.map((w, i) => `<col min="${i + 1}" max="${i + 1}" width="${w}" customWidth="1"/>`).join('');
+  const merges = sh.merges.length ? `<mergeCells count="${sh.merges.length}">${sh.merges.map(m => `<mergeCell ref="${m}"/>`).join('')}</mergeCells>` : '';
+  return `${XH}<worksheet xmlns="${NS}/spreadsheetml/2006/main" xmlns:r="${NS}/officeDocument/2006/relationships"><sheetViews><sheetView rightToLeft="1" workbookViewId="0"/></sheetViews><cols>${cols}</cols><sheetData>${rows}</sheetData>${merges}</worksheet>`;
+}
+function buildXlsx(sheets){
+  const ct = `${XH}<Types xmlns="${NS}/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/><Override PartName="/xl/workbook.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet.main+xml"/><Override PartName="/xl/styles.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.styles+xml"/>${sheets.map((s, i) => `<Override PartName="/xl/worksheets/sheet${i + 1}.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.worksheet+xml"/>`).join('')}</Types>`;
+  const rels = `${XH}<Relationships xmlns="${NS}/package/2006/relationships"><Relationship Id="rId1" Type="${NS}/officeDocument/2006/relationships/officeDocument" Target="xl/workbook.xml"/></Relationships>`;
+  const wb = `${XH}<workbook xmlns="${NS}/spreadsheetml/2006/main" xmlns:r="${NS}/officeDocument/2006/relationships"><sheets>${sheets.map((s, i) => `<sheet name="${xesc(s.name)}" sheetId="${i + 1}" r:id="rId${i + 1}"/>`).join('')}</sheets></workbook>`;
+  const wbr = `${XH}<Relationships xmlns="${NS}/package/2006/relationships">${sheets.map((s, i) => `<Relationship Id="rId${i + 1}" Type="${NS}/officeDocument/2006/relationships/worksheet" Target="worksheets/sheet${i + 1}.xml"/>`).join('')}<Relationship Id="rId${sheets.length + 1}" Type="${NS}/officeDocument/2006/relationships/styles" Target="styles.xml"/></Relationships>`;
+  const st = `${XH}<styleSheet xmlns="${NS}/spreadsheetml/2006/main"><fonts count="2"><font><sz val="11"/><name val="Calibri"/></font><font><b/><sz val="11"/><name val="Calibri"/></font></fonts><fills count="2"><fill><patternFill patternType="none"/></fill><fill><patternFill patternType="gray125"/></fill></fills><borders count="1"><border><left/><right/><top/><bottom/><diagonal/></border></borders><cellStyleXfs count="1"><xf numFmtId="0" fontId="0" fillId="0" borderId="0"/></cellStyleXfs><cellXfs count="2"><xf numFmtId="0" fontId="0" fillId="0" borderId="0" xfId="0"/><xf numFmtId="0" fontId="1" fillId="0" borderId="0" xfId="0" applyFont="1"/></cellXfs><cellStyles count="1"><cellStyle name="Normal" xfId="0" builtinId="0"/></cellStyles></styleSheet>`;
+  return zipBytes([{name: '[Content_Types].xml', data: ct}, {name: '_rels/.rels', data: rels}, {name: 'xl/workbook.xml', data: wb}, {name: 'xl/_rels/workbook.xml.rels', data: wbr}, {name: 'xl/styles.xml', data: st},
+    ...sheets.map((s, i) => ({name: `xl/worksheets/sheet${i + 1}.xml`, data: sheetXML(s)}))]);
 }
 async function exportXlsx(list){
   if (!list.length) return;
-  const dl = await use('downloads');
-  if (!dl){ toast("L'export n'est pas disponible dans cet affichage. Ouvrez la page dans l'application Claude ou sur claude.ai."); return; }
-  toast('Préparation du fichier Excel…');
-  try { await loadXLSX(); } catch (e) { toast("Le module Excel n'a pas pu se charger. Vérifiez la connexion puis réessayez."); return; }
-  const wb = XLSX.utils.book_new();
-  wb.Workbook = {Views: [{RTL: true}]};
-  for (const c of list) XLSX.utils.book_append_sheet(wb, sheetFor(c), String(c.code).replace(/[\[\]:*?\/\\]/g, '').slice(0, 31) || c.id);
-  const buf = XLSX.write(wb, {bookType: 'xlsx', type: 'array'});
+  const used = new Set();
+  const sheets = list.map(c => {
+    const sh = sheetFor(c);
+    let nm = String(c.code).replace(/[\[\]:*?\/\\]/g, '').slice(0, 31) || c.id;
+    while (used.has(nm)) nm = nm.slice(0, 27) + '_' + used.size;
+    used.add(nm); sh.name = nm; return sh;
+  });
+  const blob = new Blob([buildXlsx(sheets)], {type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'});
   const name = list.length === 1 ? `Notes_FR_T${S.tri}_${list[0].slug || list[0].id}.xlsx` : `Notes_FR_T${S.tri}_toutes_classes.xlsx`;
-  try {
-    await dl.save({filename: name, data: new Blob([buf])});
-    toast('Fichier Excel enregistré.');
-  } catch (err) {
-    const c = err && err.code;
-    if (c === 'declined') return;
-    if (c === 'rate_limited') toast('Une demande de téléchargement est déjà ouverte. Réessayez dans un instant.');
-    else toast("Le fichier n'a pas pu être enregistré dans cet affichage.");
-  }
+  fileMsg(await saveFile(name, blob), 'تم حفظ ملف Excel ✓');
 }
 
 /* ---------- boot ---------- */
 loadCache();
+if (SEED && SEED.classes){
+  let added = false;
+  for (const [id, c] of Object.entries(SEED.classes)) if (!S.classes[id]){ S.classes[id] = Object.assign({}, c, {id}); added = true; }
+  if (!S.meta && SEED.meta) S.meta = SEED.meta;
+  if (added) saveCache();
+}
 if (Object.keys(S.classes).length) S.loaded = true;
 render();
 initCloud();
 })();
 </script>
 
-</body></html>
+</body>
+</html>
