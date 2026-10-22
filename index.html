@@ -1,0 +1,914 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Carnet de notes 2026-2027</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Naskh+Arabic:wght@500;600;700&family=Readex+Pro:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: a teacher's grade register on a phone. Ruled rows like the official
+   "قائمة تنقيط" sheet, ballpoint-blue for input, red pen for averages under 10. */
+:root{
+  --paper:#F4F6FA; --sheet:#FFFFFF; --ink:#172036; --ink-2:#56607A; --rule:#DCE1EC; --rule-2:#EAEDF4;
+  --bic:#2342A8; --on-bic:#FFFFFF; --bic-soft:#E7EBF9;
+  --redpen:#C2362F; --redpen-soft:#FBEAE8;
+  --ok:#1E7A50; --ok-soft:#E2F3EA; --prov:#8A6A12;
+  --shadow:0 1px 2px rgba(23,32,54,.06),0 2px 8px rgba(23,32,54,.05);
+  --f-ui:"Readex Pro",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --f-ar:"Noto Naskh Arabic","Readex Pro",Tahoma,"Arial",serif;
+  --f-num:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#0F121A; --sheet:#171B27; --ink:#E7EAF3; --ink-2:#9AA3BA; --rule:#2B3145; --rule-2:#21263A;
+  --bic:#93A8FF; --on-bic:#0F1530; --bic-soft:#1E2645;
+  --redpen:#FF8077; --redpen-soft:#3A1E1C;
+  --ok:#5FCB94; --ok-soft:#14301F; --prov:#E0B44E;
+  --shadow:0 1px 2px rgba(0,0,0,.4); color-scheme:dark;
+}}
+:root[data-theme="dark"]{
+  --paper:#0F121A; --sheet:#171B27; --ink:#E7EAF3; --ink-2:#9AA3BA; --rule:#2B3145; --rule-2:#21263A;
+  --bic:#93A8FF; --on-bic:#0F1530; --bic-soft:#1E2645;
+  --redpen:#FF8077; --redpen-soft:#3A1E1C;
+  --ok:#5FCB94; --ok-soft:#14301F; --prov:#E0B44E;
+  --shadow:0 1px 2px rgba(0,0,0,.4); color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-ui);font-size:15px;line-height:1.45;-webkit-text-size-adjust:100%}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--paper)}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:3px solid var(--bic);outline-offset:2px}
+.ar{font-family:var(--f-ar)}
+.n{font-family:var(--f-num);font-variant-numeric:tabular-nums}
+
+.wrap{max-width:760px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+
+/* header */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:6;background:var(--paper);border-bottom:1px solid var(--rule)}
+.top .wrap{padding-block:10px 8px;display:flex;flex-direction:column;gap:8px}
+.brand-row{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.brand{min-width:0}
+.brand .t{font-weight:600;font-size:16px;letter-spacing:-.01em}
+.brand .s{font-size:12px;color:var(--ink-2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sync{border:1px solid var(--rule);background:var(--sheet);border-radius:999px;padding:4px 10px 4px 8px;font-size:12px;display:inline-flex;align-items:center;gap:6px;white-space:nowrap;color:var(--ink-2)}
+.sync i{width:8px;height:8px;border-radius:50%;background:var(--ink-2);display:inline-block}
+.sync.ok i{background:var(--ok)} .sync.wait i{background:var(--bic);animation:pulse 1s infinite alternate}
+.sync.warn i{background:var(--prov)} .sync.local i{background:var(--prov)}
+@keyframes pulse{to{opacity:.3}}
+@media (prefers-reduced-motion:reduce){.sync.wait i{animation:none}}
+
+.chips{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;margin-inline:-4px;padding:2px 4px}
+.chips::-webkit-scrollbar{display:none}
+.chip{flex:none;border:1px solid var(--rule);background:var(--sheet);border-radius:10px;padding:5px 12px 6px;display:flex;flex-direction:column;align-items:center;min-width:64px;line-height:1.15}
+.chip .c{font-family:var(--f-ar);font-weight:700;font-size:18px}
+.chip .k{font-size:10.5px;color:var(--ink-2);letter-spacing:.02em}
+.chip[aria-pressed="true"]{background:var(--bic);border-color:var(--bic);color:var(--on-bic)}
+.chip[aria-pressed="true"] .k{color:var(--on-bic);opacity:.85}
+.chip.add{justify-content:center;font-size:13px;color:var(--bic);border-style:dashed}
+
+main .wrap{padding-block:14px 40px;display:flex;flex-direction:column;gap:14px}
+
+/* context */
+.ctx-h{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.ctx-h h1{margin:0;font-size:22px;font-weight:600;letter-spacing:-.015em;display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.ctx-h h1 .code{font-family:var(--f-ar);font-weight:700;font-size:26px}
+.ctx-h h1 .lbl{font-size:13px;font-weight:400;color:var(--ink-2)}
+.seg{display:inline-flex;background:var(--rule-2);border-radius:10px;padding:3px;gap:2px;max-width:100%;overflow-x:auto;scrollbar-width:none}
+.seg button{border:0;background:transparent;padding:7px 12px;border-radius:8px;font-size:13.5px;color:var(--ink-2);white-space:nowrap}
+.seg button[aria-pressed="true"]{background:var(--sheet);color:var(--ink);box-shadow:var(--shadow);font-weight:500}
+.modes{display:flex;width:100%}
+.modes button{flex:1}
+
+.summary{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));background:var(--sheet);border:1px solid var(--rule);border-radius:12px;overflow:hidden}
+.stat{padding:10px 10px 9px;border-inline-start:1px solid var(--rule-2);min-width:0}
+.stat:first-child{border-inline-start:0}
+.stat .l{font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.stat .v{font-family:var(--f-num);font-variant-numeric:tabular-nums;font-size:19px;font-weight:600;line-height:1.25;white-space:nowrap}
+.stat .v small{font-size:12px;font-weight:500;color:var(--ink-2)}
+.stat .x{font-size:11px;color:var(--ink-2);white-space:nowrap}
+.low{color:var(--redpen)!important}
+.prov{color:var(--prov)}
+
+/* field picker */
+.fields{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.fgrp{background:var(--sheet);border:1px solid var(--rule);border-radius:12px;padding:8px;display:flex;flex-direction:column;gap:6px;min-width:0}
+.fgrp.wide{grid-column:1/-1}
+.fgrp-h{display:flex;justify-content:space-between;align-items:baseline;gap:6px;font-size:11.5px;color:var(--ink-2)}
+.fgrp-h b{font-family:var(--f-ar);font-size:15px;color:var(--ink);font-weight:700}
+.fchips{display:flex;gap:6px;flex-wrap:wrap}
+.fchip{border:1px solid var(--rule);background:var(--paper);border-radius:8px;padding:6px 9px;font-size:13px;line-height:1.2;display:flex;align-items:baseline;gap:4px}
+.fchip .m{font-family:var(--f-num);font-size:11.5px;color:var(--ink-2)}
+.fchip[aria-pressed="true"]{background:var(--bic);border-color:var(--bic);color:var(--on-bic)}
+.fchip[aria-pressed="true"] .m{color:var(--on-bic);opacity:.85}
+.fchip .ar{font-size:14px;font-weight:600}
+.fchip.done:not([aria-pressed="true"]){border-color:var(--ok);background:var(--ok-soft)}
+
+.fbar{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;font-size:13px;color:var(--ink-2)}
+.fbar strong{color:var(--ink);font-weight:600}
+.btn{border:1px solid var(--rule);background:var(--sheet);border-radius:9px;padding:8px 12px;font-size:13.5px;font-weight:500;color:var(--ink)}
+.btn.pri{background:var(--bic);border-color:var(--bic);color:var(--on-bic)}
+.btn.ghost{background:transparent}
+.btn.danger{color:var(--redpen);border-color:var(--redpen)}
+.btn:disabled{opacity:.5;cursor:default}
+
+/* ruled rows */
+.sheet{background:var(--sheet);border:1px solid var(--rule);border-radius:12px;overflow:hidden}
+.rows{list-style:none;margin:0;padding:0}
+.rows-h,.row{display:grid;grid-template-columns:28px minmax(0,1fr) 76px 64px;gap:8px;align-items:center;padding:0 12px}
+.rows-h{font-size:11px;color:var(--ink-2);background:var(--bic-soft);padding-block:7px;font-family:var(--f-ar);font-weight:600}
+.rows-h span:nth-child(3),.rows-h span:nth-child(4){text-align:center;font-family:var(--f-ui);font-weight:500}
+.row{min-height:54px;border-top:1px solid var(--rule-2)}
+.row:first-child{border-top:0}
+.num{font-family:var(--f-num);font-size:12px;color:var(--ink-2);text-align:center}
+.name{border:0;background:none;padding:6px 0;text-align:right;font-family:var(--f-ar);font-weight:600;font-size:17px;line-height:1.35;min-width:0;overflow-wrap:anywhere;color:var(--ink)}
+.name:active{color:var(--bic)}
+.g{width:100%;height:44px;border:1.5px solid var(--rule);border-radius:9px;background:var(--paper);text-align:center;font-family:var(--f-num);font-size:19px;font-weight:500;color:var(--bic);font-variant-numeric:tabular-nums;padding:0 4px}
+.g::placeholder{color:var(--rule);font-weight:400}
+.g:focus{outline:none;border-color:var(--bic);box-shadow:0 0 0 3px var(--bic-soft);background:var(--sheet)}
+.g.bad{border-color:var(--redpen);background:var(--redpen-soft);color:var(--redpen)}
+.res{display:flex;flex-direction:column;align-items:flex-start;line-height:1.15;min-width:0}
+.res .sub{font-size:10.5px;color:var(--ink-2);font-family:var(--f-ar);white-space:nowrap}
+.res .sub .n{font-size:11px}
+.res .avg{font-family:var(--f-num);font-variant-numeric:tabular-nums;font-size:15px;font-weight:600}
+.res .avg.none{color:var(--rule);font-weight:400}
+
+/* student card */
+.stu-nav{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:8px;align-items:center}
+.stu-nav .who{text-align:center;min-width:0}
+.stu-nav .who .nm{font-family:var(--f-ar);font-weight:700;font-size:22px;line-height:1.3;overflow-wrap:anywhere}
+.stu-nav .who .no{font-size:12px;color:var(--ink-2)}
+.stu-nav .btn{padding:10px 12px}
+.pick{width:100%;border:1px solid var(--rule);background:var(--sheet);border-radius:9px;padding:9px 10px;font-family:var(--f-ar);font-size:15px}
+.blk{background:var(--sheet);border:1px solid var(--rule);border-radius:12px;padding:12px;display:flex;flex-direction:column;gap:10px}
+.blk-h{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap}
+.blk-h .ttl{display:flex;align-items:baseline;gap:8px}
+.blk-h .ttl b{font-family:var(--f-ar);font-size:18px;font-weight:700}
+.blk-h .ttl span{font-size:12px;color:var(--ink-2)}
+.tot{font-family:var(--f-num);font-variant-numeric:tabular-nums;font-size:16px;font-weight:600}
+.tot small{color:var(--ink-2);font-weight:500;font-size:12px}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.fld{display:flex;flex-direction:column;gap:4px;min-width:0}
+.fld label{font-size:12.5px;color:var(--ink-2);display:flex;justify-content:space-between;gap:6px}
+.fld label .ar{font-size:13px}
+.fld label .m{font-family:var(--f-num)}
+.avgbox{background:var(--sheet);border:1px solid var(--rule);border-radius:12px;padding:14px;display:flex;flex-direction:column;gap:4px;align-items:center;text-align:center}
+.avgbox .l{font-family:var(--f-ar);font-weight:700;font-size:15px}
+.avgbox .big{font-family:var(--f-num);font-variant-numeric:tabular-nums;font-size:42px;font-weight:600;line-height:1.1}
+.avgbox .big small{font-size:16px;color:var(--ink-2);font-weight:500}
+.avgbox .calc{font-family:var(--f-num);font-size:12.5px;color:var(--ink-2);direction:ltr}
+.avgbox .tag{font-size:12px;border-radius:999px;padding:2px 10px;background:var(--rule-2);color:var(--ink-2)}
+.avgbox .tag.ok{background:var(--ok-soft);color:var(--ok)}
+.txt{width:100%;border:1.5px solid var(--rule);border-radius:9px;background:var(--paper);padding:10px 12px;font-family:var(--f-ar);font-size:16px}
+.txt:focus{outline:none;border-color:var(--bic);box-shadow:0 0 0 3px var(--bic-soft);background:var(--sheet)}
+
+/* table */
+.tbl-wrap{overflow-x:auto;background:var(--sheet);border:1px solid var(--rule);border-radius:12px}
+table{border-collapse:collapse;width:100%;min-width:560px;font-size:14px}
+th,td{border-bottom:1px solid var(--rule-2);padding:8px 8px;text-align:center;white-space:nowrap}
+thead th{background:var(--bic-soft);font-family:var(--f-ar);font-weight:700;font-size:14px;position:sticky;top:0}
+td.nm,th.nm{text-align:right;font-family:var(--f-ar);font-weight:600;font-size:15.5px;position:sticky;right:0;background:var(--sheet);border-left:1px solid var(--rule-2)}
+thead th.nm{background:var(--bic-soft)}
+td.v{font-family:var(--f-num);font-variant-numeric:tabular-nums}
+td.avg{font-weight:600}
+td.rk{font-family:var(--f-ar);font-size:13.5px;color:var(--ink-2)}
+tbody tr{cursor:pointer}
+tbody tr:hover td{background:var(--rule-2)}
+tfoot td{font-family:var(--f-num);font-weight:600;background:var(--paper)}
+tfoot td.nm{font-family:var(--f-ar);background:var(--paper)}
+
+/* list management */
+.lst .row{grid-template-columns:28px minmax(0,1fr) auto}
+.nm-in{width:100%;border:1px solid transparent;border-radius:8px;background:transparent;padding:8px;font-family:var(--f-ar);font-weight:600;font-size:16px;text-align:right}
+.nm-in:focus{outline:none;border-color:var(--bic);background:var(--paper)}
+.confirm{display:flex;gap:6px;align-items:center;font-size:13px}
+.addrow{display:flex;gap:8px;padding:12px;border-top:1px solid var(--rule);background:var(--paper)}
+.addrow .txt{flex:1;min-width:0}
+.form{display:flex;flex-direction:column;gap:12px}
+.form label{display:flex;flex-direction:column;gap:5px;font-size:13px;color:var(--ink-2)}
+.form .txt{color:var(--ink)}
+textarea.txt{resize:vertical;min-height:180px;line-height:1.6}
+
+.foot{display:flex;flex-direction:column;gap:10px;padding-top:4px}
+.formula{font-size:12.5px;color:var(--ink-2);background:var(--sheet);border:1px dashed var(--rule);border-radius:10px;padding:10px 12px}
+.formula .ar{font-weight:600;color:var(--ink);font-size:14px}
+.actions{display:flex;gap:8px;flex-wrap:wrap}
+.empty{background:var(--sheet);border:1px dashed var(--rule);border-radius:12px;padding:22px 18px;text-align:center;color:var(--ink-2);display:flex;flex-direction:column;gap:10px;align-items:center}
+.empty strong{color:var(--ink);font-size:16px}
+.note{font-size:12.5px;color:var(--ink-2)}
+
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(18px + env(safe-area-inset-bottom,0px));background:var(--ink);color:var(--paper);padding:10px 16px;border-radius:10px;font-size:13.5px;max-width:min(92vw,460px);z-index:20;box-shadow:0 6px 20px rgba(0,0,0,.18);text-align:center}
+
+@media (max-width:380px){
+  .rows-h,.row{grid-template-columns:24px minmax(0,1fr) 68px 58px;gap:6px;padding:0 10px}
+  .name{font-size:16px}
+  .stat .v{font-size:17px}
+}
+</style>
+
+<header class="top">
+  <div class="wrap">
+    <div class="brand-row">
+      <div class="brand"><div class="t">Carnet de notes</div><div class="s" id="meta">Français · 2026/2027</div></div>
+      <button class="sync wait" id="sync" type="button" aria-live="polite"><i></i><span>Connexion…</span></button>
+    </div>
+    <nav class="chips" id="chips" aria-label="Classes"></nav>
+  </div>
+</header>
+<main><div class="wrap" id="main"></div></main>
+<div class="toast" id="toast" role="status" hidden></div>
+
+<script>
+(() => {
+'use strict';
+
+/* ---------- barème ---------- */
+const FIELDS = [
+  {k:'c',  grp:'mm', fr:'Cahier',        ar:'الكراس',  max:8},
+  {k:'p',  grp:'mm', fr:'Participation', ar:'المشاركة', max:6},
+  {k:'pr', grp:'mm', fr:'Présence',      ar:'الحضور',  max:3},
+  {k:'a',  grp:'mm', fr:'Assiduité',     ar:'المواظبة', max:3},
+  {k:'t1', grp:'at', fr:'Note 1',        ar:'أ.تط 1',   max:10},
+  {k:'t2', grp:'at', fr:'Note 2',        ar:'أ.تط 2',   max:10},
+  {k:'f',  grp:'f',  fr:'Devoir',        ar:'الفرض',   max:20},
+  {k:'e',  grp:'e',  fr:'Examen',        ar:'الاختبار', max:20},
+];
+const FMAP = Object.fromEntries(FIELDS.map(f => [f.k, f]));
+const GROUPS = [
+  {id:'mm', ar:'م م',     fr:'Évaluation continue', keys:['c','p','pr','a']},
+  {id:'at', ar:'أ.تط',    fr:'Applications',        keys:['t1','t2']},
+  {id:'f',  ar:'الفرض',   fr:'Devoir',              keys:['f']},
+  {id:'e',  ar:'الاختبار', fr:'Examen ×2',           keys:['e']},
+];
+const TRI = {'1':'الفصل الأول','2':'الفصل الثاني','3':'الفصل الثالث'};
+const LS = 'carnet-notes-v1';
+
+/* ---------- utils ---------- */
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const isNum = v => typeof v === 'number' && isFinite(v);
+const r2 = x => Math.round((x + 1e-9) * 100) / 100;
+const fmtAvg = v => isNum(v) ? v.toFixed(2).replace('.', ',') : '—';
+const fmtN = v => isNum(v) ? String(r2(v)).replace('.', ',') : '';
+const use = name => (window.claude && typeof window.claude.use === 'function') ? window.claude.use(name).catch(() => null) : Promise.resolve(null);
+
+function parseGrade(raw, max){
+  const s = String(raw).trim().replace(',', '.');
+  if (s === '') return null;
+  if (!/^\d{1,2}(\.\d{0,2})?$/.test(s)) return undefined;
+  const n = parseFloat(s);
+  if (!isFinite(n) || n < 0 || n > max) return undefined;
+  return n;
+}
+
+/* المعدل = (م م + أ.تط + الفرض + الاختبار × 2) ÷ 5 */
+function compute(g){
+  g = g || {};
+  const part = keys => {
+    const vals = keys.filter(k => isNum(g[k])).map(k => g[k]);
+    return {n: vals.length, sum: r2(vals.reduce((a, b) => a + b, 0)), full: vals.length === keys.length};
+  };
+  const mmP = part(['c','p','pr','a']), atP = part(['t1','t2']);
+  const mm = mmP.full ? mmP.sum : null, at = atP.full ? atP.sum : null;
+  const f = isNum(g.f) ? g.f : null, e = isNum(g.e) ? g.e : null;
+  const comps = [[mm,1],[at,1],[f,1],[e,2]].filter(([v]) => v !== null);
+  const complete = comps.length === 4;
+  let avg = null;
+  if (comps.length){
+    const w = comps.reduce((a, [, w]) => a + w, 0);
+    avg = r2(comps.reduce((a, [v, w]) => a + v * w, 0) / w);
+  }
+  return {mm, at, f, e, mmP, atP, avg, complete};
+}
+function appreciation(avg){
+  if (!isNum(avg)) return '';
+  if (avg >= 18) return 'ممتاز';
+  if (avg >= 16) return 'جيد جدا';
+  if (avg >= 14) return 'جيد';
+  if (avg >= 12) return 'قريب من الجيد';
+  if (avg >= 10) return 'متوسط';
+  if (avg >= 8)  return 'دون المتوسط';
+  return 'ضعيف';
+}
+
+/* ---------- state ---------- */
+const S = {
+  classes: {}, meta: null, uid: null, col: null,
+  cur: null, tri: '1', mode: 'epreuve', field: 'c', stu: 0,
+  dirty: new Set(), writing: new Map(), timers: new Map(),
+  sync: 'loading', loaded: false, err: null, confirm: null,
+};
+const sorted = () => Object.values(S.classes).sort((a, b) => (a.order ?? 99) - (b.order ?? 99) || String(a.code).localeCompare(String(b.code)));
+const curClass = () => S.classes[S.cur] || null;
+const G = (cls, sid) => (cls && cls.t && cls.t[S.tri] && cls.t[S.tri][sid]) || {};
+
+function saveCache(){
+  try {
+    localStorage.setItem(LS, JSON.stringify({
+      uid: S.uid, classes: S.classes, meta: S.meta, dirty: [...S.dirty],
+      ui: {cur: S.cur, tri: S.tri, mode: S.mode, field: S.field, stu: S.stu}
+    }));
+  } catch (e) {}
+}
+function loadCache(){
+  try {
+    const o = JSON.parse(localStorage.getItem(LS) || 'null');
+    if (!o) return;
+    S.uid = o.uid || null; S.classes = o.classes || {}; S.meta = o.meta || null;
+    S.dirty = new Set(o.dirty || []);
+    const u = o.ui || {};
+    if (u.cur) S.cur = u.cur; if (TRI[u.tri]) S.tri = u.tri;
+    if (['epreuve','eleve','tableau','liste'].includes(u.mode)) S.mode = u.mode;
+    if (FMAP[u.field]) S.field = u.field;
+    if (Number.isInteger(u.stu)) S.stu = u.stu;
+  } catch (e) {}
+}
+
+/* ---------- saving ---------- */
+function touch(cls){
+  cls.u = Date.now();
+  S.dirty.add(cls.id);
+  saveCache();
+  schedule(cls.id);
+}
+function schedule(id, delay = 700){
+  clearTimeout(S.timers.get(id));
+  S.timers.set(id, setTimeout(() => { S.timers.delete(id); flush(id); }, delay));
+  updateStatus();
+}
+async function flush(id){
+  if (!S.col){ updateStatus(); return; }
+  let w = S.writing.get(id);
+  if (!w){ w = {busy:false, again:false}; S.writing.set(id, w); }
+  if (w.busy){ w.again = true; return; }
+  w.busy = true; updateStatus();
+  const cls = S.classes[id];
+  try {
+    if (!cls){
+      await S.col.doc(id).delete();
+      S.dirty.delete(id);
+    } else {
+      const stamp = cls.u;
+      const body = JSON.parse(JSON.stringify(cls));
+      await S.col.doc(id).set(body);
+      if (S.classes[id] && S.classes[id].u === stamp) S.dirty.delete(id);
+    }
+    S.err = null;
+  } catch (e) {
+    S.err = (e && e.code) || 'unavailable';
+    if (S.err === 'unavailable' || S.err === 'resource_exhausted'){
+      schedule(id, 8000 + Math.random() * 6000);
+    } else if (S.err === 'quota_exceeded'){
+      toast("L'espace de stockage est plein. Vos notes restent sur ce téléphone ; exportez-les en Excel.");
+    }
+  }
+  w.busy = false;
+  saveCache(); updateStatus();
+  if (w.again){ w.again = false; flush(id); }
+}
+function updateStatus(){
+  const el = $('#sync'); if (!el) return;
+  let t, c;
+  const busy = [...S.writing.values()].some(w => w.busy) || S.timers.size > 0;
+  if (S.sync === 'loading'){ t = 'Connexion…'; c = 'wait'; }
+  else if (S.sync === 'local'){ t = 'Sur ce téléphone'; c = 'local'; }
+  else if (busy){ t = 'Enregistrement…'; c = 'wait'; }
+  else if (S.dirty.size){ t = 'En attente de réseau'; c = 'warn'; }
+  else { t = 'Enregistré'; c = 'ok'; }
+  el.className = 'sync ' + c;
+  el.querySelector('span').textContent = t;
+}
+
+/* ---------- cloud ---------- */
+async function initCloud(){
+  const [db, user] = await Promise.all([use('db'), use('user')]);
+  const uid = user ? await user.id() : null;
+  if (!db || !uid){
+    S.sync = 'local'; S.loaded = true; updateStatus(); render(); return;
+  }
+  if (S.uid && S.uid !== uid){ S.classes = {}; S.meta = null; S.dirty.clear(); }
+  S.uid = uid;
+  S.col = db.collection('data/users/' + uid);
+  S.sync = 'cloud';
+  subscribe();
+}
+function subscribe(){
+  S.col.onSnapshot(onSnap, err => {
+    if (err && err.code === 'unavailable'){ setTimeout(subscribe, 5000); return; }
+    S.sync = 'local'; S.loaded = true; updateStatus(); render();
+  });
+}
+function onSnap(snap){
+  let changed = false;
+  const seen = new Set();
+  for (const d of snap.docs){
+    const body = d.data(); if (!body) continue;
+    seen.add(d.id);
+    if (body.kind === 'meta'){
+      if (JSON.stringify(body) !== JSON.stringify(S.meta)){ S.meta = JSON.parse(JSON.stringify(body)); changed = true; }
+      continue;
+    }
+    if (body.kind !== 'class') continue;
+    const loc = S.classes[d.id];
+    if (S.dirty.has(d.id)){
+      if (!loc) continue;                         // suppression en attente
+      if ((loc.u || 0) >= (body.u || 0)) continue; // la version du téléphone est plus récente
+    }
+    if (loc && loc.u === body.u) continue;
+    S.classes[d.id] = Object.assign(JSON.parse(JSON.stringify(body)), {id: d.id});
+    S.dirty.delete(d.id);
+    changed = true;
+  }
+  if (!snap.metadata.fromCache){
+    for (const id of Object.keys(S.classes)){
+      if (!seen.has(id) && !S.dirty.has(id)){ delete S.classes[id]; changed = true; }
+    }
+    for (const id of S.dirty) schedule(id, 300);
+    if (!S.loaded){ S.loaded = true; changed = true; }
+  }
+  updateStatus();
+  if (changed){ saveCache(); render(); }
+}
+window.addEventListener('online', () => { for (const id of S.dirty) schedule(id, 300); });
+
+/* ---------- grade edits ---------- */
+function setGrade(cls, sid, k, v){
+  cls.t = cls.t || {};
+  const T = cls.t[S.tri] = cls.t[S.tri] || {};
+  const g = T[sid] = T[sid] || {};
+  if (v === null) delete g[k]; else g[k] = v;
+  if (!Object.keys(g).length) delete T[sid];
+  touch(cls);
+}
+
+/* ---------- render ---------- */
+function render(){
+  const ae = document.activeElement;
+  const fid = ae && ae.id && ae.matches('input,textarea,select') ? ae.id : null;
+  let sel = null; try { sel = fid ? [ae.selectionStart, ae.selectionEnd] : null; } catch (e) {}
+
+  const list = sorted();
+  if (!S.classes[S.cur] && S.mode !== 'new') S.cur = list.length ? list[0].id : null;
+
+  const m = S.meta;
+  $('#meta').innerHTML = m ? `<span dir="rtl">${esc(m.school || '')}</span> · ${esc(m.year || '')}` : 'Français · 2026/2027';
+
+  $('#chips').innerHTML = list.map(c => `
+    <button class="chip" type="button" data-cls="${esc(c.id)}" aria-pressed="${c.id === S.cur && S.mode !== 'new'}">
+      <span class="c" dir="rtl">${esc(c.code)}</span><span class="k">${esc(c.short || '')} · ${c.students.length}</span>
+    </button>`).join('') +
+    `<button class="chip add" type="button" data-act="new-class" aria-pressed="${S.mode === 'new'}">+ Classe</button>`;
+
+  const main = $('#main');
+  if (S.mode === 'new'){ main.innerHTML = viewNew(); }
+  else if (!list.length){
+    main.innerHTML = !S.loaded
+      ? `<div class="empty"><strong>Chargement de vos classes…</strong><span>Vos listes et vos notes s'affichent dans un instant.</span></div>`
+      : `<div class="empty"><strong>Aucune classe pour l'instant</strong><span>Ajoutez une classe et collez la liste des élèves, un nom par ligne.</span><button class="btn pri" data-act="new-class">Ajouter une classe</button></div>`;
+  } else {
+    const cls = curClass();
+    let body = '';
+    if (S.mode === 'epreuve') body = viewEpreuve(cls);
+    else if (S.mode === 'eleve') body = viewEleve(cls);
+    else if (S.mode === 'tableau') body = viewTableau(cls);
+    else body = viewListe(cls);
+    main.innerHTML = `
+      <section class="ctx">
+        <div class="ctx-h">
+          <h1><span class="code" dir="rtl">${esc(cls.code)}</span><span class="lbl">${esc(cls.label || '')}</span></h1>
+          <div class="seg" role="group" aria-label="Trimestre">
+            ${['1','2','3'].map(t => `<button type="button" data-tri="${t}" aria-pressed="${S.tri === t}">T${t}</button>`).join('')}
+          </div>
+        </div>
+      </section>
+      <div class="summary" id="summary">${summaryHTML(cls)}</div>
+      <div class="seg modes" role="group" aria-label="Affichage">
+        ${[['epreuve','Par épreuve'],['eleve','Par élève'],['tableau','Tableau'],['liste','Liste']].map(([k, l]) => `<button type="button" data-mode="${k}" aria-pressed="${S.mode === k}">${l}</button>`).join('')}
+      </div>
+      ${body}
+      <section class="foot">
+        <div class="formula">Moyenne <span class="ar" dir="rtl">= (م م + أ.تط + الفرض + الاختبار × 2) ÷ 5</span><br>
+          <span class="note">م م = cahier /8 + participation /6 + présence /3 + assiduité /3 · أ.تط = note 1 /10 + note 2 /10. Une moyenne précédée de ≈ est provisoire : il manque encore des notes.</span></div>
+        <div class="actions">
+          <button class="btn" data-act="xlsx-one">Exporter ${esc(cls.code)} en Excel</button>
+          <button class="btn ghost" data-act="xlsx-all">Exporter toutes les classes</button>
+        </div>
+      </section>`;
+  }
+  updateStatus();
+  if (fid){
+    const el = document.getElementById(fid);
+    if (el){ el.focus({preventScroll: true}); try { if (sel) el.setSelectionRange(sel[0], sel[1]); } catch (e) {} }
+  }
+}
+
+function stats(cls){
+  const rs = cls.students.map(s => compute(G(cls, s.id)));
+  const fin = rs.filter(r => r.complete).map(r => r.avg);
+  const base = fin.length ? fin : rs.filter(r => r.avg !== null).map(r => r.avg);
+  const mean = base.length ? r2(base.reduce((a, b) => a + b, 0) / base.length) : null;
+  return {n: rs.length, rs, fin, provisional: !fin.length && base.length > 0, mean,
+    pass: base.filter(v => v >= 10).length, cnt: base.length,
+    max: base.length ? Math.max(...base) : null, min: base.length ? Math.min(...base) : null};
+}
+function summaryHTML(cls){
+  const st = stats(cls);
+  const p = st.provisional ? '≈' : '';
+  const pct = st.cnt ? Math.round(st.pass / st.cnt * 100) : null;
+  return `
+    <div class="stat"><div class="l">Moyenne</div><div class="v ${st.mean !== null && st.mean < 10 ? 'low' : ''} ${st.provisional ? 'prov' : ''}">${p}${fmtAvg(st.mean)}</div><div class="x">${st.provisional ? 'provisoire' : 'de la classe'}</div></div>
+    <div class="stat"><div class="l">≥ 10</div><div class="v">${st.cnt ? st.pass : '—'}<small>${st.cnt ? '/' + st.cnt : ''}</small></div><div class="x">${pct === null ? '&nbsp;' : pct + ' %'}</div></div>
+    <div class="stat"><div class="l">Max · Min</div><div class="v" style="font-size:15px">${fmtAvg(st.max)}</div><div class="x ${st.min !== null && st.min < 10 ? 'low' : ''}">${fmtAvg(st.min)}</div></div>
+    <div class="stat"><div class="l">Complets</div><div class="v">${st.fin.length}<small>/${st.n}</small></div><div class="x">élèves</div></div>`;
+}
+
+function resHTML(cls, sid){
+  const r = compute(G(cls, sid));
+  const grp = FMAP[S.field].grp;
+  let sub = '';
+  if (grp === 'mm' && r.mmP.n) sub = `<span class="sub" dir="rtl">م م <span class="n">${fmtN(r.mmP.sum)}</span>${r.mmP.full ? '' : '…'}</span>`;
+  if (grp === 'at' && r.atP.n) sub = `<span class="sub" dir="rtl">أ.تط <span class="n">${fmtN(r.atP.sum)}</span>${r.atP.full ? '' : '…'}</span>`;
+  const c = r.avg === null ? 'none' : `${r.complete ? '' : 'prov'} ${r.avg < 10 ? 'low' : ''}`;
+  return `${sub}<span class="avg ${c}" dir="ltr">${r.avg === null ? '—' : (r.complete ? '' : '≈') + fmtAvg(r.avg)}</span>`;
+}
+
+function viewEpreuve(cls){
+  const f = FMAP[S.field];
+  const filled = cls.students.filter(s => isNum(G(cls, s.id)[f.k])).length;
+  const chip = x => {
+    const done = cls.students.length && cls.students.every(s => isNum(G(cls, s.id)[x.k]));
+    const lab = x.grp === 'mm' ? esc(x.fr) : x.grp === 'at' ? esc(x.fr) : `<span class="ar">${esc(x.ar)}</span>`;
+    return `<button type="button" class="fchip ${done ? 'done' : ''}" data-field="${x.k}" aria-pressed="${S.field === x.k}">${lab}<span class="m">/${x.max}</span></button>`;
+  };
+  const grpBox = (g, wide) => `<div class="fgrp ${wide ? 'wide' : ''}"><div class="fgrp-h"><b dir="rtl">${g.ar}</b><span>${g.id === 'e' ? 'compte ×2' : '/20'}</span></div><div class="fchips">${g.keys.map(k => chip(FMAP[k])).join('')}</div></div>`;
+  const fillBtn = (f.k === 'pr' || f.k === 'a') && filled < cls.students.length
+    ? `<button class="btn" data-act="fill" data-k="${f.k}">Mettre ${f.max} aux cases vides</button>` : '';
+  if (!cls.students.length) return `<div class="empty"><strong>Aucun élève dans cette classe</strong><span>Ajoutez les élèves dans l'onglet Liste.</span></div>`;
+  return `
+    <div class="fields">${grpBox(GROUPS[0], true)}${grpBox(GROUPS[1])}<div class="fgrp"><div class="fgrp-h"><b>Épreuves</b><span>/20</span></div><div class="fchips">${chip(FMAP.f)}${chip(FMAP.e)}</div></div></div>
+    <div class="fbar"><span><strong>${esc(f.fr)}</strong> <span class="ar" dir="rtl">${esc(f.ar)}</span> · sur ${f.max} · <span id="fprog">${filled}/${cls.students.length}</span> saisies</span>${fillBtn}</div>
+    <div class="sheet" dir="rtl">
+      <div class="rows-h"><span>الرقم</span><span>الاسم واللقب</span><span dir="ltr">${esc(f.fr)} /${f.max}</span><span>Moy.</span></div>
+      <ol class="rows">
+        ${cls.students.map((s, i) => {
+          const v = G(cls, s.id)[f.k];
+          return `<li class="row">
+            <span class="num">${i + 1}</span>
+            <button type="button" class="name" data-open="${i}">${esc(s.n)}</button>
+            <input class="g" id="g-${esc(s.id)}-${f.k}" dir="ltr" type="text" inputmode="decimal" enterkeyhint="next" autocomplete="off" autocorrect="off" spellcheck="false"
+              data-sid="${esc(s.id)}" data-k="${f.k}" data-nav="1" value="${isNum(v) ? fmtN(v) : ''}" placeholder="–" aria-label="${esc(s.n)} — ${esc(f.fr)} sur ${f.max}">
+            <span class="res" id="r-${esc(s.id)}">${resHTML(cls, s.id)}</span>
+          </li>`;
+        }).join('')}
+      </ol>
+    </div>`;
+}
+
+function inputFor(cls, s, k){
+  const f = FMAP[k], v = G(cls, s.id)[k];
+  return `<div class="fld"><label for="s-${k}"><span>${esc(f.fr)}</span><span><span class="ar" dir="rtl">${esc(f.ar)}</span> <span class="m">/${f.max}</span></span></label>
+    <input class="g" id="s-${k}" dir="ltr" type="text" inputmode="decimal" enterkeyhint="next" autocomplete="off" spellcheck="false"
+      data-sid="${esc(s.id)}" data-k="${k}" data-nav="1" value="${isNum(v) ? fmtN(v) : ''}" placeholder="–"></div>`;
+}
+function cardTotals(cls, s){
+  const g = G(cls, s.id), r = compute(g);
+  const tot = (P, full) => P.n ? `${fmtN(P.sum)} <small>/20${full ? '' : ' · incomplet'}</small>` : `— <small>/20</small>`;
+  const calc = r.complete ? `(${fmtN(r.mm)} + ${fmtN(r.at)} + ${fmtN(r.f)} + 2 × ${fmtN(r.e)}) ÷ 5` : 'Il manque des notes : moyenne provisoire';
+  const tag = r.avg === null ? '' : r.complete ? `<span class="tag ok ar" dir="rtl">${appreciation(r.avg)}</span>` : `<span class="tag">provisoire</span>`;
+  return {
+    mm: tot(r.mmP, r.mmP.full), at: tot(r.atP, r.atP.full),
+    e40: isNum(r.e) ? `${fmtN(r.e * 2)} <small>/40</small>` : `— <small>/40</small>`,
+    avg: `<span class="l" dir="rtl">المعدل</span>
+      <span class="big ${r.avg !== null && r.avg < 10 ? 'low' : ''} ${r.avg !== null && !r.complete ? 'prov' : ''}">${r.avg === null ? '—' : (r.complete ? '' : '≈') + fmtAvg(r.avg)}<small> /20</small></span>
+      <span class="calc">${r.avg === null ? 'Saisissez les notes pour calculer la moyenne' : calc}</span>${tag}`,
+    ph: r.complete ? appreciation(r.avg) : '',
+  };
+}
+function viewEleve(cls){
+  const n = cls.students.length;
+  if (!n) return `<div class="empty"><strong>Aucun élève dans cette classe</strong><span>Ajoutez les élèves dans l'onglet Liste.</span></div>`;
+  S.stu = Math.max(0, Math.min(S.stu, n - 1));
+  const s = cls.students[S.stu], T = cardTotals(cls, s), g = G(cls, s.id);
+  return `
+    <div class="stu-nav">
+      <button class="btn" data-act="prev" ${S.stu === 0 ? 'disabled' : ''} aria-label="Élève précédent">‹</button>
+      <div class="who"><div class="nm" dir="rtl">${esc(s.n)}</div><div class="no">N° ${S.stu + 1} sur ${n}</div></div>
+      <button class="btn" data-act="next" ${S.stu === n - 1 ? 'disabled' : ''} aria-label="Élève suivant">›</button>
+    </div>
+    <select class="pick" id="stu-pick" dir="rtl" aria-label="Choisir un élève">
+      ${cls.students.map((x, i) => `<option value="${i}" ${i === S.stu ? 'selected' : ''}>${i + 1}. ${esc(x.n)}</option>`).join('')}
+    </select>
+    <div class="blk">
+      <div class="blk-h"><span class="ttl"><b dir="rtl">م م</b><span>Évaluation continue</span></span><span class="tot" id="t-mm">${T.mm}</span></div>
+      <div class="grid2">${['c','p','pr','a'].map(k => inputFor(cls, s, k)).join('')}</div>
+    </div>
+    <div class="blk">
+      <div class="blk-h"><span class="ttl"><b dir="rtl">أ.تط</b><span>Applications</span></span><span class="tot" id="t-at">${T.at}</span></div>
+      <div class="grid2">${['t1','t2'].map(k => inputFor(cls, s, k)).join('')}</div>
+    </div>
+    <div class="blk">
+      <div class="blk-h"><span class="ttl"><b dir="rtl">الفرض · الاختبار</b></span><span class="tot" id="t-e40" title="Examen compté ×2">${T.e40}</span></div>
+      <div class="grid2">${inputFor(cls, s, 'f')}${inputFor(cls, s, 'e')}</div>
+    </div>
+    <div class="avgbox" id="t-avg">${T.avg}</div>
+    <div class="fld"><label for="s-r"><span>Remarque</span><span class="ar" dir="rtl">الملاحظات</span></label>
+      <input class="txt" id="s-r" dir="rtl" type="text" data-sid="${esc(s.id)}" data-k="r" enterkeyhint="next" value="${esc(g.r || '')}" placeholder="${esc(T.ph || 'تلقائية حسب المعدل')}"></div>`;
+}
+
+function viewTableau(cls){
+  const st = stats(cls);
+  const colAvg = key => {
+    const v = st.rs.map(r => r[key]).filter(isNum);
+    return v.length ? fmtAvg(v.reduce((a, b) => a + b, 0) / v.length) : '';
+  };
+  const finAvg = st.fin.length ? fmtAvg(st.fin.reduce((a, b) => a + b, 0) / st.fin.length) : '';
+  return `
+    <div class="tbl-wrap" dir="rtl">
+      <table dir="rtl">
+        <thead><tr><th>الرقم</th><th class="nm">الاسم واللقب</th><th>م م</th><th>أ.تط</th><th>الفرض</th><th>الاختبار</th><th>المعدل</th><th>الملاحظات</th></tr></thead>
+        <tbody>
+          ${cls.students.map((s, i) => {
+            const g = G(cls, s.id), r = st.rs[i];
+            const av = r.avg === null ? '' : (r.complete ? '' : '≈') + fmtAvg(r.avg);
+            const rk = g.r || (r.complete ? appreciation(r.avg) : '');
+            return `<tr data-open="${i}"><td class="v">${i + 1}</td><td class="nm">${esc(s.n)}</td>
+              <td class="v">${isNum(r.mm) ? fmtN(r.mm) : r.mmP.n ? '<span class="prov">' + fmtN(r.mmP.sum) + '…</span>' : ''}</td>
+              <td class="v">${isNum(r.at) ? fmtN(r.at) : r.atP.n ? '<span class="prov">' + fmtN(r.atP.sum) + '…</span>' : ''}</td>
+              <td class="v">${fmtN(r.f)}</td><td class="v">${fmtN(r.e)}</td>
+              <td class="v avg ${r.avg !== null && r.avg < 10 ? 'low' : ''} ${r.avg !== null && !r.complete ? 'prov' : ''}" dir="ltr">${av}</td>
+              <td class="rk">${esc(rk)}</td></tr>`;
+          }).join('')}
+        </tbody>
+        <tfoot><tr><td></td><td class="nm">معدل القسم</td><td>${colAvg('mm')}</td><td>${colAvg('at')}</td><td>${colAvg('f')}</td><td>${colAvg('e')}</td><td dir="ltr">${finAvg}</td><td></td></tr></tfoot>
+      </table>
+    </div>
+    <p class="note">Touchez un élève pour modifier ses notes. Les moyennes de colonnes ne prennent que les notes complètes.</p>`;
+}
+
+function viewListe(cls){
+  return `
+    <div class="sheet lst">
+      <ol class="rows" dir="rtl">
+        ${cls.students.map((s, i) => `<li class="row">
+          <span class="num">${i + 1}</span>
+          <input class="nm-in" id="n-${esc(s.id)}" data-name="${esc(s.id)}" value="${esc(s.n)}" aria-label="Nom de l'élève ${i + 1}">
+          ${S.confirm && S.confirm.type === 'stu' && S.confirm.id === s.id
+            ? `<span class="confirm" dir="ltr">Retirer ? <button class="btn danger" data-act="del-stu" data-id="${esc(s.id)}">Oui</button><button class="btn" data-act="cancel">Non</button></span>`
+            : `<button class="btn ghost" data-act="ask-del-stu" data-id="${esc(s.id)}" dir="ltr">Retirer</button>`}
+        </li>`).join('')}
+      </ol>
+      <div class="addrow"><input class="txt" id="add-name" dir="rtl" placeholder="الاسم واللقب" aria-label="Nom du nouvel élève"><button class="btn pri" data-act="add-stu">Ajouter</button></div>
+    </div>
+    <p class="note">Modifiez un nom directement dans la liste ; il est enregistré dès que vous quittez la case.</p>
+    <div class="actions">
+      ${S.confirm && S.confirm.type === 'class'
+        ? `<span class="confirm">Supprimer la classe ${esc(cls.code)} et toutes ses notes ? <button class="btn danger" data-act="del-class">Supprimer</button><button class="btn" data-act="cancel">Annuler</button></span>`
+        : `<button class="btn danger" data-act="ask-del-class">Supprimer la classe</button>`}
+    </div>`;
+}
+
+function viewNew(){
+  return `
+    <section class="ctx"><div class="ctx-h"><h1>Nouvelle classe</h1></div></section>
+    <form class="form" id="newcls">
+      <label>Code de la classe (comme sur la liste officielle)<input class="txt" id="nc-code" dir="rtl" placeholder="مثال : 2ع1" required></label>
+      <label>Intitulé<input class="txt" id="nc-label" dir="ltr" style="font-family:var(--f-ui)" placeholder="Ex. 2AS · Sciences expérimentales 1"></label>
+      <label>Liste des élèves, un nom par ligne<textarea class="txt" id="nc-names" dir="rtl" placeholder="حبلال هارون&#10;حروس حسام الدين&#10;…"></textarea></label>
+      <div class="actions"><button class="btn pri" type="submit">Créer la classe</button><button class="btn" type="button" data-act="cancel-new">Annuler</button></div>
+    </form>`;
+}
+
+/* ---------- live refresh while typing ---------- */
+function refreshLive(sid){
+  const cls = curClass(); if (!cls) return;
+  const r = document.getElementById('r-' + sid);
+  if (r) r.innerHTML = resHTML(cls, sid);
+  const sm = $('#summary'); if (sm) sm.innerHTML = summaryHTML(cls);
+  const fp = $('#fprog');
+  if (fp){ const k = S.field; fp.textContent = `${cls.students.filter(s => isNum(G(cls, s.id)[k])).length}/${cls.students.length}`; }
+  if (S.mode === 'eleve'){
+    const s = cls.students[S.stu]; if (!s || s.id !== sid) return;
+    const T = cardTotals(cls, s);
+    $('#t-mm').innerHTML = T.mm; $('#t-at').innerHTML = T.at; $('#t-e40').innerHTML = T.e40; $('#t-avg').innerHTML = T.avg;
+    const rk = $('#s-r'); if (rk) rk.placeholder = T.ph || 'تلقائية حسب المعدل';
+  }
+}
+
+/* ---------- events ---------- */
+document.addEventListener('input', e => {
+  const inp = e.target;
+  if (!inp.matches || !inp.matches('input[data-k]')) return;
+  const cls = curClass(); if (!cls) return;
+  const {sid, k} = inp.dataset;
+  if (k === 'r'){
+    const txt = inp.value.trim();
+    cls.t = cls.t || {}; const T = cls.t[S.tri] = cls.t[S.tri] || {}; const g = T[sid] = T[sid] || {};
+    if (txt) g.r = txt; else delete g.r;
+    touch(cls); return;
+  }
+  const f = FMAP[k]; const v = parseGrade(inp.value, f.max);
+  if (v === undefined){ inp.classList.add('bad'); return; }
+  inp.classList.remove('bad');
+  const old = G(cls, sid)[k];
+  if ((v === null && old === undefined) || v === old) return;
+  setGrade(cls, sid, k, v);
+  refreshLive(sid);
+  if (S.mode === 'epreuve'){
+    const chip = document.querySelector(`.fchip[data-field="${k}"]`);
+    if (chip) chip.classList.toggle('done', cls.students.every(s => isNum(G(cls, s.id)[k])));
+  }
+});
+document.addEventListener('focusout', e => {
+  const inp = e.target;
+  if (inp.matches && inp.matches('input.g.bad')){
+    const cls = curClass(); const f = FMAP[inp.dataset.k];
+    const v = cls ? G(cls, inp.dataset.sid)[inp.dataset.k] : undefined;
+    inp.value = isNum(v) ? fmtN(v) : '';
+    inp.classList.remove('bad');
+    toast(`Note refusée : entrez un nombre entre 0 et ${f.max} (ex. ${f.max === 3 ? '2,5' : '12,5'}).`);
+  }
+  if (inp.matches && inp.matches('input[data-name]')){
+    const cls = curClass(); if (!cls) return;
+    const s = cls.students.find(x => x.id === inp.dataset.name);
+    const nv = inp.value.trim().replace(/\s+/g, ' ');
+    if (s && nv && nv !== s.n){ s.n = nv; touch(cls); }
+    else if (s && !nv) inp.value = s.n;
+  }
+});
+document.addEventListener('keydown', e => {
+  if (e.key !== 'Enter') return;
+  const t = e.target;
+  if (t.id === 'add-name'){ e.preventDefault(); addStudent(); return; }
+  if (t.matches && t.matches('input[data-name]')){ e.preventDefault(); t.blur(); return; }
+  if (!t.matches || !t.matches('input[data-k]')) return;
+  e.preventDefault();
+  const all = [...document.querySelectorAll('input[data-nav]')];
+  const i = all.indexOf(t);
+  if (i >= 0 && i < all.length - 1){ all[i + 1].focus(); all[i + 1].select(); all[i + 1].scrollIntoView({block: 'center', behavior: 'smooth'}); return; }
+  if (S.mode === 'eleve'){
+    if (t.id === 's-r' || i === all.length - 1){
+      const cls = curClass();
+      if (t.id !== 's-r'){ const rk = $('#s-r'); if (rk){ rk.focus(); return; } }
+      if (cls && S.stu < cls.students.length - 1){
+        S.stu++; saveCache(); render();
+        const first = document.querySelector('input[data-nav]'); if (first){ first.focus(); first.select(); }
+        window.scrollTo({top: 0, behavior: 'smooth'});
+      } else t.blur();
+    }
+  } else t.blur();
+});
+document.addEventListener('change', e => {
+  if (e.target.id === 'stu-pick'){ S.stu = +e.target.value; saveCache(); render(); }
+});
+document.addEventListener('submit', e => {
+  if (e.target.id !== 'newcls') return;
+  e.preventDefault();
+  const code = $('#nc-code').value.trim();
+  if (!code){ toast('Indiquez le code de la classe.'); return; }
+  const label = $('#nc-label').value.trim();
+  const names = $('#nc-names').value.split(/\r?\n/).map(l => l.replace(/^[\s\d.\-–)]+/, '').replace(/\s+/g, ' ').trim()).filter(Boolean);
+  const id = 'c' + Date.now().toString(36);
+  const order = Math.max(0, ...Object.values(S.classes).map(c => c.order || 0)) + 1;
+  const slug = (label || code).normalize('NFD').replace(/[^A-Za-z0-9]+/g, '-').replace(/^-|-$/g, '') || id;
+  S.classes[id] = {id, kind:'class', code, label, short: label.split('·')[0].trim().slice(0, 10), slug, order,
+    students: names.map((n, i) => ({id: 's' + (i + 1).toString().padStart(2, '0'), n})), t: {}, u: 0};
+  S.cur = id; S.mode = 'epreuve'; S.field = 'c';
+  touch(S.classes[id]); render();
+  toast(`Classe ${code} créée avec ${names.length} élève${names.length > 1 ? 's' : ''}.`);
+});
+
+function addStudent(){
+  const cls = curClass(); const el = $('#add-name'); if (!cls || !el) return;
+  const n = el.value.trim().replace(/\s+/g, ' ');
+  if (!n){ el.focus(); return; }
+  cls.students.push({id: 's' + Date.now().toString(36), n});
+  touch(cls); render();
+  const again = $('#add-name'); if (again) again.focus();
+}
+
+document.addEventListener('click', e => {
+  const b = e.target.closest('button,tr[data-open]'); if (!b) return;
+  const d = b.dataset;
+  if (d.cls){ S.cur = d.cls; if (S.mode === 'new') S.mode = 'epreuve'; S.confirm = null; S.stu = 0; saveCache(); render(); window.scrollTo({top: 0}); return; }
+  if (d.tri){ S.tri = d.tri; saveCache(); render(); return; }
+  if (d.mode){ S.mode = d.mode; S.confirm = null; saveCache(); render(); return; }
+  if (d.field){ S.field = d.field; saveCache(); render(); const first = document.querySelector('input[data-nav]'); if (first && matchMedia('(hover:none)').matches === false) first.focus(); return; }
+  if (d.open !== undefined){ S.stu = +d.open; S.mode = 'eleve'; saveCache(); render(); window.scrollTo({top: 0}); return; }
+  if (b.id === 'sync'){ explainSync(); return; }
+  const cls = curClass();
+  switch (d.act){
+    case 'prev': if (S.stu > 0){ S.stu--; saveCache(); render(); } break;
+    case 'next': if (cls && S.stu < cls.students.length - 1){ S.stu++; saveCache(); render(); } break;
+    case 'fill': {
+      if (!cls) break; const f = FMAP[d.k]; let n = 0;
+      for (const s of cls.students){
+        if (!isNum(G(cls, s.id)[f.k])){
+          cls.t = cls.t || {}; const T = cls.t[S.tri] = cls.t[S.tri] || {}; (T[s.id] = T[s.id] || {})[f.k] = f.max; n++;
+        }
+      }
+      if (n){ touch(cls); render(); toast(`${f.fr} : ${f.max}/${f.max} mis à ${n} élève${n > 1 ? 's' : ''}.`); }
+      break;
+    }
+    case 'new-class': S.mode = 'new'; S.confirm = null; render(); setTimeout(() => { const c = $('#nc-code'); if (c) c.focus(); }, 50); break;
+    case 'cancel-new': S.mode = 'epreuve'; render(); break;
+    case 'add-stu': addStudent(); break;
+    case 'ask-del-stu': S.confirm = {type:'stu', id: d.id}; render(); break;
+    case 'ask-del-class': S.confirm = {type:'class'}; render(); break;
+    case 'cancel': S.confirm = null; render(); break;
+    case 'del-stu': {
+      if (!cls) break;
+      const s = cls.students.find(x => x.id === d.id);
+      cls.students = cls.students.filter(x => x.id !== d.id);
+      for (const t of Object.keys(cls.t || {})) if (cls.t[t]) delete cls.t[t][d.id];
+      S.confirm = null; touch(cls); render();
+      if (s) toast(`${s.n} retiré(e) de la liste.`);
+      break;
+    }
+    case 'del-class': {
+      if (!cls) break;
+      const code = cls.code;
+      delete S.classes[cls.id]; S.dirty.add(cls.id); S.confirm = null; S.mode = 'epreuve'; S.cur = null;
+      saveCache(); schedule(cls.id, 100); render(); toast(`Classe ${code} supprimée.`);
+      break;
+    }
+    case 'xlsx-one': if (cls) exportXlsx([cls]); break;
+    case 'xlsx-all': exportXlsx(sorted()); break;
+  }
+});
+
+function explainSync(){
+  if (S.sync === 'local') toast("Votre compte n'est pas joignable dans cet affichage : les notes sont gardées sur ce téléphone. Exportez-les en Excel pour les sauvegarder.");
+  else if (S.dirty.size) toast("Pas de réseau pour l'instant : les notes sont gardées sur ce téléphone et seront envoyées dès le retour de la connexion.");
+  else toast('Toutes vos notes sont enregistrées dans votre compte. Vous les retrouvez sur le téléphone comme sur l’ordinateur.');
+}
+
+let toastTimer;
+function toast(msg){
+  const t = $('#toast'); t.textContent = msg; t.hidden = false;
+  clearTimeout(toastTimer); toastTimer = setTimeout(() => { t.hidden = true; }, 3800);
+}
+
+/* ---------- Excel ---------- */
+function loadXLSX(){
+  if (window.XLSX) return Promise.resolve();
+  return new Promise((res, rej) => {
+    const s = document.createElement('script');
+    s.src = 'https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js';
+    s.onload = () => res(); s.onerror = () => rej(new Error('load'));
+    document.head.appendChild(s);
+  });
+}
+function sheetFor(cls){
+  const m = S.meta || {};
+  const st = stats(cls);
+  const rows = [
+    [m.school || ''],
+    [`قائمة تنقيط التلاميذ قسم ${cls.code} - ${TRI[S.tri]} - اللغة الفرنسية`],
+    [`الموسم الدراسي: ${m.year || ''}`, '', '', '', '', `الأستاذ: ${m.teacher || ''}`],
+    [],
+    ['الرقم','الاسم واللقب','م م','أ.تط','الفرض','الاختبار','المعدل','الملاحظات','', 'الكراس /8','المشاركة /6','الحضور /3','المواظبة /3','أ.تط 1 /10','أ.تط 2 /10'],
+  ];
+  const v = x => isNum(x) ? x : '';
+  cls.students.forEach((s, i) => {
+    const g = G(cls, s.id), r = st.rs[i];
+    rows.push([i + 1, s.n, v(r.mm), v(r.at), v(r.f), v(r.e), r.complete ? r.avg : '', g.r || (r.complete ? appreciation(r.avg) : ''), '',
+      v(g.c), v(g.p), v(g.pr), v(g.a), v(g.t1), v(g.t2)]);
+  });
+  const col = key => { const a = st.rs.map(r => r[key]).filter(isNum); return a.length ? r2(a.reduce((x, y) => x + y, 0) / a.length) : ''; };
+  rows.push([]);
+  rows.push(['', 'معدل القسم', col('mm'), col('at'), col('f'), col('e'), st.fin.length ? r2(st.fin.reduce((x, y) => x + y, 0) / st.fin.length) : '']);
+  if (st.fin.length) rows.push(['', 'نسبة النجاح (≥10)', '', '', '', '', `${st.fin.filter(x => x >= 10).length}/${st.fin.length}`]);
+  const ws = XLSX.utils.aoa_to_sheet(rows);
+  ws['!cols'] = [{wch:6},{wch:28},{wch:7},{wch:7},{wch:7},{wch:9},{wch:8},{wch:16},{wch:2},{wch:9},{wch:11},{wch:9},{wch:10},{wch:10},{wch:10}];
+  ws['!merges'] = [{s:{r:0,c:0},e:{r:0,c:7}}, {s:{r:1,c:0},e:{r:1,c:7}}];
+  return ws;
+}
+async function exportXlsx(list){
+  if (!list.length) return;
+  const dl = await use('downloads');
+  if (!dl){ toast("L'export n'est pas disponible dans cet affichage. Ouvrez la page dans l'application Claude ou sur claude.ai."); return; }
+  toast('Préparation du fichier Excel…');
+  try { await loadXLSX(); } catch (e) { toast("Le module Excel n'a pas pu se charger. Vérifiez la connexion puis réessayez."); return; }
+  const wb = XLSX.utils.book_new();
+  wb.Workbook = {Views: [{RTL: true}]};
+  for (const c of list) XLSX.utils.book_append_sheet(wb, sheetFor(c), String(c.code).replace(/[\[\]:*?\/\\]/g, '').slice(0, 31) || c.id);
+  const buf = XLSX.write(wb, {bookType: 'xlsx', type: 'array'});
+  const name = list.length === 1 ? `Notes_FR_T${S.tri}_${list[0].slug || list[0].id}.xlsx` : `Notes_FR_T${S.tri}_toutes_classes.xlsx`;
+  try {
+    await dl.save({filename: name, data: new Blob([buf])});
+    toast('Fichier Excel enregistré.');
+  } catch (err) {
+    const c = err && err.code;
+    if (c === 'declined') return;
+    if (c === 'rate_limited') toast('Une demande de téléchargement est déjà ouverte. Réessayez dans un instant.');
+    else toast("Le fichier n'a pas pu être enregistré dans cet affichage.");
+  }
+}
+
+/* ---------- boot ---------- */
+loadCache();
+if (Object.keys(S.classes).length) S.loaded = true;
+render();
+initCloud();
+})();
+</script>
+
+</body></html>
